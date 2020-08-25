@@ -10,8 +10,8 @@ This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas
     - [What are Market Indicators?](#What-are-Market-Indicators?)
     - [Project Objectives](#Project-Objectives)
     - [Why using programming, not spreadsheets?](#Why-using-programming,-not-spreadsheets?)
-        - [Machine Learning and Artificial Intelligence (AI)](#AI)
-    - [Why Julia programming language?](#Why-Julia-programming-language?)
+        - [Machine Learning](#AI)
+    - [Why Julia?](#Why-Julia?)
 - [Data Aquisition](#Data-Aquisition)
 - [Data Pre-processing](#Data-Pre-processing)
     - [Common date formatting](#Common-date-formatting)
@@ -45,9 +45,15 @@ The advantage of machine learning, or Artificial Intelligence (AI), is when that
 
 The machine learning, on the other hand can easily detect the patterns in thousands of datapoints and derive a conclussion.
 
+## Why Julia?
 
-
-## Why Julia programming language?
+- Julia is young and sexy (we are talking about [Julia programming language](https://docs.julialang.org/en/v1/) here)
+- it is a pleasure to write and read (unlike C,C++)
+- it is designed for scientific computing and machine learning
+- it is extremely fast (similarly to C)
+- it is very easy (similary to Python)
+- it is designed for parallelism
+- it is designed for distributed computing
 
 # Data Aquisition
 
@@ -62,12 +68,21 @@ The dates in the spreadsheets, especially these that are entered by hand, have a
 
 The task of getting all the dates to the same format is crucial and it is best done with the spreadsheet, not code.
 
-The date format I chose is "Aug 31, 1950" (u d, y) as this is a standard in USA and is good input to Julia DateTime parser:
+The date format I chose is "Aug 31, 1950" (u d, y) as this is a standard in USA and is good input to Julia's [Date](https://docs.julialang.org/en/v1/stdlib/Dates/) parser:
 
 The "u d, y" stands for:
 - u: 3 letter abbreviation of the month in English
 - d: 1 or 2 digit day of the month
 - y: 4 digit year
+- m: 2 digit month (option for you)
+
+## Rata Die (days since)
+
+Using dates is useful, but the market indicators are not availble on daily basis, most come out bi-weekly, mothly or quarterly, we will have some days that are "missing" in our datasets.
+
+We will assign "[Rata Die](https://en.wikipedia.org/wiki/Rata_Die)", or the "days since the first day" in our data. 
+
+I am using the first day of available data and not some other major date, such as start of the New York Stock Exchange in 1800s as the numbers would be huge and there would be no useful data anyway.
 
 
 ```julia
