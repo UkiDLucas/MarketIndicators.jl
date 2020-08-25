@@ -1,6 +1,6 @@
 # MarketIndicators.jl
 
-# TOC
+#### TOC
 
 - [Objectives](#Objectives)
 - [Data Aquisition](#Data-Aquisition)
