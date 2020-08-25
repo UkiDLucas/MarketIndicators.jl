@@ -14,6 +14,7 @@ This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas
     - [Why Julia programming language?](#Why-Julia-programming-language?)
 - [Data Aquisition](#Data-Aquisition)
 - [Data Pre-processing](#Data-Pre-processing)
+    - [Common date formatting](#Common-date-formatting)
 
 # Overview
 
@@ -23,18 +24,17 @@ Market Indicators are numeric values assigned to particular aspect of the market
 - "S&P 500" index show how major stocks as a whole are performing
 - "ISM Manufacturing" index shows how well the manufacturing industry is doing
 - "GDP" index (Gross Domestic Product) shows how the country is doing
-- etc
+- etc., etc., etc.
 
 There are hundreds, if not thousands, of such indicators.
 
 ## Project Objectives
 
-1. The primary goal of the project is to gather and analyze various market indicators
+1. The primary goal of the project is to gather and analyze various market indicators.
 2. The secondary goal is to predict market trends 30 to 90 days ahead. 
-3. The tertiary goal is to predict a particular stock price based on the market indicators
-4. Additionally, the goal will be to maintain a stock portfolio including diversification using "hedge fund" principles
-
-
+3. The tertiary goal is to predict a particular stock price based on the market indicators.
+4. Additionally, the goal will be to maintain a stock portfolio including diversification using "hedge fund" principles.
+5. Finally, it is my goal to document the process.
 
 ## Why using programming, not spreadsheets?
 
@@ -55,6 +55,19 @@ The machine learning, on the other hand can easily detect the patterns in thousa
 - [indicators that move the market](https://www.investopedia.com/articles/fundamental-analysis/10/indicators-that-move-the-market.asp)
 
 # Data Pre-processing
+
+## Common date formatting
+
+The dates in the spreadsheets, especially these that are entered by hand, have a maddening array of possible formats.
+
+The task of getting all the dates to the same format is crucial and it is best done with the spreadsheet, not code.
+
+The date format I chose is "Aug 31, 1950" (u d, y) as this is a standard in USA and is good input to Julia DateTime parser:
+
+The "u d, y" stands for:
+- u: 3 letter abbreviation of the month in English
+- d: 1 or 2 digit day of the month
+- y: 4 digit year
 
 
 ```julia
