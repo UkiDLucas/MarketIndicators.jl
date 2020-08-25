@@ -15,6 +15,7 @@ This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas
 - [Data Aquisition](#Data-Aquisition)
 - [Data Pre-processing](#Data-Pre-processing)
     - [Common date formatting](#Common-date-formatting)
+    - ["Rata Die" (days since the first date)](#Rata-Die-(days-since))
 
 # Overview
 
@@ -66,11 +67,17 @@ The machine learning, on the other hand can easily detect the patterns in thousa
 
 The dates in the spreadsheets, especially these that are entered by hand, have a maddening array of possible formats.
 
-The task of getting all the dates to the same format is crucial and it is best done with the spreadsheet, not code.
+The task of getting all the dates to the same format is crucial and it is done fastest with the spreadsheet.
 
-The date format I chose is "Aug 31, 1950" (u d, y) as this is a standard in USA and is good input to Julia's [Date](https://docs.julialang.org/en/v1/stdlib/Dates/) parser:
+The date format **I chose** is "1950-05-31", or (yy-mm-dd) as it is **less error prone, logical, and easily sortable**.
 
-The "u d, y" stands for:
+$Dates.Date("1950-05-31", date_format) # results in "1950-05-31"$
+
+
+
+Alternatively, you can choose "Aug 31, 1950" (u d, y) as this is a standard in USA.
+
+Explanation of terms:
 - u: 3 letter abbreviation of the month in English
 - d: 1 or 2 digit day of the month
 - y: 4 digit year
@@ -82,7 +89,7 @@ Using dates is useful, but the market indicators are not availble on daily basis
 
 We will assign "[Rata Die](https://en.wikipedia.org/wiki/Rata_Die)", or the "days since the first day" in our data. 
 
-I am using the first day of available data and not some other major date, such as start of the New York Stock Exchange in 1800s as the numbers would be huge and there would be no useful data anyway.
+I am using the first day of available data and not some other major date, such as founding of the New York Stock Exchange in 1800s as that numbers would be huge and there would be no useful early data anyway.
 
 
 ```julia
