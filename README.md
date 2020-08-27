@@ -16,6 +16,8 @@ This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas
 - [Data Pre-processing](#Data-Pre-processing)
     - [Common date formatting](#Common-date-formatting)
     - ["Rata Die" (days since the first date)](#Rata-Die-(days-since))
+    - [Populate missing indicators with previously known values](#Populate-missing-indicators-with-previously-known-values)
+    - [Normalize data](#Normalize-data)
 
 # Overview
 
@@ -31,7 +33,7 @@ There are hundreds, if not thousands, of such indicators.
 
 ## Project Objectives
 
-1. The primary goal of the project is to gather and analyze various market indicators.
+1. The primary goal of the project is to **gather and analyze** various market indicators.
 2. The secondary goal is to predict market trends 30 to 90 days ahead. 
 3. The tertiary goal is to predict a particular stock price based on the market indicators.
 4. Additionally, the goal will be to maintain a stock portfolio including diversification using "hedge fund" principles.
@@ -61,7 +63,12 @@ The machine learning, on the other hand can easily detect the patterns in thousa
 ## Learn about market indicators
 - [indicators that move the market](https://www.investopedia.com/articles/fundamental-analysis/10/indicators-that-move-the-market.asp)
 
+## Get Historical Stock Prices
+
+- [Apple AAPL - finance.yahoo.com]("https://finance.yahoo.com/quote/AAPL/history?p=AAPL")
+
 # Data Pre-processing
+
 
 ## Common date formatting
 
@@ -90,6 +97,46 @@ Using dates is useful, but the market indicators are not availble on daily basis
 We will assign "[Rata Die](https://en.wikipedia.org/wiki/Rata_Die)", or the "days since the first day" in our data. 
 
 I am using the first day of available data and not some other major date, such as founding of the New York Stock Exchange in 1800s as that numbers would be huge and there would be no useful early data anyway.
+
+## Populate missing indicators with previously known values
+
+- get value for the first row
+- for each row starting at row 2
+    - get the current value
+        - if that value is missing
+            - set it to the previus value if you have it
+        - if you have current row value
+            - set the previous to be equal to current
+    
+actual code:
+column = 6 # choose column to populate
+previous_value = df[1, column]
+
+for row in 2:items # start with second row
+    
+    value = df[row, column] # get value for the current row
+    
+    if ismissing(value) # need to do something
+        if ismissing(previous_value)
+            # nothing to populate with, go to the next row
+            continue
+        else # we have a previous value
+            df[row, column] = previous_value
+        end
+    else # we have a pre-existing indicator
+        previous_value = value
+    end
+end
+# Normalize data
+
+Let's say we have two market indicators, one ranges from -1 to 1 and another from 0 to 100. Obviously it is not easy to compare them to see how they influence each other. 
+
+![title](images/not_normalized.png)
+
+
+Normalization is nothing else than "scaling" the data to be able to compare apples-to-apples.
+
+![title](images/normalized.png)
 
 
 ```julia
