@@ -27,3 +27,4 @@ docs/site/
 # environment.
 Manifest.toml
 *.numbers
+.DS_Store
