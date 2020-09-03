@@ -66,11 +66,10 @@ function update_rata_die!(df, days_column=1, date_column=2)
     return df
 end
 
-function insert_rata_die_column(df)
+function insert_rata_die_column!(df)
     rows = size(df)[1] # first number of the tuple
     # https://stackoverflow.com/a/63731422/6312771
     insertcols!(df, 1,  :Day => 1:rows, makeunique=true) # insert as column 1, populate with 1,2,3,..
-    update_rata_die!(df, days_column=1, date_column=2)
 end
 
 
