@@ -1,3 +1,6 @@
+println("Functions available:")
+println("df = fetch_data(file_path)")
+
 function fetch_data(file_path)
     isfile(file_path) || # does file exist locally?
         download( string("https://raw.githubusercontent.com/UkiDLucas/MarketIndicators.jl/master/", file_path), # URL
