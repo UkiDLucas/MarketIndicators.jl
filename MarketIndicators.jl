@@ -7,6 +7,13 @@ using Dates
 # import Pkg; Pkg.add("DataFrames")
 using DataFrames
 
+# https://docs.julialang.org/en/v1/stdlib/Dates/#Dates.now-Tuple{}
+# https://github.com/JuliaLang/julia/issues/37480
+
+function updated() 
+    println( "Last update: ", Dates.format(Dates.now(), "u. d, yyyy HH:MM"))
+end
+
 file_ISM_Mfc_Emp = "data/united-states.ism-manufacturing-employment.csv"
 file_Markkit_Mfc_PMI = "data/united-states.markit-manufacturing-pmi.csv"
 
