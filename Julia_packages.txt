@@ -19,6 +19,7 @@
   [5789e2e9] FileIO v1.4.3
   [53c48c17] FixedPointNumbers v0.6.1
   [587475ba] Flux v0.8.3
+  [59287772] Formatting v0.4.1
   [f6369f11] ForwardDiff v0.10.12
   [38e38edf] GLM v1.3.10
   [28b8d3ca] GR v0.48.0
