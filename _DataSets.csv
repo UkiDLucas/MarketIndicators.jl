@@ -1,0 +1,6 @@
+Indicator Name,file_path,Last Updated,URL
+Federal Reserve System (Fed) Industrial Production m/m,united-states.industrial-production-mm.csv,2020-09-14,https://www.mql5.com/en/economic-calendar/united-states/industrial-production-mm/export
+ADP Nonfarm Employment Change,NVDA.csv,2020-09-15,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1600128000&interval=1d&events=history
+Federal Reserve Bank (Fed) of Dallas Manufacturing Index,united-states.dallas-fed-manufacturing-business-index.csv,2020-09-14,https://www.mql5.com/en/economic-calendar/united-states/dallas-fed-manufacturing-business-index/export
+Dow Jones Industrial Average (^DJI),^DJI.csv,2020-09-14,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1600128000&interval=1d&events=history
+NVIDIA Corporation (NVDA),NVDA.csv,2020-09-14,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1600128000&interval=1d&events=history
