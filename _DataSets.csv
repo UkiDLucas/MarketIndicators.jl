@@ -4,3 +4,7 @@ ADP Nonfarm Employment Change,NVDA.csv,2020-09-16,https://query1.finance.yahoo.c
 Federal Reserve Bank (Fed) of Dallas Manufacturing Index,united-states.dallas-fed-manufacturing-business-index.csv,2020-09-14,https://www.mql5.com/en/economic-calendar/united-states/dallas-fed-manufacturing-business-index/export
 Dow Jones Industrial Average (^DJI),^DJI.csv,2020-09-14,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1600128000&interval=1d&events=history
 NVIDIA Corporation (NVDA),NVDA.csv,2020-09-14,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1600128000&interval=1d&events=history
+T. Rowe Price Institutional Large Cap Core Growth Fund (TPLGX),TPLGX.csv,2020-09-17,https://query1.finance.yahoo.com/v7/finance/download/TPLGX?period1=1568730349&period2=1600352749&interval=1d&events=history
+Neuberger Berman Mid Cap Growth Fund Class R6 (NRMGX),NRMGX.csv,2020-09-17,https://query1.finance.yahoo.com/v7/finance/download/NRMGX?period1=1363305600&period2=1600300800&interval=1d&events=history
+Vanguard Institutional Index Fund Institutional Shares (VINIX),VINIX.csv,2020-09-17,https://query1.finance.yahoo.com/v7/finance/download/VINIX?period1=649382400&period2=1600300800&interval=1d&events=history
+American Funds EuroPacific Growth Fund Class R-6 (RERGX),RERGX.csv,2020-09-17,https://query1.finance.yahoo.com/v7/finance/download/RERGX?period1=1241136000&period2=1600300800&interval=1d&events=history
