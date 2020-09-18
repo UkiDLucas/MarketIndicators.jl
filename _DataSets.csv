@@ -20,3 +20,5 @@ United States Gross Domestic Product (GDP) q/q,united-states.gross-domestic-prod
 United States Housing Starts m/m,united-states.housing-starts-mm.csv,https://www.mql5.com/en/economic-calendar/united-states/housing-starts-mm/export
 Vanguard Institutional Index Fund Institutional Shares (VINIX),VINIX.csv,https://query1.finance.yahoo.com/v7/finance/download/VINIX?period1=649382400&period2=1600300800&interval=1d&events=history
 Treasury Yield 10 Years (^TNX),^TNX.csv,https://query1.finance.yahoo.com/v7/finance/download/%5ETNX?period1=-252374400&period2=1600300800&interval=1d&events=history
+United States Unemployment Rate,united-states.unemployment-rate.csv ,https://www.mql5.com/en/economic-calendar/united-states/unemployment-rate/export
+United States Initial Jobless Claims,united-states.initial-jobless-claims.csv,https://www.mql5.com/en/economic-calendar/united-states/initial-jobless-claims/export
