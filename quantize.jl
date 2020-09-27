@@ -29,6 +29,9 @@ function quantize_column!(df::DataFrame, column_number::Int64)
         #value = convert(Int64, value)         # if DataFrame column is of type Float64, it will not save Int64
         df[i, column_number] = value
     end
-    
-    return df[:, column_number]
+    println("Normalization was performend using formula y=(((x-min)/(max-min))*255)-128 ") #TODO extract method
+    println("minimum = $min")
+    println("maximum = $max")
+    println("Save these values for later to run model preditions")
+    return (min, max)
 end
