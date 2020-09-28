@@ -110,34 +110,12 @@ function preview_data(df)
 end
 
 
-
-
-using Dates
-
-function compact_dates(dates) # df[:,1]  # Array of e.g. "1948-03-31"
-    columns = length(dates)
-    periods = Array{String, 1}(undef, columns) # define array to hold x-axis values
-
-
-    for i in 1:length(dates)
-        periods[i] = string( Dates.format(Date(dates[i]), "u'yy")  ) # e.g. Mar'48
-    end
-
-    return periods
-end
-if show_help
-    println("usage: 
-                    dates = compact_dates( df[1] )
-            ")
-end
-
-
+  
 
 
 
 using Dates
-
-function condense_dates(dates::Array{String,1}, date_format="yy/mdd")
+function format_dates(dates::Array{String,1}, date_format="yy/mdd")
     columns = length(dates)
     results = Array{String, 1}(undef, columns) # define array to hold x-axis values
 
@@ -147,11 +125,10 @@ function condense_dates(dates::Array{String,1}, date_format="yy/mdd")
     
     return results
 end
-
 if show_help
     println("usage: 
-                   dates = condense_dates( df[1] ) # ::Array{String,1}
-                   dates = condense_dates( df[1], \"mm/dd/yyy\" ) # ::Array{String,1}
+                   dates = format_dates( df[1] ) # ::Array{String,1}
+                   dates = format_dates( df[1], \"mm/dd/yyy\" ) # ::Array{String,1}
         ")
 end
 
@@ -314,5 +291,8 @@ function quantize_column!(df::DataFrame, column_number::Int64)
     println("Save these values for later to run model preditions")
     return (min, max)
 end
+
+
+println("")
 
 
