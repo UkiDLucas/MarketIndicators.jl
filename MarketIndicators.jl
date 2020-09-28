@@ -18,14 +18,6 @@ end
 using CSV, DataFrames
 
 
-if show_help
-    println("
-        usage:
-              show_help = true
-              include(\"dataset_IO.jl\") 
-    ")
-end
-
 
 
 
@@ -65,8 +57,6 @@ function fetch_dataset(
     df = CSV.read(dir * file_name, dateformat=date_format)
     return df
 end
-
-
 if show_help
     println("
         usage: 
@@ -122,12 +112,6 @@ end
 
 
 
-include("available_datasets.jl"); 
-dataset_file_name = available_datasets()[5,2]
-
-include("fetch_dataset.jl"); 
-df = fetch_dataset(dataset_file_name)
-df[1]
 using Dates
 
 function compact_dates(dates) # df[:,1]  # Array of e.g. "1948-03-31"
@@ -141,11 +125,11 @@ function compact_dates(dates) # df[:,1]  # Array of e.g. "1948-03-31"
 
     return periods
 end
-
-println("usage: 
-                dates = compact_dates( df[1] )
-        ")
-dates = compact_dates( df[1] )
+if show_help
+    println("usage: 
+                    dates = compact_dates( df[1] )
+            ")
+end
 
 
 
@@ -164,26 +148,11 @@ function condense_dates(dates::Array{String,1}, date_format="yy/mdd")
     return results
 end
 
-println("usage: 
-                dates = condense_dates( df[1] ) # ::Array{String,1}
-                dates = condense_dates( df[1], \"mm/dd/yyy\" ) # ::Array{String,1}
-        ")
-
-
-
-
-
-
-
 if show_help
-    println("
-        usage: 
-              include(\"dataset_IO.jl\") 
-              file_path = save_dataset(
-                                       df::DataFrame,
-                                       file_name=\"my_file_name.csv\", 
-                                       dir=\"/mnt/data/indicators/derived/\" ) # location of your data directory
-    ")
+    println("usage: 
+                   dates = condense_dates( df[1] ) # ::Array{String,1}
+                   dates = condense_dates( df[1], \"mm/dd/yyy\" ) # ::Array{String,1}
+        ")
 end
 
 
@@ -191,9 +160,19 @@ end
 
 
 
-file_ISM_Mfc_Emp = "data/united-states.ism-manufacturing-employment.csv"
-file_Markkit_Mfc_PMI = "data/united-states.markit-manufacturing-pmi.csv"
-file_initial_jobless_claims = "data/united-states.initial-jobless-claims.csv"
+if show_help
+    println("usage: 
+                   file_path = save_dataset(
+                                df::DataFrame,
+                                file_name=\"my_file_name.csv\", 
+                                dir=\"/mnt/data/indicators/derived/\" ) # location of your data directory
+    ")
+end
+
+
+
+
+
 
 function fetch_data(file_path, date_format="yyyy-mm-dd")
     isfile(file_path) || # does file exist locally?
@@ -206,11 +185,18 @@ function fetch_data(file_path, date_format="yyyy-mm-dd")
         dateformat="$date_format"
         )
 end
+if show_help
+    println("usage:
+                   function: df = fetch_data(file_path, date_format=\"yyyy-mm-dd\" )
+        ")
+end
 
-println("function: df = fetch_data(file_path, date_format=\"yyyy-mm-dd\" )")
 
-# TEST
-#df = fetch_data(file_ISM_Mfc_Emp, "yyyy.mm.dd")
+
+
+
+
+
 
 function shift_dates_by_days!(df::DataFrame, shift_days::Int64=-1, date_column::Int64=1)
     rows = size(df)[1]
@@ -223,22 +209,36 @@ function shift_dates_by_days!(df::DataFrame, shift_days::Int64=-1, date_column::
     end
     return df
 end
+if show_help
+    println("usage:
+                   function: df = shift_dates_by_days!(df, shift_days=-1, date_column=1)
+           ")
+end
 
-# df = shift_dates_by_days!(df3, -90)
-println("function: df = shift_dates_by_days!(df, shift_days=-1, date_column=1)")
+
+
+
+
+
 
 first_date = Date("Jan. 1, 1900", "u. dd, yyyy")
-
-day_one = Dates.datetime2rata(first_date) # typeof(rate_die) = Int64
+rata_die_day_one = Dates.datetime2rata(first_date) # typeof(rate_die) = Int64
 
 function days_since_day_one(df, row, date_column) 
     date = df[row, date_column] # type Date
     rata_die = Dates.datetime2rata(date) 
-    rata_die = rata_die - day_one
+    rata_die = rata_die - rata_die_day_one
     return rata_die
 end
+if show_help
+    println("usage:
+                   function: rata_die = days_since_day_one(df, row, date_column) 
+    ")
+end
 
-println("function: rata_die = days_since_day_one(df, row, date_column) ")
+
+
+
 
 function update_rata_die!(df, days_column=1, date_column=2)
     rows = size(df)[1] # first part of the returned tupple
@@ -250,8 +250,14 @@ function update_rata_die!(df, days_column=1, date_column=2)
     end
     return df
 end
+if show_help
+    println("usage:
+                   function: df = update_rata_die!(df, days_column=1, date_column=2)
+            ")
+end
 
-println("function: df = update_rata_die!(df, days_column=1, date_column=2)")
+
+
 
 function insert_rata_die_column!(df)
     rows = size(df)[1] # first number of the tuple
@@ -259,8 +265,11 @@ function insert_rata_die_column!(df)
     insertcols!(df, 1,  :Day => 1:rows, makeunique=true) # insert as column 1, populate with 1,2,3,..
     return df
 end
-println("function: df = insert_rata_die_column!(df)")
-
+if show_help
+    println("usage:
+                   function: df = insert_rata_die_column!(df)
+          ")
+end
 
 
 
