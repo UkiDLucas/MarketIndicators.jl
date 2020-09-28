@@ -3,7 +3,7 @@ Federal Reserve System (Fed) Industrial Production m/m,united-states.industrial-
 ADP Nonfarm Employment Change,NVDA.csv,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1600128000&interval=1d&events=history
 American Funds EuroPacific Growth Fund Class R-6 (RERGX),RERGX.csv,https://query1.finance.yahoo.com/v7/finance/download/RERGX?period1=1241136000&period2=1600300800&interval=1d&events=history
 Apple Inc. (AAPL),AAPL.csv,https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=345427200&period2=1600300800&interval=1d&events=history
-Dow Jones Industrial Average (^DJI),^DJI.csv,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1600128000&interval=1d&events=history
+Dow Jones Industrial Average (^DJI),^DJI.csv,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1601251200&interval=1d&events=history
 Federal Reserve Bank (Fed) of Dallas Manufacturing Index,united-states.dallas-fed-manufacturing-business-index.csv,https://www.mql5.com/en/economic-calendar/united-states/dallas-fed-manufacturing-business-index/export
 Federal Reserve System (Fed) Industrial Production m/m,united-states.industrial-production-mm.csv,https://www.mql5.com/en/economic-calendar/united-states/industrial-production-mm/export
 Gold Dec 20 (GC=F),GC=F.csv,https://query1.finance.yahoo.com/v7/finance/download/GC=F?period1=967593600&period2=1600300800&interval=1d&events=history
