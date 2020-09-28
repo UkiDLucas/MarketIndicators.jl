@@ -1,11 +1,13 @@
 using CSV, DataFrames
 
+
+if show_help
     println("
         usage:
               show_help = true
               include(\"dataset_IO.jl\") 
     ")
-
+end
 
 
 
