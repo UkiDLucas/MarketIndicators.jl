@@ -58,8 +58,7 @@ function fetch_dataset(
     return df
 end
 if show_help
-    println("
-        usage: 
+    println("usage: 
               df = fetch_dataset(
                                  dataset_file_name, 
                                  date_format=\"u/dd/yy\", # format the saved dates are in
@@ -86,6 +85,14 @@ function save_dataset(
     CSV.write(dir*file_name, df, delim=',', header=true)
     
     return file_path
+end
+if show_help
+    println("usage: 
+              file_path = save_dataset(
+                                        df::DataFrame,
+                                        file_name="unknown", 
+                                        dir="D:\\Drive\\market_indicators_data\\derived\\"
+    ")
 end
 
 
@@ -197,13 +204,14 @@ end
 
 
 
+using Dates
 
 first_date = Date("Jan. 1, 1900", "u. dd, yyyy")
 rata_die_day_one = Dates.datetime2rata(first_date) # typeof(rate_die) = Int64
 
-function days_since_day_one(df, row, date_column) 
+function days_since_day_one(df, row, date_column=2) 
     date = df[row, date_column] # type Date
-    rata_die = Dates.datetime2rata(date) 
+    rata_die = Dates.datetime2rata( Date(date) ) 
     rata_die = rata_die - rata_die_day_one
     return rata_die
 end
