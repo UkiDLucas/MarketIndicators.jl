@@ -90,8 +90,8 @@ if show_help
     println("usage: 
               file_path = save_dataset(
                                         df::DataFrame,
-                                        file_name="unknown", 
-                                        dir="D:\\Drive\\market_indicators_data\\derived\\"
+                                        file_name=\"unknown\", 
+                                        dir=\"/mnt/data/\"
     ")
 end
 
