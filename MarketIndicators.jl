@@ -99,7 +99,7 @@ end
 
 function preview_data(df)
     all_rows = size(df)[1]
-    show_rows = 20
+    show_rows = 12
     
     if all_rows < show_rows
         show_rows = all_rows
@@ -108,11 +108,19 @@ function preview_data(df)
     interval = convert(Int64, round(all_rows/show_rows, digits=0))
     rows = collect(1:interval:all_rows)
     show(df[ rows, :], allcols=true) # do NOT limit number of columns if more than 6
+
+    println("\n Dataset dimentions: ", size(df1) )
+    println("\n Column numbering:")
+    columns = names(df1)
+    for i in 1:length(columns)
+        println(i, " ", columns[i])
+    end
+    return columns
 end
 if show_help
     println("usage:
-                   preview_data(df)
-                   preview_data(df[1:2,1:3])
+                   columns = preview_data(df)
+                   columns = preview_data(df[1:2,1:3])
     ")
 end
 
@@ -306,6 +314,23 @@ function quantize_column!(df::DataFrame, column_number::Int64)
 end
 
 
+
+
+using Statistics
+function add_overal_mean!(df)
+    record_count = size(df)[1]
+    column_count = size(df)[2]
+    
+    insert!(df, column_count+1, zeros(Float64, record_count), :Mean)
+    mean_actual = round(mean(df1[3]), digits=1) 
+    #a = zeros(record_count)
+    for row in 1:record_count
+        df[row, column_count+1]= mean_actual
+    end
+end
+
+
+# leave last
 println("")
 
 
