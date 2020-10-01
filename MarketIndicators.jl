@@ -47,7 +47,7 @@ end
 
 
 
-
+using DataFrames, CSV
 function fetch_dataset(
     file_name="TPLGX", 
     date_format="yyyy.mm.dd", 
@@ -55,6 +55,7 @@ function fetch_dataset(
     )
 
     df = CSV.read(dir * file_name, dateformat=date_format)
+    sort!(df, [:Date]);
     return df
 end
 if show_help
