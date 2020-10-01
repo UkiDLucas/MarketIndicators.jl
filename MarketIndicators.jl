@@ -109,9 +109,9 @@ function preview_data(df)
     rows = collect(1:interval:all_rows)
     show(df[ rows, :], allcols=true) # do NOT limit number of columns if more than 6
 
-    println("\n Dataset dimentions: ", size(df1) )
+    println("\n Dataset dimentions: ", size(df) )
     println("\n Column numbering:")
-    columns = names(df1)
+    columns = names(df)
     for i in 1:length(columns)
         println(i, " ", columns[i])
     end
