@@ -220,20 +220,6 @@ end
 
 using Dates
 
-first_date = Date("Jan. 1, 1900", "u. dd, yyyy")
-rata_die_day_one = Dates.datetime2rata(first_date) # typeof(rate_die) = Int64
-
-function days_since_day_one(df, row, date_column=2) 
-    date = df[row, date_column] # type Date
-    rata_die = Dates.datetime2rata( Date(date) ) 
-    rata_die = rata_die - rata_die_day_one
-    return rata_die
-end
-if show_help
-    println("usage:
-                   function: rata_die = days_since_day_one(df, row, date_column) 
-    ")
-end
 
 
 
@@ -243,9 +229,7 @@ function update_rata_die!(df, days_column=1, date_column=2)
     rows = size(df)[1] # first part of the returned tupple
 
     for row = 1:rows
-        days = days_since_day_one(df, row, date_column)
-        # println(days)
-        df[row, days_column] = days
+        df[row, days_column] = Dates.datetime2rata( Date(df[row, date_column]) ) 
     end
     return df
 end
