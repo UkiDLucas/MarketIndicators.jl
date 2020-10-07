@@ -331,8 +331,26 @@ function calculate_average(df::DataFrame, average_days=90, value_column=3)
     for i in average_days:record_count
         day_this = df[i,1] # rata die 
         previous_interval_values = df[i-average_days+1:i, value_column]
-        avg = mean(previous_interval_values)
+        avg = round( mean(previous_interval_values) , digits=2) 
         averages[i] = avg
     end
     return averages
+end
+
+
+
+
+
+
+function position_on_date(df, date="2020-09-25")
+    #date = Date("9/30/2020", "m/d/yyyy") # typeof Date
+    x = df[df.Date .== date, 3] # find all rows for given date, and get value from column 3
+    
+    record_count = size(df)[1]    
+    position = zeros(Float64, record_count)
+    
+    for i in 1:record_count
+        position[i] = x[1]
+    end
+    return position
 end
