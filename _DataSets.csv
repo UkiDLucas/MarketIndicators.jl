@@ -2,6 +2,7 @@ Indicator Name,file_path,URL
 ADP Nonfarm Employment Change,NVDA.csv,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1602028800&interval=1d&events=history
 American Funds EuroPacific Growth Fund Class R-6 (RERGX),RERGX.csv,https://query1.finance.yahoo.com/v7/finance/download/RERGX?period1=1241136000&period2=1602028800&interval=1d&events=history
 Apple Inc. (AAPL),AAPL.csv,https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=345427200&period2=1602028800&interval=1d&events=history
+Bitcoin USD (BTC-USD),BTC-USD.csv,https://query1.finance.yahoo.com/v7/finance/download/BTC-USD?period1=1410825600&period2=1602633600&interval=1d&events=history&includeAdjustedClose=true
 CBOE Volatility Index (^VIX),^VIX.csv,https://query1.finance.yahoo.com/v7/finance/download/%5EVIX?period1=631238400&period2=1602028800&interval=1d&events=history
 Daily total sunspot number (http://www.sidc.be/),SN_d_tot_V2.0.csv,http://www.sidc.be/silso/INFO/sndtotcsv.php
 Dow Jones Industrial Average (^DJI),^DJI.csv,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1602028800&interval=1d&events=history&includeAdjustedClose=true
