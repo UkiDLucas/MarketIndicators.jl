@@ -354,3 +354,18 @@ function position_on_date(df, date="2020-09-25")
     end
     return position
 end
+
+
+
+
+
+
+function update_yahoo_finance(uri::String, interval = "1d")
+    str_interval = "&interval=" * interval
+    str_events = "&events=history"
+    unix_date_now = @sprintf("%.0f", Dates.datetime2unix(Dates.now()))
+    cut_position = findfirst("period2=", uri)[end] # take only second element of the tuple
+    str_begining = uri[1:cut_position]
+    uri = begining * unix_date_now * ending
+    return uri
+end
