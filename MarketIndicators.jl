@@ -29,27 +29,13 @@ function available_datasets()
     return df[:,[1,2]]
 end
 
-if show_help
-    println("
-        usage:
-              # returns a DataFrame with all available data sets (name, file_path)
-              df = available_datasets() 
-    ")
-    println("
-        usage: 
-              # 5th dataset: DJIA, 
-              # 2nd column: file-name
-              dataset_file_name = available_datasets()[5,2] 
-    ")
-end
-
 
 
 
 
 using DataFrames, CSV
 function fetch_dataset(
-    file_name="TPLGX", 
+    file_name="TPLGX.csv", 
     date_format="yyyy.mm.dd", 
     dir="D:\\Drive\\market_indicators_data\\original\\"
     )
@@ -57,14 +43,6 @@ function fetch_dataset(
     df = CSV.read(dir * file_name, dateformat=date_format)
     sort!(df, [:Date]);
     return df
-end
-if show_help
-    println("usage: 
-              df = fetch_dataset(
-                                 dataset_file_name, 
-                                 date_format=\"u/dd/yy\", # format the saved dates are in
-                                 dir=\"/mnt/data/indicators/original/\" ) # location of your data directory
-    ")
 end
 
 
@@ -86,14 +64,6 @@ function save_dataset(
     CSV.write(dir*file_name, df, delim=',', header=true)
     
     return file_path
-end
-if show_help
-    println("usage: 
-              file_path = save_dataset(
-                                        df::DataFrame,
-                                        file_name=\"unknown\", 
-                                        dir=\"/mnt/data/\"
-    ")
 end
 
 
@@ -118,12 +88,6 @@ function preview_data(df)
     end
     return columns
 end
-if show_help
-    println("usage:
-                   columns = preview_data(df)
-                   columns = preview_data(df[1:2,1:3])
-    ")
-end
 
 
   
@@ -146,26 +110,6 @@ function format_dates(dates, date_format="yy/mdd")
 
     return results
 end
-if show_help
-    println("usage: 
-                   dates = format_dates( df[1] ) # ::Array{String,1}
-                   dates = format_dates( df[1], \"mm/dd/yyy\" ) # ::Array{String,1}
-        ")
-end
-
-
-
-
-
-
-if show_help
-    println("usage: 
-                   file_path = save_dataset(
-                                df::DataFrame,
-                                file_name=\"my_file_name.csv\", 
-                                dir=\"/mnt/data/indicators/derived/\" ) # location of your data directory
-    ")
-end
 
 
 
@@ -182,11 +126,6 @@ function fetch_data(file_path, date_format="yyyy-mm-dd")
         file_path, 
         dateformat="$date_format"
         )
-end
-if show_help
-    println("usage:
-                   function: df = fetch_data(file_path, date_format=\"yyyy-mm-dd\" )
-        ")
 end
 
 
@@ -206,11 +145,6 @@ function shift_dates_by_days!(df::DataFrame, shift_days::Int64=-1, date_column::
         df[row, date_column] = shifted
     end
     return df
-end
-if show_help
-    println("usage:
-                   function: df = shift_dates_by_days!(df, shift_days=-1, date_column=1)
-           ")
 end
 
 
@@ -233,11 +167,6 @@ function update_rata_die!(df, days_column=1, date_column=2)
     end
     return df
 end
-if show_help
-    println("usage:
-                   function: df = update_rata_die!(df, days_column=1, date_column=2)
-            ")
-end
 
 
 
@@ -250,11 +179,6 @@ function add_rata_die_column!(df)
 
     update_rata_die!(df, 1, 2) # Rata_Die column, Date column
     columns = preview_data(df)
-end
-if show_help
-    println("usage:
-                   function: columns = add_rata_die_column!(df)
-          ")
 end
 
 
