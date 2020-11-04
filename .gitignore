@@ -28,3 +28,4 @@ docs/site/
 Manifest.toml
 *.numbers
 .DS_Store
+DATA/original/
