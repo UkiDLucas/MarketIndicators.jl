@@ -34,13 +34,16 @@ end
 
 
 using DataFrames, CSV
-function fetch_dataset(
-    file_name="TPLGX.csv", 
-    date_format="yyyy.mm.dd", 
-    dir="D:\\Drive\\market_indicators_data\\original\\"
+function fetch_dataset( 
+        file_name="TPLGX.csv", 
+        date_format="yyyy.mm.dd", 
+        dir="DATA\\original\\"
     )
 
-    df = CSV.read(dir * file_name, dateformat=date_format)
+    file_path = dir * file_name
+    println(file_path)
+
+    df = CSV.read(file_path, date_format)
     sort!(df, [:Date]);
     return df
 end
@@ -55,7 +58,7 @@ end
 function save_dataset(
     df::DataFrame,
     file_name="unknown", 
-    dir="D:\\Drive\\market_indicators_data\\derived\\"
+    dir="DATA\\derived\\"
     )
 
 
@@ -293,3 +296,6 @@ function update_yahoo_finance(uri::String, interval = "1d")
     uri = str_begining * unix_date_now * str_interval * str_events
     return uri
 end
+
+
+println() # prevents the last function from printing
