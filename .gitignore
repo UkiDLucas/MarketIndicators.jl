@@ -30,3 +30,4 @@ Manifest.toml
 .DS_Store
 DATA/original/
 DATA/models/
+DATA/processed/
