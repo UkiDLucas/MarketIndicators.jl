@@ -43,8 +43,8 @@ function fetch_dataset(
     file_path = dir * file_name
     println(file_path)
 
-    df = CSV.read(file_path, date_format)
-    sort!(df, [:Date]);
+    df = CSV.read(file_path, dateformat=date_format)
+    df = sort(df, [:Date]);
     return df
 end
 
@@ -56,16 +56,13 @@ end
 
 
 function save_dataset(
-    df::DataFrame,
-    file_name="unknown", 
-    dir="DATA\\derived\\"
+        df::DataFrame,
+        file_name="undefined.csv", 
+        dir="./Data/processed/"
     )
 
-
     file_path = dir*file_name
-    
-    CSV.write(dir*file_name, df, delim=',', header=true)
-    
+    CSV.write( file_path, df, delim=',' ) # , header=true
     return file_path
 end
 
@@ -269,16 +266,21 @@ end
 
 
 
-function position_on_date(df, date="2020-09-25")
-    #date = Date("9/30/2020", "m/d/yyyy") # typeof Date
-    x = df[df.Date .== date, 3] # find all rows for given date, and get value from column 3
-    
-    record_count = size(df)[1]    
-    position = zeros(Float64, record_count)
-    
-    for i in 1:record_count
-        position[i] = x[1]
-    end
+function position_on_date(df, date_string="2020-09-25")
+    date = Date(date_string, "yyyy-mm-dd") # typeof Date
+    found_items = df[df.Date .== date, 3] # Array{Float64,1}, find all rows for given date, and get value from column 3  
+
+    record_count = size(df)[1]    # number of rows in the whole dataset
+    position = zeros(Float64, record_count) # zero-fill array
+
+    position .= found_items[1]
+
+    # if length(found_items) > 0
+    #     for i in 1:record_count
+    #         position[i] = found_items[1]
+    #     end
+    # end
+
     return position
 end
 
