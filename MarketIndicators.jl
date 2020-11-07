@@ -89,6 +89,35 @@ function preview_data(df, show_rows = 6)
 end
 
 
+function print_colunms(df)
+    columns = names(df)
+    for i in 1:length(columns)
+        println(i, " ", columns[i])
+    end
+    return columns
+end
+
+
+function populate_missing_dates!(df::DataFrame, rata_die_column=1, value_column=3 )
+    count = size(df)[1]
+
+    for i in 1:count-1
+        day_this = df[i,1]   # row, Day column
+        day_next = df[i+1,1] # next row, Day column
+
+        value = df[i,3] # row, High column, assuming that the last known value is still valid
+
+        # loop thru all days you need to insert
+        # if there is no gap, nothing will happen
+        for day in day_this+1:day_next-1
+            date = rata2datetime(day) #  Dates.format(rata2datetime(day), "yyyy-mm-dd")
+            push!(df, [ day date value ])
+        end
+
+    end
+end
+
+
   
 
 
