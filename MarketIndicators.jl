@@ -80,7 +80,7 @@ function preview_data(df, show_rows = 6)
     show(df[ rows, :], allcols=true) # do NOT limit number of columns if more than 6
 
     println("\n Dataset dimentions: ", size(df) )
-    println("\n Column numbering:")
+    println("\n variable columns:")
     columns = names(df)
     for i in 1:length(columns)
         println(i, " ", columns[i])
@@ -104,7 +104,7 @@ function populate_missing_dates!(df::DataFrame )
     # Data            is column #2
     # value quantized is column #3
     # original value  is column #4
-    
+
     count = size(df)[1]
 
     for i in 1:count-1
