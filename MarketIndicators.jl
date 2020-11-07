@@ -68,9 +68,8 @@ end
 
 
 
-function preview_data(df)
+function preview_data(df, show_rows = 6)
     all_rows = size(df)[1]
-    show_rows = 12
     
     if all_rows < show_rows
         show_rows = all_rows
