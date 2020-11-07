@@ -98,7 +98,13 @@ function print_colunms(df)
 end
 
 
-function populate_missing_dates!(df::DataFrame, rata_die_column=1, value_column=3 )
+function populate_missing_dates!(df::DataFrame )
+    # Assuming:
+    # Rata_Die        is column #1
+    # Data            is column #2
+    # value quantized is column #3
+    # original value  is column #4
+    
     count = size(df)[1]
 
     for i in 1:count-1
@@ -106,12 +112,13 @@ function populate_missing_dates!(df::DataFrame, rata_die_column=1, value_column=
         day_next = df[i+1,1] # next row, Day column
 
         value = df[i,3] # row, High column, assuming that the last known value is still valid
+        original = df[i,4] 
 
         # loop thru all days you need to insert
         # if there is no gap, nothing will happen
         for day in day_this+1:day_next-1
             date = rata2datetime(day) #  Dates.format(rata2datetime(day), "yyyy-mm-dd")
-            push!(df, [ day date value ])
+            push!(df, [ day date value original ])
         end
 
     end
