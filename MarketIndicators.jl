@@ -108,20 +108,25 @@ function populate_missing_dates!(df::DataFrame )
     count = size(df)[1]
 
     for i in 1:count-1
-        day_this = df[i,1]   # row, Day column
-        day_next = df[i+1,1] # next row, Day column
+        day_this = df[i   ,1] # current row, "Day" column
+        day_next = df[i+1 ,1] # next row   , "Day" column
 
-        value = df[i,3] # row, High column, assuming that the last known value is still valid
-        original = df[i,4] 
+        value    = df[i,3] # Quantized value
+        original = df[i,4] # Original  value
 
-        # loop thru all days you need to insert
+        # Assuming that this last known value should be propagated until next update 
+        # loop thru all days you need to insert  day_this [...] day_next
         # if there is no gap, nothing will happen
-        for day in day_this+1:day_next-1
+        days_to_fill = day_this+1:day_next-1
+
+        for day in days_to_fill
             date = rata2datetime(day) #  Dates.format(rata2datetime(day), "yyyy-mm-dd")
             push!(df, [ day date value original ])
         end
 
     end
+
+    return df # Not strictly necessary as df is already changed
 end
 
 
@@ -131,6 +136,7 @@ end
 
 using Dates
 function format_dates(dates, date_format="yy/mdd")
+    # dates Array{String,1}
     columns = length(dates)
     results = Array{String, 1}(undef, columns) # define array to hold x-axis values
 
