@@ -28,6 +28,6 @@ docs/site/
 Manifest.toml
 *.numbers
 .DS_Store
-DATA/original/
-DATA/models/
-DATA/processed/
+content/DATA/original/
+content/DATA/models/
+content/DATA/processed/
