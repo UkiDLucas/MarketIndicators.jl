@@ -45,7 +45,7 @@ function fetch_dataset(
 
     df = CSV.read(file_path, dateformat=date_format)
     df = sort(df, [:Date]);
-    return df
+    return df # DataFrame
 end
 
 
