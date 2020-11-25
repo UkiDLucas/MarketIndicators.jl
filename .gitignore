@@ -1,3 +1,4 @@
+_KEEP_ME_SORTED_
 .DS_Store
 .ipynb_checkpoints/
 *.jl.*.cov
