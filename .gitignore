@@ -5,9 +5,6 @@ _KEEP_ME_SORTED_
 *.jl.cov
 *.jl.mem
 *.numbers
-src/DATA/models/
-src/DATA/original/
-src/DATA/processed/
 deps/build.log
 deps/deps.jl
 deps/downloads/
@@ -16,3 +13,6 @@ deps/usr/
 docs/build/
 docs/site/
 Manifest.toml
+src/DATA/models/
+src/DATA/original/
+src/DATA/processed/
