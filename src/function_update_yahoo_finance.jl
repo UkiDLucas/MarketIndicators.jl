@@ -1,4 +1,6 @@
-using Printf
+# import Pkg; Pkg.add("Dates")
+
+using Printf, Dates
 function update_yahoo_finance(uri::String, interval = "1d")
     str_interval = "&interval=" * interval
     str_events = "&events=history"
