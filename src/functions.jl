@@ -3,8 +3,6 @@ using CSV
 
 # import Pkg; Pkg.add("Dates")
 using Dates
-# https://docs.julialang.org/en/v1/stdlib/Dates/#Dates.now-Tuple{}
-# https://github.com/JuliaLang/julia/issues/37480
 
 
 # import Pkg; Pkg.add("DataFrames")
