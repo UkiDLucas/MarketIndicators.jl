@@ -1,13 +1,18 @@
+## This code still does not run
+## Error: Download failed: curl: URL
+
+
 ## Directory where I store original data (copied form the Web, etc.)
 # original_data_directory = "DATA\\original\\" # Windows 10
 original_data_directory = "./DATA/original/" # MacOS
 
 #include("MarketIndicators.jl")
+include("function_update_yahoo_finance.jl")
 
-using CSV, DataFrames
-file_path = "DATA/_DataSets.csv"
+using CSV, DataFrames, Dates
+file_path = "src/DATA/_DataSets.csv"
 date_format="mm/dd/yyyy" # 9/14/2020
-df = CSV.read( file_path, dateformat="$date_format" )
+df = CSV.read( file_path, DataFrame, dateformat="$date_format" )
 df[:, [1,3] ]
 
 names(df)
@@ -37,5 +42,3 @@ while true
     println("going to sleep for ", nap_time/(60*60), " hours" )
     sleep(nap_time) 
 end
-
-
