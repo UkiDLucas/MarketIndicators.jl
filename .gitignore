@@ -14,6 +14,7 @@ docs/build/
 docs/site/
 Manifest.toml
 src/DATA/models/
+src/DATA/original
 src/DATA/original/
 src/DATA/original/*.csv
 src/DATA/processed/
