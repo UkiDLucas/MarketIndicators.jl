@@ -1,21 +1,12 @@
-## This code still does not run
-## Error: Download failed: curl: URL, maybe it can only work from the browser (notebook)?
-## ERROR: LoadError: failed process: 
-## Process(`/usr/bin/curl -s -S -g -L -f -o 
-## ./DATA/original/NVDA.csv 
-## 'https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1606655177&interval=1d&events=history'`, 
-## ProcessExited(23)) [23]
-
-
 ## Directory where I store original data (copied form the Web, etc.)
 # original_data_directory = "DATA\\original\\" # Windows 10
-original_data_directory = "src/DATA/original/" # MacOS
+original_data_directory = "./DATA/original/" # MacOS
 
 #include("MarketIndicators.jl")
 include("function_update_yahoo_finance.jl")
 
 using CSV, DataFrames, Dates
-file_path = "src/DATA/_DataSets.csv"
+file_path = "./DATA/_DataSets.csv"
 date_format="mm/dd/yyyy" # 9/14/2020
 df = CSV.read( file_path, DataFrame, dateformat="$date_format" )
 df[:, [1,3] ]
