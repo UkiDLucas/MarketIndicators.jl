@@ -3,7 +3,7 @@ module MarketIndicators
     #import Base.ctranspose                     
     
     ## export some of the functions defined in this package
-    #export derivative, check_gradient,         
+    export update_yahoo_finance        
 
     ## include the contents of other files in the module
     include("function_add_overal_mean.jl")
