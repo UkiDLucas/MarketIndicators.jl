@@ -5,9 +5,9 @@ _KEEP_ME_SORTED_
 *.jl.cov
 *.jl.mem
 *.numbers
-content/DATA/models/
-content/DATA/original/
-content/DATA/processed/
+src/DATA/models/
+src/DATA/original/
+src/DATA/processed/
 deps/build.log
 deps/deps.jl
 deps/downloads/
