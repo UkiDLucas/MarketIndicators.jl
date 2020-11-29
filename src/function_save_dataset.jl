@@ -1,7 +1,7 @@
 function save_dataset(
     df::DataFrame,
     file_name="undefined.csv", 
-    dir="/src/Data/processed/"
+    dir="Data/processed/"
 )
 
 file_path = dir*file_name
