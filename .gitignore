@@ -17,5 +17,5 @@ src/DATA/models/
 src/DATA/original
 src/DATA/original/
 src/DATA/original/*.csv
-src/DATA/processed/
 src/DATA/original/BTC-USD.csv
+src/DATA/processed/
