@@ -5,7 +5,7 @@
 This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas/MarketIndicators.jl)
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Overview" data-toc-modified-id="Overview-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Overview</a></span><ul class="toc-item"><li><span><a href="#Motivation" data-toc-modified-id="Motivation-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Motivation</a></span></li><li><span><a href="#Project-Objectives" data-toc-modified-id="Project-Objectives-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Project Objectives</a></span></li><li><span><a href="#Read-the-source,-Luke" data-toc-modified-id="Read-the-source,-Luke-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Read the source, Luke</a></span></li><li><span><a href="#What-are-Market-Indicators?" data-toc-modified-id="What-are-Market-Indicators?-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>What are Market Indicators?</a></span></li><li><span><a href="#Why-using-Machine-Learning-and-not-spreadsheets?" data-toc-modified-id="Why-using-Machine-Learning-and-not-spreadsheets?-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Why using Machine Learning and not spreadsheets?</a></span></li><li><span><a href="#Machine-Learning-approach" data-toc-modified-id="Machine-Learning-approach-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Machine Learning approach</a></span></li><li><span><a href="#Why-Julia?" data-toc-modified-id="Why-Julia?-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Why Julia?</a></span></li></ul></li><li><span><a href="#Data-acquisition" data-toc-modified-id="Data-acquisition-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Data acquisition</a></span><ul class="toc-item"><li><span><a href="#Learn-about-market-indicators" data-toc-modified-id="Learn-about-market-indicators-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Learn about market indicators</a></span></li><li><span><a href="#Download-stock-and-index-data-from-Yahoo-Finance" data-toc-modified-id="Download-stock-and-index-data-from-Yahoo-Finance-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Download stock and index data from Yahoo Finance</a></span></li><li><span><a href="#Download-market-indicator-data-from-mql5.com" data-toc-modified-id="Download-market-indicator-data-from-mql5.com-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Download market indicator data from mql5.com</a></span></li><li><span><a href="#Save-Downloaded-data-to-CSV-files" data-toc-modified-id="Save-Downloaded-data-to-CSV-files-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>Save Downloaded data to CSV files</a></span><ul class="toc-item"><li><span><a href="#Examples-of-files" data-toc-modified-id="Examples-of-files-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>Examples of files</a></span></li><li><span><a href="#Loop-that-saves-the-data" data-toc-modified-id="Loop-that-saves-the-data-2.4.2"><span class="toc-item-num">2.4.2&nbsp;&nbsp;</span>Loop that saves the data</a></span></li></ul></li></ul></li><li><span><a href="#Data-pre-processing" data-toc-modified-id="Data-pre-processing-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Data pre-processing</a></span><ul class="toc-item"><li><span><a href="#Reading-Data-from-CSV" data-toc-modified-id="Reading-Data-from-CSV-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Reading Data from CSV</a></span></li><li><span><a href="#Date-formatting" data-toc-modified-id="Date-formatting-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Date formatting</a></span><ul class="toc-item"><li><span><a href="#Explanation-of-terms" data-toc-modified-id="Explanation-of-terms-3.2.1"><span class="toc-item-num">3.2.1&nbsp;&nbsp;</span>Explanation of terms</a></span></li><li><span><a href="#the-&quot;y-m-d&quot;-date-format" data-toc-modified-id="the-&quot;y-m-d&quot;-date-format-3.2.2"><span class="toc-item-num">3.2.2&nbsp;&nbsp;</span>the "y-m-d" date format</a></span></li><li><span><a href="#the-&quot;y.m.d&quot;-date-format" data-toc-modified-id="the-&quot;y.m.d&quot;-date-format-3.2.3"><span class="toc-item-num">3.2.3&nbsp;&nbsp;</span>the "y.m.d" date format</a></span></li><li><span><a href="#the-&quot;u-d,-y&quot;-date-format" data-toc-modified-id="the-&quot;u-d,-y&quot;-date-format-3.2.4"><span class="toc-item-num">3.2.4&nbsp;&nbsp;</span>the "u d, y" date format</a></span></li></ul></li><li><span><a href="#Rata-Die-(days-since)" data-toc-modified-id="Rata-Die-(days-since)-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Rata Die (days since)</a></span></li><li><span><a href="#Populate-missing-indicators" data-toc-modified-id="Populate-missing-indicators-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Populate missing indicators</a></span><ul class="toc-item"><li><span><a href="#Pseudo-Code" data-toc-modified-id="Pseudo-Code-3.4.1"><span class="toc-item-num">3.4.1&nbsp;&nbsp;</span>Pseudo Code</a></span></li><li><span><a href="#Code-Example" data-toc-modified-id="Code-Example-3.4.2"><span class="toc-item-num">3.4.2&nbsp;&nbsp;</span>Code Example</a></span></li></ul></li><li><span><a href="#Normalize-the-data" data-toc-modified-id="Normalize-the-data-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Normalize the data</a></span><ul class="toc-item"><li><span><a href="#Code-Sample" data-toc-modified-id="Code-Sample-3.5.1"><span class="toc-item-num">3.5.1&nbsp;&nbsp;</span>Code Sample</a></span></li><li><span><a href="#Plotting-the-data" data-toc-modified-id="Plotting-the-data-3.5.2"><span class="toc-item-num">3.5.2&nbsp;&nbsp;</span>Plotting the data</a></span></li></ul></li><li><span><a href="#Calculating-averages" data-toc-modified-id="Calculating-averages-3.6"><span class="toc-item-num">3.6&nbsp;&nbsp;</span>Calculating averages</a></span></li><li><span><a href="#Save-DataFrame-as-CSV" data-toc-modified-id="Save-DataFrame-as-CSV-3.7"><span class="toc-item-num">3.7&nbsp;&nbsp;</span>Save DataFrame as CSV</a></span></li></ul></li><li><span><a href="#Combine-all-the-CVS-into-one-uber.cvs" data-toc-modified-id="Combine-all-the-CVS-into-one-uber.cvs-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Combine all the CVS into one uber.cvs</a></span></li><li><span><a href="#Train-the-model" data-toc-modified-id="Train-the-model-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Train the model</a></span><ul class="toc-item"><li><span><a href="#What-is-TuriCreate?" data-toc-modified-id="What-is-TuriCreate?-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>What is TuriCreate?</a></span></li><li><span><a href="#Instal-TuriCreate" data-toc-modified-id="Instal-TuriCreate-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>Instal TuriCreate</a></span><ul class="toc-item"><li><span><a href="#Using-Julia-PyCall-to-invoke-Python" data-toc-modified-id="Using-Julia-PyCall-to-invoke-Python-5.2.1"><span class="toc-item-num">5.2.1&nbsp;&nbsp;</span>Using Julia PyCall to invoke Python</a></span></li></ul></li><li><span><a href="#Read-uber.csv-as-SFrame" data-toc-modified-id="Read-uber.csv-as-SFrame-5.3"><span class="toc-item-num">5.3&nbsp;&nbsp;</span>Read uber.csv as SFrame</a></span></li><li><span><a href="#Split-training-and-testing-data" data-toc-modified-id="Split-training-and-testing-data-5.4"><span class="toc-item-num">5.4&nbsp;&nbsp;</span>Split training and testing data</a></span></li><li><span><a href="#Train-the-ML-model" data-toc-modified-id="Train-the-ML-model-5.5"><span class="toc-item-num">5.5&nbsp;&nbsp;</span>Train the ML model</a></span></li><li><span><a href="#Make-predictions" data-toc-modified-id="Make-predictions-5.6"><span class="toc-item-num">5.6&nbsp;&nbsp;</span>Make predictions</a></span></li></ul></li><li><span><a href="#Evaluate-Predictions" data-toc-modified-id="Evaluate-Predictions-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Evaluate Predictions</a></span></li><li><span><a href="#Conclusion" data-toc-modified-id="Conclusion-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Conclusion</a></span></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Overview" data-toc-modified-id="Overview-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Overview</a></span><ul class="toc-item"><li><span><a href="#Motivation" data-toc-modified-id="Motivation-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Motivation</a></span></li><li><span><a href="#Project-Objectives" data-toc-modified-id="Project-Objectives-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Project Objectives</a></span></li><li><span><a href="#What-are-Market-Indicators?" data-toc-modified-id="What-are-Market-Indicators?-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>What are Market Indicators?</a></span></li><li><span><a href="#Why-not-using-the-spreadsheets?" data-toc-modified-id="Why-not-using-the-spreadsheets?-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Why not using the spreadsheets?</a></span><ul class="toc-item"><li><span><a href="#Machine-Learning-approach" data-toc-modified-id="Machine-Learning-approach-1.4.1"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>Machine Learning approach</a></span></li></ul></li><li><span><a href="#Why-Julia?" data-toc-modified-id="Why-Julia?-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Why Julia?</a></span></li><li><span><a href="#Read-the-source,-Luke" data-toc-modified-id="Read-the-source,-Luke-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Read the source, Luke</a></span></li></ul></li><li><span><a href="#Running-the-Julia-code" data-toc-modified-id="Running-the-Julia-code-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Running the Julia code</a></span><ul class="toc-item"><li><span><a href="#Julia-in-terminal-on-MacOS" data-toc-modified-id="Julia-in-terminal-on-MacOS-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Julia in terminal on MacOS</a></span></li></ul></li><li><span><a href="#Data-acquisition" data-toc-modified-id="Data-acquisition-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Data acquisition</a></span><ul class="toc-item"><li><span><a href="#Downloading-from-the-Terminal" data-toc-modified-id="Downloading-from-the-Terminal-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Downloading from the Terminal</a></span></li><li><span><a href="#Learn-about-market-indicators" data-toc-modified-id="Learn-about-market-indicators-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Learn about market indicators</a></span></li><li><span><a href="#Download-stock-and-index-data-from-Yahoo-Finance" data-toc-modified-id="Download-stock-and-index-data-from-Yahoo-Finance-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Download stock and index data from Yahoo Finance</a></span></li><li><span><a href="#Download-market-indicator-data-from-mql5.com" data-toc-modified-id="Download-market-indicator-data-from-mql5.com-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Download market indicator data from mql5.com</a></span></li><li><span><a href="#Save-Downloaded-data-to-CSV-files" data-toc-modified-id="Save-Downloaded-data-to-CSV-files-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Save Downloaded data to CSV files</a></span><ul class="toc-item"><li><span><a href="#Examples-of-files" data-toc-modified-id="Examples-of-files-3.5.1"><span class="toc-item-num">3.5.1&nbsp;&nbsp;</span>Examples of files</a></span></li><li><span><a href="#Loop-that-saves-the-data" data-toc-modified-id="Loop-that-saves-the-data-3.5.2"><span class="toc-item-num">3.5.2&nbsp;&nbsp;</span>Loop that saves the data</a></span></li></ul></li></ul></li><li><span><a href="#Data-pre-processing" data-toc-modified-id="Data-pre-processing-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Data pre-processing</a></span><ul class="toc-item"><li><span><a href="#Reading-Data-from-CSV" data-toc-modified-id="Reading-Data-from-CSV-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Reading Data from CSV</a></span></li><li><span><a href="#Date-formatting" data-toc-modified-id="Date-formatting-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Date formatting</a></span><ul class="toc-item"><li><span><a href="#Explanation-of-terms" data-toc-modified-id="Explanation-of-terms-4.2.1"><span class="toc-item-num">4.2.1&nbsp;&nbsp;</span>Explanation of terms</a></span></li><li><span><a href="#the-&quot;y-m-d&quot;-date-format" data-toc-modified-id="the-&quot;y-m-d&quot;-date-format-4.2.2"><span class="toc-item-num">4.2.2&nbsp;&nbsp;</span>the "y-m-d" date format</a></span></li><li><span><a href="#the-&quot;y.m.d&quot;-date-format" data-toc-modified-id="the-&quot;y.m.d&quot;-date-format-4.2.3"><span class="toc-item-num">4.2.3&nbsp;&nbsp;</span>the "y.m.d" date format</a></span></li><li><span><a href="#the-&quot;u-d,-y&quot;-date-format" data-toc-modified-id="the-&quot;u-d,-y&quot;-date-format-4.2.4"><span class="toc-item-num">4.2.4&nbsp;&nbsp;</span>the "u d, y" date format</a></span></li></ul></li><li><span><a href="#Rata-Die-(days-since)" data-toc-modified-id="Rata-Die-(days-since)-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Rata Die (days since)</a></span></li><li><span><a href="#Populate-missing-indicators" data-toc-modified-id="Populate-missing-indicators-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>Populate missing indicators</a></span><ul class="toc-item"><li><span><a href="#Pseudo-Code" data-toc-modified-id="Pseudo-Code-4.4.1"><span class="toc-item-num">4.4.1&nbsp;&nbsp;</span>Pseudo Code</a></span></li><li><span><a href="#Code-Example" data-toc-modified-id="Code-Example-4.4.2"><span class="toc-item-num">4.4.2&nbsp;&nbsp;</span>Code Example</a></span></li></ul></li><li><span><a href="#Normalize-the-data" data-toc-modified-id="Normalize-the-data-4.5"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>Normalize the data</a></span><ul class="toc-item"><li><span><a href="#Code-Sample" data-toc-modified-id="Code-Sample-4.5.1"><span class="toc-item-num">4.5.1&nbsp;&nbsp;</span>Code Sample</a></span></li><li><span><a href="#Plotting-the-data" data-toc-modified-id="Plotting-the-data-4.5.2"><span class="toc-item-num">4.5.2&nbsp;&nbsp;</span>Plotting the data</a></span></li></ul></li><li><span><a href="#Calculating-averages" data-toc-modified-id="Calculating-averages-4.6"><span class="toc-item-num">4.6&nbsp;&nbsp;</span>Calculating averages</a></span></li><li><span><a href="#Save-DataFrame-as-CSV" data-toc-modified-id="Save-DataFrame-as-CSV-4.7"><span class="toc-item-num">4.7&nbsp;&nbsp;</span>Save DataFrame as CSV</a></span></li></ul></li><li><span><a href="#Combine-all-the-CVS-into-one-uber.cvs" data-toc-modified-id="Combine-all-the-CVS-into-one-uber.cvs-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Combine all the CVS into one uber.cvs</a></span></li><li><span><a href="#Train-the-model" data-toc-modified-id="Train-the-model-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Train the model</a></span><ul class="toc-item"><li><span><a href="#What-is-TuriCreate?" data-toc-modified-id="What-is-TuriCreate?-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>What is TuriCreate?</a></span></li><li><span><a href="#Instal-TuriCreate" data-toc-modified-id="Instal-TuriCreate-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>Instal TuriCreate</a></span><ul class="toc-item"><li><span><a href="#Using-Julia-PyCall-to-invoke-Python" data-toc-modified-id="Using-Julia-PyCall-to-invoke-Python-6.2.1"><span class="toc-item-num">6.2.1&nbsp;&nbsp;</span>Using Julia PyCall to invoke Python</a></span></li></ul></li><li><span><a href="#Read-uber.csv-as-SFrame" data-toc-modified-id="Read-uber.csv-as-SFrame-6.3"><span class="toc-item-num">6.3&nbsp;&nbsp;</span>Read uber.csv as SFrame</a></span></li><li><span><a href="#Split-training-and-testing-data" data-toc-modified-id="Split-training-and-testing-data-6.4"><span class="toc-item-num">6.4&nbsp;&nbsp;</span>Split training and testing data</a></span></li><li><span><a href="#Train-the-ML-model" data-toc-modified-id="Train-the-ML-model-6.5"><span class="toc-item-num">6.5&nbsp;&nbsp;</span>Train the ML model</a></span></li><li><span><a href="#Make-predictions" data-toc-modified-id="Make-predictions-6.6"><span class="toc-item-num">6.6&nbsp;&nbsp;</span>Make predictions</a></span></li></ul></li><li><span><a href="#Evaluate-Predictions" data-toc-modified-id="Evaluate-Predictions-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Evaluate Predictions</a></span></li><li><span><a href="#Conclusion" data-toc-modified-id="Conclusion-8"><span class="toc-item-num">8&nbsp;&nbsp;</span>Conclusion</a></span></li></ul></div>
 
 <hr />
 
@@ -14,27 +14,57 @@ This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas
 
 ### Motivation
 
-I started this project because I was interested, if given enough inputs, we can create an AI model to predict market movements.
+Can we create an **AI model to predict macro-economic trends**?
 
-Not too long ago, the prediction of the weather was a hit, or a miss. The joke was that the TV weather person was always carrying an umbrella on a supposedly nice day. Today, we can model the weather patterns very accurately for several days into the future.
+Not too long ago, the prediction of the weather was a hit or a miss. The joke was that the TV weather person was always carrying an umbrella on a supposedly nice day. Today, we can model the weather patterns very accurately for several days into the future.
 
-Similarly, given enough relevant data, including market trends, human behavioral patterns, and current events, including the "black swan" events, we should be able to model the macro economics.
+Similarly, given enough relevant data, including market trends, human behavioral patterns, and current events, including the "black swan" events, we should be able to model the macro-economics.
 
-In words of someone very famous, the idea is to be "less wrong". Being better than average by few percent would have a big financial benefit.
+In the words of someone very famous, the idea is to be "less wrong". Being better than average by a few percent would have a big financial benefit.
 
-This project is not meant to have a quick turnaround, but rather to be a labor of love towards my retirement, I have about 20 years. 
+This project is not meant to have a quick turnaround, but rather to be a labor of love towards my retirement, I still have about 20 years. 
 
-The plan is that every few days I add few new data sources and continue building the models until I get good at predicting something.
+The plan is that every few days I add a few new data sources and continue building the models until I get good at predicting something.
 
-This article, and the open-source code, is not meant to teach you about market, not to teach you how to code, but rather to share my progress and to receive positive feedback and suggestions for improvement.
+This article, and the accompanying open-source code, is not meant to teach you about the market, neither to teach you how to code, but rather to share my progress and to receive positive feedback and suggestions for improvement.
 
 ### Project Objectives
 
-- gather and analyze as many market indicators as possible
-- predict market trends 5, 30, or 90 days ahead 
-- predict a particular stock price based on the market indicators
-- maintain a stock portfolio by diversification using "hedge fund" principles
-- produce a usable code and document the process
+- to gather and analyze as many market indicators as possible
+- to predict market trends 5, 30, or 90 days ahead 
+- to predict a particular stock price based on the market indicators
+- to produce a usable code and document the process
+
+
+### What are Market Indicators?
+
+Market Indicators are **collections of data points** specific to a particular segment of the market, for example:
+- "S&P 500" index shows how major 500 stocks as a whole are performing
+- "ISM Manufacturing" index shows how well the manufacturing industry is doing
+- "GDP" index (Gross Domestic Product) shows how the country is doing
+- etc., etc., etc.
+
+There are hundreds, if not thousands, of such indicators.
+
+### Why not using the spreadsheets?
+
+The spreadsheets (i.e. Microsoft Excel, Apple Numbers, Google Sheets) and their graphing capabilities are the bread and butter of market analysis. They are great when comparing only a few indicators.
+
+#### Machine Learning approach
+
+The overwhelming advantage of machine learning, or Artificial Intelligence (AI), is apparent when that we try to find subtle **patterns in thousands of indicators**. 
+
+The human brain (using spreadsheets) fails to grasp the wealth of the information presented, machine learning, on the other hand, can easily detect the patterns in massive datasets and derive a conclusion.
+
+### Why Julia?
+
+- Julia is young, fast, elegant, multitasking, and does the math extremely well, of course we are talking about [Julia programming language](https://docs.julialang.org/en/v1/)
+- unlike C/C++, it is a pleasure to read and write Julia
+- it is designed for scientific computing and machine learning
+- similarly to C, it is extremely fast
+- similar to Python, it is very easy to learn
+- it is designed for parallelism
+- it is designed for distributed computing
 
 ### Read the source, Luke
 
@@ -48,40 +78,44 @@ If you find the information presented here useful, please visit the GitHub proje
 
 <a href="https://github.com/UkiDLucas/MarketIndicators.jl"><img src="images/GitHub_Sponsor_Watch_Star.png" /></a>
 
+## Running the Julia code
 
-### What are Market Indicators?
+I wrote all of the initial code in [Jupyter Lab](https://jupyter.org/) notebooks because it is easy to experiment with and easy to document. I absolutely love Jupyter notebooks for both Julia and Python. The page you are reading is also written in the JupyterLab notebook.
 
-Market Indicators are **collections of data points** specific to a particular segment of the market, for example:
-- "S&P 500" index show how major 500 stocks as a whole are performing
-- "ISM Manufacturing" index shows how well the manufacturing industry is doing
-- "GDP" index (Gross Domestic Product) shows how the country is doing
-- etc., etc., etc.
+However, notebooks are slow to execute as each cell (i.e. paragraph) has to start, run and remember it's own state. 
+The difference can be between a few milliseconds for the terminal vs a few seconds in the notebook, it is a 1,000-fold difference!
 
-There are hundreds, if not thousands, of such indicators.
+Hence, once I am happy with the code, I use the JupyterLab's "File > Download as.. > Julia (.jl)" option.
+As the project progresses I expect to slowly migrate from notebooks to .jl files, currently, I use a free [Microsoft VS Code](https://code.visualstudio.com/Download) editor. 
 
-### Why using Machine Learning and not spreadsheets?
+You have two options:
+- run the the notebooks to analyze the the code and my documentation
+- run the Julia files for speed of the execution and future automation
 
-The spreadsheets (i.e. Microsoft Excel, Apple Numbers, Google Sheets) and their graphing capability are the bread and butter of market analysis. They are great when comparing only a few indicators.
+### Julia in terminal on MacOS
 
-### Machine Learning approach
+```bash
+# run once to create julia alias (symbolic link) on your system
+$ echo "alias julia='/Applications/Julia-1.5.app/Contents/Resources/julia/bin/julia' " >> ~/.bash_profile
+$ source ~/.bash_profile
+# run a particular file
+$ julia Update_Julia_packages.jl
 
-The overwhelming advantage of machine learning, or Artificial Intelligence (AI), is apparent when that we try to find subtle **patterns in thousands of indicators**. The human brain (using spreadsheets) fails to grasp the wealth of the information presented. 
-
-The machine learning, on the other hand can easily detect the patterns in massive datasets and derive a conclusion.
-
-### Why Julia?
-
-- Julia is young, fast, elegant, multitasking and does the math extremely well, of course we are talking about [Julia programming language](https://docs.julialang.org/en/v1/)
-- unlike C,C++, it is a pleasure to write and read Julia
-- it is designed for scientific computing and machine learning
-- similarly to C, it is extremely fast
-- similar to Python, it is very easy to learn
-- it is designed for parallelism
-- it is designed for distributed computing
+Updating Julia packages.. this will take a few minutes!
+```
 
 <hr />
 
 ## Data acquisition
+
+### Downloading from the Terminal
+
+The [current code](https://github.com/UkiDLucas/MarketIndicators.jl/blob/master/src/Fetch_Web_Data.jl) fetches the indicators from the Web then goes to sleep for 4 hours.
+
+```bash
+$ julia Fetch_Web_Data.jl 
+
+```
 
 ### Learn about market indicators
 
