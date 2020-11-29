@@ -16,3 +16,4 @@ Manifest.toml
 src/DATA/models/
 src/DATA/original/
 src/DATA/processed/
+src/DATA/original/*.csv
