@@ -1,8 +1,8 @@
-# Directory where I store original data (copied form the Web, etc.)
+## Directory where I store original data (copied form the Web, etc.)
 # original_data_directory = "DATA\\original\\" # Windows 10
 original_data_directory = "./DATA/original/" # MacOS
 
-include("src/MarketIndicators.jl")
+#include("MarketIndicators.jl")
 
 using CSV, DataFrames
 file_path = "DATA/_DataSets.csv"
