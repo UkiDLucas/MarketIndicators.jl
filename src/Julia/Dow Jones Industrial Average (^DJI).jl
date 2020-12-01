@@ -1,6 +1,8 @@
+println("Run this file from the directory where this file is located.")
 pwd()
+
 dataset_file_name = "^DJI.csv"
-path_data_original = "../DATA/original/"
+path_data_original = "../Data/original/"
 date_original_format = "yyyy-mm-dd"
 original_value_column = 4
 last_position_change = "2020-09-30"
@@ -18,8 +20,8 @@ println("data dimentions: ", size(df) )
 #using Statistics
 #describe(df)
 
-#columns = preview_data(df) # uncomment to see the data
-#println()
+columns = preview_data(df) # uncomment to see the data
+println()
 
 col_ind = 1
 insertcols!(df, col_ind, :Rata_Die => zeros(Int64, record_count); makeunique = true )
