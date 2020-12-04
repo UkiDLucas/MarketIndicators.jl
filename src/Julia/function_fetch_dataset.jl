@@ -6,9 +6,11 @@ function fetch_dataset(
     )
 
     file_path = dir * file_name
-    println(file_path)
 
     df = CSV.read(file_path, DataFrame, dateformat=date_format)
     df = sort(df, [:Date]);
+
+    println("Fetched and sorted by date ", file_path, ", record count ", size(df)[1])
+    
     return df # DataFrame
 end
