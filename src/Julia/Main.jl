@@ -14,9 +14,13 @@ df[:, [1,3] ]
 
 while true
     println("============== ", Dates.DateTime(Dates.now() ), " ==============")
-    fetch_web_data(df )
+    # fetch_web_data(df )
     println("============== ", Dates.DateTime(Dates.now() ), " ==============")
     include("US_Housing_Starts_mm.jl")
+    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+    include("ISM_Manufacturing_PMI.jl")
+    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+    include("Uber_DataFrame.jl")
     println("============== ", Dates.DateTime(Dates.now() ), " ==============")
 
     nap_time = 60*60*4 # seconds * minutes * hours
