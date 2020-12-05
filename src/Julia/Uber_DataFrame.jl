@@ -164,7 +164,7 @@ df_training   = uber_df[1:today_id,:]
 df_prediction = uber_df[today_id-1:record_count,:]
 println()
 
-save_dataset(df_training,   "uber_training"  , "../Data/processed/");
-save_dataset(df_prediction, "uber_prediction", "../Data/processed/");
+save_dataset(df_training,   "uber_training.csv"  , "../Data/processed/");
+save_dataset(df_prediction, "uber_prediction.csv", "../Data/processed/");
 
 
