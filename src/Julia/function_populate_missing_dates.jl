@@ -26,5 +26,8 @@ function populate_missing_dates!(df::DataFrame )
 
     end
 
+    # sort by Day (Rata Die)
+    df = sort(df, [:Day]);
+
     return df # Not strictly necessary as df is already changed
 end

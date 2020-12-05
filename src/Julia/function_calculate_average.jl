@@ -1,6 +1,6 @@
 using DataFrames, Statistics
 
-function calculate_average(df::DataFrame, average_days=90, column_to_average=3)
+function calculate_average(df::DataFrame, average_days=90, column_to_average= :Quantized)
     record_count = size(df)[1]
     averages = zeros(Float64, record_count) # empty array
     
