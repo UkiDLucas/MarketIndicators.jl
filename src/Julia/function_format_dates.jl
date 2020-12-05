@@ -1,6 +1,6 @@
 using Dates
 function format_dates(dates, date_format="yy/mdd")
-    # dates Array{String,1}
+    # dates Array{String,1} or Array{Dates,1}
     columns = length(dates)
     results = Array{String, 1}(undef, columns) # define array to hold x-axis values
 
