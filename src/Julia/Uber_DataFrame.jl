@@ -44,7 +44,7 @@ function format_rata_die_to_us_date(d)
 end
 
 oldest_common_day = maximum([
-        minimum(df1[:,1]) 
+         minimum(df1[:,1]) 
         ,minimum(df2[:,1]) 
         ,minimum(df3[:,1])
         ,minimum(df4[:,1])
@@ -61,7 +61,7 @@ println("Oldest common day for df5 is ", format_rata_die_to_us_date( minimum(df5
 println("Oldest common day is ", format_rata_die_to_us_date(oldest_common_day) )
 
 newest_common_day = minimum([
-        maximum(df1[:,1])
+          maximum(df1[:,1])
         , maximum(df2[:,1])
         , maximum(df3[:,1])
         , maximum(df4[:,1])
@@ -76,65 +76,62 @@ println("Newest common day for df5 is ", format_rata_die_to_us_date( maximum(df5
 
 println("Newest common day is ", format_rata_die_to_us_date(newest_common_day) )
 
-df1_min_id = find_day(df1, oldest_common_day)
-df1_max_id = find_day(df1, newest_common_day)
-df1_rows_range = df1_min_id:df1_max_id
+function trim_DataFrame(name::String, df::DataFrame, oldest_common_day::Int64,  newest_common_day::Int64)
+    oldest_row = find_day(df, oldest_common_day)
+    newest_row = find_day(df, newest_common_day)
+    df = df[oldest_row:newest_row,:] # trimming
+    println(name, " ", size(df)[1],"\n    ", names(df) )
+    return df
+end
 
-df2_min_id = find_day(df2, oldest_common_day)
-df2_max_id = find_day(df2, newest_common_day)
-df2_rows_range = df2_min_id:df2_max_id
-
-df3_min_id = find_day(df3, oldest_common_day)
-df3_max_id = find_day(df3, newest_common_day)
-df3_rows_range = df3_min_id:df3_max_id
-
-df4_min_id = find_day(df4, oldest_common_day)
-df4_max_id = find_day(df4, newest_common_day)
-df4_rows_range = df4_min_id:df4_max_id
-
-df5_min_id = find_day(df5, oldest_common_day)
-df5_max_id = find_day(df5, newest_common_day)
-df5_rows_range = df5_min_id:df5_max_id
+df1 = trim_DataFrame("^DJI", df1, oldest_common_day, newest_common_day)
+df2 = trim_DataFrame("mnfc_epmlt", df2, oldest_common_day, newest_common_day)
+df3 = trim_DataFrame("hous_start", df3, oldest_common_day, newest_common_day)
+df4 = trim_DataFrame("mnfc_PMI", df4, oldest_common_day, newest_common_day)
+df5 = trim_DataFrame("^VIX", df5, oldest_common_day, newest_common_day)
+println()
 
 using DataFrames
-uber_df = DataFrame(  Day                   = df1[df1_rows_range,1] 
-                     ,Date                  = df1[df1_rows_range,2] 
-                     ,DJIA_Value            = df1[df1_rows_range,3] 
-                     ,DJIA_Original         = df1[df1_rows_range,4] 
-                     ,DJIA_Avg005           = df1[df1_rows_range,5] 
-                     ,DJIA_Avg030           = df1[df1_rows_range,6] 
-                     ,DJIA_Avg090           = df1[df1_rows_range,7] 
-                     ,DJIA_Avg180           = df1[df1_rows_range,8] 
-                     ,DJIA_Avg365           = df1[df1_rows_range,9]
+uber_df = DataFrame(  Day                   = df1[:,:Rata_Die] 
+                     ,Date                  = df1[:,:Date] 
     
-                     ,ISM_MFC_EMP_Value     = df2[df2_rows_range,3]
-                     ,ISM_MFC_EMP_Original  = df2[df2_rows_range,4] 
-                     ,ISM_MFC_EMP_Avg090    = df2[df2_rows_range,7] 
-                     ,ISM_MFC_EMP_Avg180    = df2[df2_rows_range,8] 
-                     ,ISM_MFC_EMP_Avg365    = df2[df2_rows_range,9]
+                     ,DJIA_Original         = df1[:,:Original] 
+                     ,DJIA_Quantized        = df1[:,:Quantized] 
+                     ,DJIA_Avg030           = df1[:,:Avg030] 
+                     ,DJIA_Avg060           = df1[:,:Avg060] 
+                     ,DJIA_Avg090           = df1[:,:Avg090] 
+                     ,DJIA_Avg120           = df1[:,:Avg120] 
+                     ,DJIA_Avg180          = df1[:,:Avg180] 
+                     ,DJIA_Avg365          = df1[:,:Avg365] 
     
-                     ,HOUSE_SRT_MM_Value    = df3[df3_rows_range,3]
-                     ,HOUSE_SRT_MM_Original = df3[df3_rows_range,4] 
-                     ,HOUSE_SRT_MM_Avg090   = df3[df3_rows_range,5] 
-                     ,HOUSE_SRT_MM_Avg180   = df3[df3_rows_range,6] 
-                     ,HOUSE_SRT_MM_Avg365   = df3[df3_rows_range,7]
+                     ,mnfc_epmlt_Original   = df2[:,:Original] 
+                     ,mnfc_epmlt_Quantized  = df2[:,:Quantized]
+                     ,mnfc_epmlt_Avg030     = df2[:,:Avg030]
+                     ,mnfc_epmlt_Avg060     = df2[:,:Avg060]
+                     ,mnfc_epmlt_Avg090     = df2[:,:Avg090] 
+                     ,mnfc_epmlt_Avg120     = df1[:,:Avg120] 
+                     ,mnfc_epmlt_Avg180     = df1[:,:Avg180]
+                     ,mnfc_epmlt_Avg365    = df1[:,:Avg365] 
     
-                     ,MFC_MPI_Value         = df4[df4_rows_range,3]
-                     ,MFC_MPI_Original      = df4[df4_rows_range,4] 
-                     ,MFC_MPI_Avg090        = df4[df4_rows_range,5] 
-                     ,MFC_MPI_Avg180        = df4[df4_rows_range,6] 
-                     ,MFC_MPI_Avg365        = df4[df4_rows_range,7]
+                     ,mnfc_PMI_Original     = df4[:,:Original] 
+                     ,mnfc_PMI_Quantized    = df4[:,:Quantized] 
+                     ,mnfc_PMI_Avg030       = df4[:,:Avg030]  
+                     ,mnfc_PMI_Avg060       = df4[:,:Avg060]  
+                     ,mnfc_PMI_Avg090       = df4[:,:Avg090] 
+                    #,mnfc_PMI_Avg120       = df1[:,:Avg120] 
+                     ,mnfc_PMI_Avg180       = df1[:,:Avg180] 
+                     ,mnfc_PMI_Avg365       = df1[:,:Avg365] 
     
-    
-                     ,VIX_Value             = df5[df5_rows_range,3] 
-                     ,VIX_Original          = df5[df5_rows_range,4] 
-                     ,VIX_Avg005            = df5[df5_rows_range,5] 
-                     ,VIX_Avg030            = df5[df5_rows_range,6] 
-                     ,VIX_Avg090            = df5[df5_rows_range,7] 
-                     ,VIX_Avg180            = df5[df5_rows_range,8] 
-                     ,VIX_Avg365            = df5[df5_rows_range,9] 
-                   )
+                     ,VIX_Original          = df5[:,:Original] 
+                     ,VIX_Quantized         = df5[:,:Quantized] 
+                     ,VIX_Avg030            = df5[:,:Avg030]  
+                     ,VIX_Avg060            = df5[:,:Avg060]  
+                     ,VIX_Avg090            = df5[:,:Avg090] 
+                     ,VIX_Avg120            = df1[:,:Avg120] 
+                     ,VIX_Avg180            = df1[:,:Avg180] 
+                     ,VIX_Avg365            = df1[:,:Avg365] 
 
+                   )
 using Statistics
 describe(uber_df)
 
@@ -149,8 +146,8 @@ dates = format_dates( uber_df[rows,2] , "m/d/yy")
 
 gr()
 plot(          dates, # x-axis: dates
-               [  uber_df[rows,7] uber_df[rows,12] uber_df[rows,17] uber_df[rows,22] uber_df[rows,29]       ], # y-axis
-    label    = [       columns[7]      columns[12]      columns[17]      columns[22] columns[29]   "" ],
+               [ uber_df[rows,6] uber_df[rows,14] uber_df[rows,22] uber_df[rows,29]         ], # y-axis
+    label    = [      columns[6]      columns[14]      columns[22]      columns[29]      "" ],
     legend   =:bottom, 
               # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
     xlabel   = "time",
