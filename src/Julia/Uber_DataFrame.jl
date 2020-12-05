@@ -37,6 +37,12 @@ df5 = fetch_dataset( file5 , "yyyy-mm-dd", dir )
 using Statistics
 describe(df3)
 
+using Dates
+
+function format_rata_die_to_us_date(d)
+    return Dates.format( rata2datetime(d) , "u. d, yyyy")
+end
+
 oldest_common_day = maximum([
         minimum(df1[:,1]) 
         ,minimum(df2[:,1]) 
@@ -44,8 +50,15 @@ oldest_common_day = maximum([
         ,minimum(df4[:,1])
         ,minimum(df5[:,1])
         ])
-#735975
 
+
+println("Oldest common day for df1 is ", format_rata_die_to_us_date( minimum(df1[:,1]))  )
+println("Oldest common day for df2 is ", format_rata_die_to_us_date( minimum(df2[:,1]))  )
+println("Oldest common day for df3 is ", format_rata_die_to_us_date( minimum(df3[:,1]))  )
+println("Oldest common day for df4 is ", format_rata_die_to_us_date( minimum(df4[:,1]))  )
+println("Oldest common day for df5 is ", format_rata_die_to_us_date( minimum(df5[:,1]))  )
+
+println("Oldest common day is ", format_rata_die_to_us_date(oldest_common_day) )
 
 newest_common_day = minimum([
         maximum(df1[:,1])
@@ -54,7 +67,14 @@ newest_common_day = minimum([
         , maximum(df4[:,1])
         , maximum(df5[:,1])
         ])
-#737718
+
+println("Newest common day for df1 is ", format_rata_die_to_us_date( maximum(df1[:,1]))  )
+println("Newest common day for df2 is ", format_rata_die_to_us_date( maximum(df2[:,1]))  )
+println("Newest common day for df3 is ", format_rata_die_to_us_date( maximum(df3[:,1]))  )
+println("Newest common day for df4 is ", format_rata_die_to_us_date( maximum(df4[:,1]))  )
+println("Newest common day for df5 is ", format_rata_die_to_us_date( maximum(df5[:,1]))  )
+
+println("Newest common day is ", format_rata_die_to_us_date(newest_common_day) )
 
 df1_min_id = find_day(df1, oldest_common_day)
 df1_max_id = find_day(df1, newest_common_day)
