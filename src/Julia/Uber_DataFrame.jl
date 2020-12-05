@@ -92,7 +92,7 @@ df5 = trim_DataFrame("^VIX", df5, oldest_common_day, newest_common_day)
 println()
 
 using DataFrames
-uber_df = DataFrame(  Day                   = df1[:,:Rata_Die] 
+uber_df = DataFrame(  Rata_Die              = df1[:,:Rata_Die] 
                      ,Date                  = df1[:,:Date] 
     
                      ,DJIA_Original         = df1[:,:Original] 
@@ -156,6 +156,15 @@ plot(          dates, # x-axis: dates
     layout = (1, 1) # number of graphs: vertically, horizontally
     )
 
-save_dataset(uber_df, dataset_file_name, "../Data/processed/");
+record_count = size(uber_df)[1]
+today_rata = Dates.datetime2rata( today() )
+today_id = find_day(uber_df, today_rata)
+
+df_training   = uber_df[1:today_id,:]
+df_prediction = uber_df[today_id-1:record_count,:]
+println()
+
+save_dataset(df_training,   "uber_training"  , "../Data/processed/");
+save_dataset(df_prediction, "uber_prediction", "../Data/processed/");
 
 
