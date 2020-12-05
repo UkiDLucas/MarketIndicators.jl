@@ -12,16 +12,22 @@ date_format="mm/dd/yyyy" # 9/14/2020
 df = CSV.read( file_path, DataFrame, dateformat="$date_format" )
 df[:, [1,3] ]
 
+function print_date_time()
+    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+end # function
+
 while true
-    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+        print_date_time()
     # fetch_web_data(df )
-    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+        print_date_time()
     include("US_Housing_Starts_mm.jl")
-    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+        print_date_time()
     include("ISM_Manufacturing_PMI.jl")
-    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+        print_date_time()
+    include("ISM_Manufacturing_Employment.jl")
+        print_date_time()
     include("Uber_DataFrame.jl")
-    println("============== ", Dates.DateTime(Dates.now() ), " ==============")
+        print_date_time()
 
     nap_time = 60*60*4 # seconds * minutes * hours
     println("going to sleep for ", nap_time/(60*60), " hours" )
