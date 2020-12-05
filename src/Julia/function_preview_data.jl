@@ -1,15 +1,19 @@
 function preview_data(df, show_rows = 6)
-    show_rows = show_rows-1 # adding the last record later on
+  
     record_count = size(df)[1]
-    
-    if record_count < show_rows
-        show_rows = record_count
+    rows = []
+
+    if show_rows >= record_count
+        rows = collect(1:record_count) # show all
+    else
+        interval = convert(Int64, round(record_count/show_rows, digits=0))
+        rows = collect(1:interval:record_count) # results in an array of record IDs
     end
     
-    interval = convert(Int64, round(record_count/show_rows, digits=0))
-
-    rows = collect(1:interval:record_count) # results in an array of record IDs
-    rows = append!(rows, record_count) # add last record
+    if record_count ∉ rows # ∉ == \notin  # \in
+        rows = append!(rows, record_count) # add last record
+        # this might result in an extra record showing, but it is OK
+    end # if
 
     println("Showing record IDs ", rows, " at interval ", interval )
 
