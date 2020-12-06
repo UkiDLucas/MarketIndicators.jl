@@ -5,10 +5,10 @@ function quantize_column!(df::DataFrame, column_number::Int64)
     min = minimum(original)
     max = maximum(original)
     
-    bias = (0 - min)/(max-min)
-    items = length(original)
+    #bias = (0 - min)/(max-min)
+    records_count = length(original)
     
-    for i in 1:items
+    for i in 1:records_count
         value = (original[i] -min)/(max-min)   # normalization formula to range 0.0 to 1.0
         #value = value + bias
         value = value * 255                    # 0.0 to 255
@@ -16,7 +16,7 @@ function quantize_column!(df::DataFrame, column_number::Int64)
         value = round(value, digits=0)         # 0.00 
         df[i, column_number] = value
     end
-    println("Normalization was performend using formula y=(((x-min)/(max-min))*255)-128 ") 
+    # println("Normalization was performend using formula y=(((x-min)/(max-min))*255)-128 ") 
 end
 # https://www.tensorflow.org/lite/performance/quantization_spec?hl=fi
 # https://en.wikipedia.org/wiki/Standard_score

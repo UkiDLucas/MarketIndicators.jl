@@ -18,7 +18,7 @@ end # function
 
 while true
         print_date_time()
-    # fetch_web_data(df )
+    fetch_web_data(df )
         print_date_time()
     include("^DJI.jl")
             print_date_time()

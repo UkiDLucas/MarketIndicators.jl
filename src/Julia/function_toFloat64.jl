@@ -2,8 +2,9 @@ function toFloat64(column)
     new_column = map(x -> (
             x = ismissing(x) ? "" : x;  # no method matching tryparse(::Type{Float64}, ::Missing)
             x = tryparse(Float64, x);   # returns: Float64 or nothing
-            isnothing(x) ? missing : x; # options: missing, or "", or 0.0, or nothing
+            isnothing(x) ? 0.0 : x; # options: missing, or "", or 0.0, or nothing
             ), column)  # input 
+    ## I decided to convert ALL missing values to 0.0, otherwise it is a nightmare later
     # returns Array{Float64,1} OR Array{Union{Missing, Float64},1}
     return new_column
 end
