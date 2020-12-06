@@ -130,8 +130,8 @@ today_rata = Dates.datetime2rata( today() )
 today_id = find_day(uber, today_rata)
 
 # I am putting overlap in the sets to see the behavior
-df_training   = uber[1:today_id-3,:] # train up 3 days ago
-df_prediction = uber[today_id-60:record_count,:] # show predictions up to 60 days ago
+df_training   = uber[1:today_id-5,:] # train up 5 days ago, I want to see real prediction for last few days.
+df_prediction = uber[today_id-90:record_count,:] # show predictions up to 90 days ago
 
 println()
 
