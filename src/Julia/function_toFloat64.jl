@@ -1,4 +1,19 @@
-function toFloat64(data_array)
+function toFloat64(column)
+    new_column = map(x -> (
+            x = ismissing(x) ? "" : x;  # no method matching tryparse(::Type{Float64}, ::Missing)
+            x = tryparse(Float64, x);   # returns: Float64 or nothing
+            isnothing(x) ? missing : x; # options: missing, or "", or 0.0, or nothing
+            ), column)  # input 
+    # returns Array{Float64,1} OR Array{Union{Missing, Float64},1}
+    return new_column
+end
+
+
+
+
+
+
+function XtoFloat64(data_array)
     println("NOT FINISHED")
     
     record_count = size(data_array)[1]
