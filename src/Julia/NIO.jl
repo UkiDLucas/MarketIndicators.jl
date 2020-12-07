@@ -1,156 +1,190 @@
 dataset_file_name = "NIO.csv"
-path_data_original = "../Data/original/"
 date_original_format = "yyyy-mm-dd"
-original_value_column = 3 # High
-last_position_change = "2020-09-30"
+column_to_keep = 3 # Column number in the original file e.g. High or ActualValue
+predict_days = 30 # number of days to predict
 
-#include("../Julia/MarketIndicators.jl") 
-include("../Julia/functions.jl")
+verbose = true
+#verbose = false
 
-println("Run this file from the directory where this file is located.")
-pwd()
+path_data_original  = "../Data/original/"
+path_data_processed = "../Data/processed/"
+include("../Julia/functions.jl") 
+println()
 
+## show available datasets
 #data = available_datasets() # uncomment to see all available datasets
 
+# Read DataFrame from the CSV file.
 df = fetch_dataset(dataset_file_name, date_original_format , path_data_original )
-record_count = size(df)[1]
-println("data dimentions: ", size(df) )
 
-#using Statistics
-#describe(df)
+if verbose
+    preview_data(df)
+end
 
-columns = preview_data(df) # uncomment to see the data
 println()
 
-col_ind = 1
-insertcols!(df, col_ind, :Rata_Die => zeros(Int64, record_count); makeunique = true )
+if verbose
+    using Statistics
+    describe(df)
+end
 
-update_rata_die!(df, 1, 2)
-#first(df, 6)
-
-#columns = preview_data(df, 3)
-println()
-# Comment out once done reviewing
-
-using Plots
-
-record_count = size(df)[1]
-rows = 1:record_count
-dates = format_dates( df[rows,2] , "m/d/yy")
-
-gr()
-plot(          dates, # x-axis: dates
-               [  df[rows, original_value_column]    ], # y-axis
-    label    = [  columns[ original_value_column]   "" ]  ,
-    legend   =:topleft, 
-              # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
-    xlabel   = "time",
-    ylabel   = "indicators",
-    size     = (980, 400), # width, height
-    layout = (1, 1) # number of graphs: vertically, horizontally
-    )
-# Extract only the columns to be kept
+include("../Julia/function_toFloat64.jl")
 
 using DataFrames
-df = DataFrame( Day      = df[:,1],                     # 1 
-                Date     = df[:,2],                     # 2 
-                Value    = df[:,original_value_column], # 3 
-                Original = df[:,original_value_column]  # 4 
+df = DataFrame( 
+                  Date      = df[:,1]               # 2 
+                , Original  = toFloat64( df[:,column_to_keep] )  # 3 
+                , Quantized = toFloat64( df[:,column_to_keep] )  # 4 
                )
 
-columns = preview_data(df)
+df = sort(df, [ :Date ]);
+
+if verbose
+    columns = preview_data(df)
+end
 println()
 
-# Quantize the values
-
-data_original = df[:, 4] # keep original for display comparison later
-
-quantize_column!(df, 3)
-
-columns = preview_data(df)
+## Insert the Rata Die Column
+record_count = size(df)[1]
+insert_localtion = 1
+insertcols!(df, insert_localtion, :Rata_Die => zeros(Int64, record_count); makeunique = true )
 println()
-# Comment out once done reviewing
 
-using Plots
+using Dates
+columns = names(df)
+if verbose
+    println(columns)
+end
 
-count = size(df)[1]
-rows = 1:count
-dates = format_dates( df[rows,2] , "m/d/yy")
+future_rata_die = Dates.datetime2rata( today() ) + predict_days # Int64  days from now
+future_date = Dates.rata2datetime( future_rata_die) # Date
+println(future_date)
+push!(df, [ future_rata_die future_date 0.0 0.0 ])
 
-gr()
-plot(          dates, # x-axis: dates
-               [  df[rows,3]    ], # y-axis
-    label    = [  columns[3] ""   ]  ,
-    legend   =:topleft, 
-              # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
-    xlabel   = "time",
-    ylabel   = "indicators",
-    size     = (980, 400), # width, height
-    layout = (1, 1) # number of graphs: vertically, horizontally
-    )
+## sort by Day (Rata Die)
+df = sort(df, [:Rata_Die]);
+if verbose
+    ## show last row
+    last_row = size(df)[1]
+    df[last_row,:]
+end
+println()
+
+update_rata_die!(df, 1, 2)
+
+if verbose
+    first(df, 6)
+    println("Inserted Rata Die")
+end
+
 populate_missing_dates!(df)
 
-df = sort(df, [:Day]);
-count = size(df)[1]
-#first(df, 6)
-# columns = preview_data(df)
+df = sort(df, [:Rata_Die]);
+
+## remove last row
+record_count = size(df)[1]
+df = df[1:record_count-1,:]
+
+if verbose
+    println( preview_data(df) )
+    println()
+end
+
+if verbose
+    using Plots
+    count = size(df)[1]
+    rows = 1:count
+    dates = format_dates( df[rows,2] , "m/d/yy")
+
+    gr()
+    plot(          dates, # x-axis: dates
+                   [ df[rows,:Quantized]    ], # y-axis
+        label    = [ "Quantized"  ""],
+        legend   =:topleft, 
+                  # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
+        xlabel   = "time",
+        ylabel   = "indicators",
+        size     = (980, 400), # width, height
+        layout = (1, 1) # number of graphs: vertically, horizontally
+        )
+end
+
+data_original = df[:,3] # keep original for display comparison later
+
+quantize_column!(df,4)
+
+if verbose
+    using Statistics
+    describe(df)
+end
+
+if verbose
+    using Plots
+
+    count = size(df)[1]
+    rows = 1:count
+    dates = format_dates( df[rows,2] , "m/d/yy")
+
+    gr()
+    plot(          dates, # x-axis: dates
+                   [  df[rows,:Quantized]    ], # y-axis
+        label    = [  "Quantized" ""   ]  ,
+        legend   =:topleft, 
+                  # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
+        xlabel   = "time",
+        ylabel   = "indicators",
+        size     = (980, 400), # width, height
+        layout = (1, 1) # number of graphs: vertically, horizontally
+        )
+end
+
+averages005 = calculate_average(df, 5,   :Quantized )
+averages030 = calculate_average(df, 30,  :Quantized )
+averages060 = calculate_average(df, 60,  :Quantized )
+averages090 = calculate_average(df, 90,  :Quantized )
+averages120 = calculate_average(df, 120, :Quantized )
+averages180 = calculate_average(df, 180, :Quantized )
 println()
-# Comment out once done reviewing
 
-using Plots
-count = size(df)[1]
-rows = 1:count
-dates = format_dates( df[rows,2] , "m/d/yy")
+if verbose
+    using Plots
 
-gr()
-plot(          dates, # x-axis: dates
-               [  df[rows,3]    ], # y-axis
-    label    = [ columns[3]    ""  ],
-    legend   =:topleft, 
-              # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
-    xlabel   = "time",
-    ylabel   = "indicators",
-    size     = (980, 400), # width, height
-    layout = (1, 1) # number of graphs: vertically, horizontally
-    )
-column_to_average = 3
-averages005 = calculate_average(df, 5,   column_to_average )
-averages030 = calculate_average(df, 30,  column_to_average )
-averages090 = calculate_average(df, 90,  column_to_average )
-averages180 = calculate_average(df, 180, column_to_average )
-averages365 = calculate_average(df, 365, column_to_average )
-println()
+    columns = names(df)
+    record_count = size(df)[1]
+    days_back = 700
+    rows = record_count-days_back:record_count # count-days_back:count
+    dates = format_dates( df[rows,2] , "m/d/yy")
 
-insertcols!(df, 5,  :Avg005   => averages005  , makeunique=true)
-insertcols!(df, 6,  :Avg030   => averages030  , makeunique=true)
-insertcols!(df, 7,  :Avg090   => averages090  , makeunique=true)
-insertcols!(df, 8,  :Avg180   => averages180  , makeunique=true)
-insertcols!(df, 9,  :Avg365   => averages365  , makeunique=true)
-
-#using Statistics
-#describe(df)
-using Plots
-count = size(df)[1]
-days_back = 90
-rows = count-days_back:count
-dates = format_dates( df[rows,2] , "m/d/yy")
-
-gr()
-plot(   dates, # x-axis: dates
-        [  df[rows,3] position_column[rows] averages005[rows] averages030[rows] averages090[rows] averages180[rows] 
+    gr()
+    plot( dates, # x-axis: dates
+        [ 
+            df[rows,:Quantized] averages005[rows] averages030[rows] averages060[rows] averages120[rows] averages180[rows]  
         ], # y-axis
-    label    = 
-        [ columns[3] "position" "5-day avg" "30-day avg" "90-day avg" "180-day avg"  ""  ],
-    legend   =:topleft, 
-              # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
-    xlabel   = "time",
-    ylabel   = "indicators",
-    size     = (980, 400), # width, height
-    layout = (1, 1) # number of graphs: vertically, horizontally
-    )
-#using Statistics
-#describe(df)
+        label    = [ "Quantized" "averages005" "averages030" "averages060" "averages120" "averages180"   ""],
+        legend   =:topleft, 
+                  # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
+        xlabel   = "time",
+        ylabel   = "indicators",
+        size     = (980, 400), # width, height
+        layout = (1, 1) # number of graphs: vertically, horizontally
+        )
+end
 
-save_dataset(df, dataset_file_name, "../Data/processed/" );
+insertcols!(df,  5,  :Avg005   => averages005  , makeunique=true)
+insertcols!(df,  6,  :Avg030   => averages030  , makeunique=true)
+insertcols!(df,  7,  :Avg060   => averages060  , makeunique=true)
+insertcols!(df,  8,  :Avg090   => averages090  , makeunique=true)
+insertcols!(df,  9,  :Avg120   => averages120  , makeunique=true)
+insertcols!(df, 10,  :Avg180   => averages180  , makeunique=true)
 
+if verbose
+    using Statistics
+    describe(df)
+end
 
+## Always show
+using Statistics
+describe(df)
+
+save_dataset(df, dataset_file_name, path_data_processed );
+println("Finished and saved to ", dataset_file_name)
