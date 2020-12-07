@@ -16,6 +16,9 @@ addIndicator!(data, "DJIA", "^DJI.csv" )
 addIndicator!(data, "US_ISM_MFC_EMP", "united-states.ism-manufacturing-employment.csv" )
 addIndicator!(data, "US_HOUS_SRTS_M", "united-states.housing-starts-mm.csv" )
 addIndicator!(data, "US_ISM_MFC_PMI", "united-states.ism-manufacturing-pmi.csv" )
+addIndicator!(data, "US_INIT_JOBLESS", "united-states.initial-jobless-claims.csv" )
+
+
 
 print()
 
@@ -86,6 +89,14 @@ uber = DataFrame(
 ,US_ISM_MFC_EMP_Avg120 = data["US_ISM_MFC_EMP"].df[:,:Avg120] 
 ,US_ISM_MFC_EMP_Avg180 = data["US_ISM_MFC_EMP"].df[:,:Avg180] 
 ,US_ISM_MFC_EMP_Avg365 = data["US_ISM_MFC_EMP"].df[:,:Avg365] 
+    
+,US_INIT_JOBLESS_Quantized = data["US_INIT_JOBLESS"].df[:,:Quantized] 
+,US_INIT_JOBLESS_Avg005 = data["US_INIT_JOBLESS"].df[:,:Avg005] 
+,US_INIT_JOBLESS_Avg030 = data["US_INIT_JOBLESS"].df[:,:Avg030] 
+,US_INIT_JOBLESS_Avg060 = data["US_INIT_JOBLESS"].df[:,:Avg060] 
+,US_INIT_JOBLESS_Avg090 = data["US_INIT_JOBLESS"].df[:,:Avg090] 
+,US_INIT_JOBLESS_Avg120 = data["US_INIT_JOBLESS"].df[:,:Avg120] 
+,US_INIT_JOBLESS_Avg180 = data["US_INIT_JOBLESS"].df[:,:Avg180] 
 
 #,US_HOUS_SRTS_M_Original = data["US_HOUS_SRTS_M"].df[:,:Original] 
 #,US_HOUS_SRTS_M_Quantized = data["US_HOUS_SRTS_M"].df[:,:Quantized] 
