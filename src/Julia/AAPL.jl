@@ -1,10 +1,12 @@
 dataset_file_name = "AAPL.csv"
 date_original_format = "yyyy-mm-dd"
-column_to_keep = 3 # Column number in the original file e.g. High
-predict_days = 7 # number of days to predict
+#date_original_format = "yyyy.mm.dd"
+column_to_keep = 3 # Column number in the original file e.g. High or ActualValue
 
-verbose = false
+verbose = true
+#verbose = false
 
+predict_days = 30 # number of days to predict
 path_data_original  = "../Data/original/"
 path_data_processed = "../Data/processed/"
 include("../Julia/functions.jl") 
@@ -28,16 +30,6 @@ if verbose
 end
 
 include("../Julia/function_toFloat64.jl")
-
-if verbose
-    column = ["1.2", "NA", "", Base.missing, "-1e3"]
-    #column = df[:,3]
-    #col1 = map(x->(x=ismissing(x) ? "" : x; x=tryparse(Float64,x); isnothing(x) ? missing : x), column) # returns Array{Float64,1}
-    col1 = toFloat64(column)
-    col1[1:5]
-end
-
-# https://stackoverflow.com/a/65163457/6312771
 
 using DataFrames
 df = DataFrame( 
@@ -77,6 +69,7 @@ if verbose
     last_row = size(df)[1]
     df[last_row,:]
 end
+println()
 
 update_rata_die!(df, 1, 2)
 
@@ -178,18 +171,19 @@ if verbose
         )
 end
 
-insertcols!(df,  5,  :Avg030   => averages030  , makeunique=true)
-insertcols!(df,  6,  :Avg060   => averages060  , makeunique=true)
-insertcols!(df,  7,  :Avg090   => averages090  , makeunique=true)
-insertcols!(df,  8,  :Avg120   => averages120  , makeunique=true)
-insertcols!(df,  9,  :Avg180   => averages180  , makeunique=true)
+insertcols!(df,  5,  :Avg005   => averages005  , makeunique=true)
+insertcols!(df,  6,  :Avg030   => averages030  , makeunique=true)
+insertcols!(df,  7,  :Avg060   => averages060  , makeunique=true)
+insertcols!(df,  8,  :Avg090   => averages090  , makeunique=true)
+insertcols!(df,  9,  :Avg120   => averages120  , makeunique=true)
+insertcols!(df, 10,  :Avg180   => averages180  , makeunique=true)
 
 if verbose
     using Statistics
     describe(df)
 end
 
-## Alwasy show
+## Always show
 using Statistics
 describe(df)
 

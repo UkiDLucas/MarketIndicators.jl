@@ -1,6 +1,8 @@
 column_to_predict = "DJIA_Original"
 # column_to_predict = "AAPL_Original"
 # column_to_predict = "VIX_Original"
+# column_to_predict = "NIO_Original"
+# column_to_predict = "NVDA_Original"
 
 ## uncomment for the first run
 # import Pkg
@@ -48,15 +50,17 @@ model = tc.regression.create(
     ,"US_ISM_MFC_PMI_Avg180"
     ,"US_ISM_MFC_PMI_Avg365"
         
-    ,"DJIA_Quantized"
+
+    #,"DJIA_Quantized"
+    ,"DJIA_Avg005"
     ,"DJIA_Avg030"
     ,"DJIA_Avg060"
     ,"DJIA_Avg090"
     ,"DJIA_Avg120"
     ,"DJIA_Avg180"
-    ,"DJIA_Avg365"
-        
-    ,"AAPL_Quantized" # replace with 5 day average
+       
+    ,"AAPL_Quantized"
+    ,"AAPL_Avg005"
     ,"AAPL_Avg030"
     ,"AAPL_Avg060"
     ,"AAPL_Avg090"
@@ -70,6 +74,49 @@ model = tc.regression.create(
     ,"US_ISM_MFC_EMP_Avg120"
     ,"US_ISM_MFC_EMP_Avg180"
     ,"US_ISM_MFC_EMP_Avg365"
+        
+    ,"US_INIT_JOBLESS_Quantized"
+    ,"US_INIT_JOBLESS_Avg005"
+    ,"US_INIT_JOBLESS_Avg030"
+    ,"US_INIT_JOBLESS_Avg060"
+    ,"US_INIT_JOBLESS_Avg090"
+    ,"US_INIT_JOBLESS_Avg120"
+    ,"US_INIT_JOBLESS_Avg180"
+        
+    ,"US_GDP_Q_Quantized"
+    ,"US_GDP_Q_Avg005"
+    ,"US_GDP_Q_Avg030"
+    ,"US_GDP_Q_Avg060"
+    ,"US_GDP_Q_Avg090"
+    ,"US_GDP_Q_Avg120"
+    ,"US_GDP_Q_Avg180"
+        
+
+    ,"NIO_Quantized"
+    ,"NIO_Avg005"
+    ,"NIO_Avg030"
+    ,"NIO_Avg060"
+    ,"NIO_Avg090"
+    ,"NIO_Avg120"
+    ,"NIO_Avg180"
+        
+
+    ,"NVDA_Quantized"
+    ,"NVDA_Avg005"
+    ,"NVDA_Avg030"
+    ,"NVDA_Avg060"
+    ,"NVDA_Avg090"
+    ,"NVDA_Avg120"
+    ,"NVDA_Avg180"
+        
+
+    ,"US_HOUS_STRT_M_Quantized"
+    ,"US_HOUS_STRT_M_Avg005"
+    ,"US_HOUS_STRT_M_Avg030"
+    ,"US_HOUS_STRT_M_Avg060"
+    ,"US_HOUS_STRT_M_Avg090"
+    ,"US_HOUS_STRT_M_Avg120"
+    ,"US_HOUS_STRT_M_Avg180"
     
         ], 
     validation_set="auto", 
@@ -89,6 +136,9 @@ max_error = round(max_error, digits=2)
 
 println( "max_error: ", max_error, ", rmse: ", rmse )
 # max_error: 1069.27, rmse: 184.6
+# max_error: 65.35, rmse: 32.6            predict: ^DJIA added: US_INIT_JOBLESS
+# max_error: 1875.39, rmse: 443.59        predict: ^DJIA commented out: "DJIA_Quantized"
+# max_error: 1339.76, rmse: 373.94        predict: ^DJIA commented out: "DJIA_Quantized"
 
 # Export to Core ML
 model.export_coreml("../DATA/models/^DJI.mlmodel")
@@ -127,8 +177,6 @@ finem  = size(predictions)[1] -1                        # latin: end
 gradus = convert(Int64, round( finem/20, digits=0)  )   # latin: step
 
 println("preditions set size: ", finem, ", step ", gradus)
-
-
 
 using Dates
 

@@ -21,13 +21,15 @@ while true
     print_date_time(); include("^DJI.jl")
     print_date_time(); include("^VIX.jl")
     print_date_time(); include("AAPL.jl")
-    #print_date_time(); include("NIO.jl") # fix Rata_Die
+    print_date_time(); include("NIO.jl") # fix Rata_Die
     print_date_time(); include("US_Housing_Starts_mm.jl")
     print_date_time(); include("ISM_Manufacturing_PMI.jl")
     print_date_time(); include("ISM_Manufacturing_Employment.jl")
     print_date_time(); include("US_INIT_JOBLESS.jl")  
     print_date_time(); include("US_PEND_HOME_SALE.jl") 
-    print_date_time(); include("US_GDP_Q.jl") 
+    print_date_time(); include("US_GDP_Q.jl")  
+    print_date_time(); include("NVDA.jl") 
+    
     
     
 

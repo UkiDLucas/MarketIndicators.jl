@@ -1,12 +1,11 @@
-dataset_file_name = "^DJI.csv"
+dataset_file_name = "NVDA.csv"
 date_original_format = "yyyy-mm-dd"
-#date_original_format = "yyyy.mm.dd"
 column_to_keep = 3 # Column number in the original file e.g. High or ActualValue
+predict_days = 30 # number of days to predict
 
 verbose = true
 #verbose = false
 
-predict_days = 30 # number of days to predict
 path_data_original  = "../Data/original/"
 path_data_processed = "../Data/processed/"
 include("../Julia/functions.jl") 

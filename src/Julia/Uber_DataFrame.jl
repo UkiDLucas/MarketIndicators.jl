@@ -13,10 +13,14 @@ data = Dict{String, IndicatorData}()
 addIndicator!(data, "AAPL", "AAPL.csv" )
 addIndicator!(data, "VIX", "^VIX.csv" )
 addIndicator!(data, "DJIA", "^DJI.csv" )
-addIndicator!(data, "US_ISM_MFC_EMP", "united-states.ism-manufacturing-employment.csv" )
-addIndicator!(data, "US_HOUS_SRTS_M", "united-states.housing-starts-mm.csv" )
-addIndicator!(data, "US_ISM_MFC_PMI", "united-states.ism-manufacturing-pmi.csv" )
-addIndicator!(data, "US_INIT_JOBLESS", "united-states.initial-jobless-claims.csv" )
+addIndicator!(data, "US_ISM_MFC_EMP"  , "united-states.ism-manufacturing-employment.csv" )
+addIndicator!(data, "US_HOUS_STRT_M"  , "united-states.housing-starts-mm.csv" )
+addIndicator!(data, "US_ISM_MFC_PMI"  , "united-states.ism-manufacturing-pmi.csv" )
+addIndicator!(data, "US_INIT_JOBLESS" , "united-states.initial-jobless-claims.csv" )
+addIndicator!(data, "US_GDP_Q"        , "united-states.gross-domestic-product-qq.csv" )
+addIndicator!(data, "NIO"             , "NIO.csv" )
+addIndicator!(data, "NVDA"            , "NVDA.csv" )
+
 
 
 
@@ -66,15 +70,16 @@ uber = DataFrame(
 
 ,DJIA_Original = data["DJIA"].df[:,:Original] 
 ,DJIA_Quantized = data["DJIA"].df[:,:Quantized] 
+,DJIA_Avg005 = data["DJIA"].df[:,:Avg005] 
 ,DJIA_Avg030 = data["DJIA"].df[:,:Avg030] 
 ,DJIA_Avg060 = data["DJIA"].df[:,:Avg060] 
 ,DJIA_Avg090 = data["DJIA"].df[:,:Avg090] 
 ,DJIA_Avg120 = data["DJIA"].df[:,:Avg120] 
 ,DJIA_Avg180 = data["DJIA"].df[:,:Avg180] 
-,DJIA_Avg365 = data["DJIA"].df[:,:Avg365] 
 
 ,AAPL_Original = data["AAPL"].df[:,:Original] 
 ,AAPL_Quantized = data["AAPL"].df[:,:Quantized] 
+,AAPL_Avg005 = data["AAPL"].df[:,:Avg005] 
 ,AAPL_Avg030 = data["AAPL"].df[:,:Avg030] 
 ,AAPL_Avg060 = data["AAPL"].df[:,:Avg060] 
 ,AAPL_Avg090 = data["AAPL"].df[:,:Avg090] 
@@ -97,17 +102,44 @@ uber = DataFrame(
 ,US_INIT_JOBLESS_Avg090 = data["US_INIT_JOBLESS"].df[:,:Avg090] 
 ,US_INIT_JOBLESS_Avg120 = data["US_INIT_JOBLESS"].df[:,:Avg120] 
 ,US_INIT_JOBLESS_Avg180 = data["US_INIT_JOBLESS"].df[:,:Avg180] 
+    
+,US_GDP_Q_Quantized = data["US_GDP_Q"].df[:,:Quantized] 
+,US_GDP_Q_Avg005 = data["US_GDP_Q"].df[:,:Avg005] 
+,US_GDP_Q_Avg030 = data["US_GDP_Q"].df[:,:Avg030] 
+,US_GDP_Q_Avg060 = data["US_GDP_Q"].df[:,:Avg060] 
+,US_GDP_Q_Avg090 = data["US_GDP_Q"].df[:,:Avg090] 
+,US_GDP_Q_Avg120 = data["US_GDP_Q"].df[:,:Avg120] 
+,US_GDP_Q_Avg180 = data["US_GDP_Q"].df[:,:Avg180] 
+    
+,NIO_Original = data["NIO"].df[:,:Original] 
+,NIO_Quantized = data["NIO"].df[:,:Quantized] 
+,NIO_Avg005 = data["NIO"].df[:,:Avg005] 
+,NIO_Avg030 = data["NIO"].df[:,:Avg030] 
+,NIO_Avg060 = data["NIO"].df[:,:Avg060] 
+,NIO_Avg090 = data["NIO"].df[:,:Avg090] 
+,NIO_Avg120 = data["NIO"].df[:,:Avg120] 
+,NIO_Avg180 = data["NIO"].df[:,:Avg180] 
+    
+,NVDA_Original = data["NVDA"].df[:,:Original] 
+,NVDA_Quantized = data["NVDA"].df[:,:Quantized] 
+,NVDA_Avg005 = data["NVDA"].df[:,:Avg005] 
+,NVDA_Avg030 = data["NVDA"].df[:,:Avg030] 
+,NVDA_Avg060 = data["NVDA"].df[:,:Avg060] 
+,NVDA_Avg090 = data["NVDA"].df[:,:Avg090] 
+,NVDA_Avg120 = data["NVDA"].df[:,:Avg120] 
+,NVDA_Avg180 = data["NVDA"].df[:,:Avg180] 
 
-#,US_HOUS_SRTS_M_Original = data["US_HOUS_SRTS_M"].df[:,:Original] 
-#,US_HOUS_SRTS_M_Quantized = data["US_HOUS_SRTS_M"].df[:,:Quantized] 
-#,US_HOUS_SRTS_M_Avg030 = data["US_HOUS_SRTS_M"].df[:,:Avg030] 
-#,US_HOUS_SRTS_M_Avg060 = data["US_HOUS_SRTS_M"].df[:,:Avg060] 
-#,US_HOUS_SRTS_M_Avg090 = data["US_HOUS_SRTS_M"].df[:,:Avg090] 
-#,US_HOUS_SRTS_M_Avg180 = data["US_HOUS_SRTS_M"].df[:,:Avg180] 
-#,US_HOUS_SRTS_M_Avg365 = data["US_HOUS_SRTS_M"].df[:,:Avg365] 
+,US_HOUS_STRT_M_Original = data["US_HOUS_STRT_M"].df[:,:Original] 
+,US_HOUS_STRT_M_Quantized = data["US_HOUS_STRT_M"].df[:,:Quantized] 
+,US_HOUS_STRT_M_Avg005 = data["US_HOUS_STRT_M"].df[:,:Avg005] 
+,US_HOUS_STRT_M_Avg030 = data["US_HOUS_STRT_M"].df[:,:Avg030] 
+,US_HOUS_STRT_M_Avg060 = data["US_HOUS_STRT_M"].df[:,:Avg060] 
+,US_HOUS_STRT_M_Avg090 = data["US_HOUS_STRT_M"].df[:,:Avg090] 
+,US_HOUS_STRT_M_Avg120 = data["US_HOUS_STRT_M"].df[:,:Avg120] 
+,US_HOUS_STRT_M_Avg180 = data["US_HOUS_STRT_M"].df[:,:Avg180] 
 )
 using Statistics
-describe(uber_df)
+describe(uber)
 
 columns = print_colunms(uber)
 println()
@@ -121,10 +153,10 @@ dates = format_dates( uber[rows,2] , "m/d/yy")
 gr()
 plot( dates, # x-axis: dates
      [ 
-        uber[rows,5] uber[rows,8] uber[rows,14] uber[rows,16] uber[rows,20] uber[rows,23] uber[rows,28] uber[rows,31] uber[rows,36] uber[rows,38]         
+        uber[rows,8] uber[rows,15] uber[rows,20] uber[rows,28] uber[rows,39] uber[rows,45] uber[rows,53] uber[rows,57] uber[rows,65]  uber[rows,78]         
     ], # y-axis
     label = [      
-          columns[5]   columns[8]   columns[14]   columns[16]   columns[20]    columns[23]  columns[28]    columns[31]  columns[36]   columns[38] "" 
+        columns[8]     columns[15]   columns[20]   columns[28] columns[39]   columns[45]   columns[53] columns[57] columns[65] columns[78] "" 
     ],
     legend   =:topleft, 
               # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright

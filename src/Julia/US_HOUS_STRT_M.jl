@@ -1,7 +1,6 @@
-dataset_file_name = "^DJI.csv"
-date_original_format = "yyyy-mm-dd"
-#date_original_format = "yyyy.mm.dd"
-column_to_keep = 3 # Column number in the original file e.g. High or ActualValue
+dataset_file_name = "united-states.housing-starts-mm.csv"
+date_original_format = "yyyy.mm.dd"
+column_to_keep = 2 # Column number in the original file e.g. High or ActualValue
 
 verbose = true
 #verbose = false
