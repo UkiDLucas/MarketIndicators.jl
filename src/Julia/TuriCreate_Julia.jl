@@ -1,5 +1,5 @@
-column_to_predict = "DJIA_Original"
-# column_to_predict = "AAPL_Original"
+#column_to_predict = "DJIA_Original"
+column_to_predict = "AAPL_Original"
 # column_to_predict = "VIX_Original"
 # column_to_predict = "NIO_Original"
 # column_to_predict = "NVDA_Original"
@@ -51,7 +51,7 @@ model = tc.regression.create(
     ,"US_ISM_MFC_PMI_Avg365"
         
 
-    #,"DJIA_Quantized"
+    ,"DJIA_Quantized"
     ,"DJIA_Avg005"
     ,"DJIA_Avg030"
     ,"DJIA_Avg060"
@@ -59,7 +59,7 @@ model = tc.regression.create(
     ,"DJIA_Avg120"
     ,"DJIA_Avg180"
        
-    ,"AAPL_Quantized"
+    #,"AAPL_Quantized"
     ,"AAPL_Avg005"
     ,"AAPL_Avg030"
     ,"AAPL_Avg060"
@@ -139,6 +139,7 @@ println( "max_error: ", max_error, ", rmse: ", rmse )
 # max_error: 65.35, rmse: 32.6            predict: ^DJIA added: US_INIT_JOBLESS
 # max_error: 1875.39, rmse: 443.59        predict: ^DJIA commented out: "DJIA_Quantized"
 # max_error: 1339.76, rmse: 373.94        predict: ^DJIA commented out: "DJIA_Quantized"
+# max_error: 916.19, rmse: 231.24       predict: ^DJIA with "DJIA_Avg005"
 
 # Export to Core ML
 model.export_coreml("../DATA/models/^DJI.mlmodel")
@@ -245,14 +246,13 @@ plot(    x_axis_dates,
 plot!([today_id], seriestype="vline", label=[ "today "*t "" ],)
 
 savefig("../../predictions.png")
-
 savefig("../../predictions_" * column_to_predict * ".png")
 
 ## print prediction comparisons
 #println(today_id)
 
-for id in finem-10:finem
-    if id < today_id + 2
+for id in finem-35:finem
+    if id < today_id + 3
         row = get(data_predictions, id) # get a dictionary of data from the SFrame
         date_string = row["Date"] # e.g. "2020-10-20"
         
