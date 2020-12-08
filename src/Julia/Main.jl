@@ -30,13 +30,19 @@ while true
     print_date_time(); include("US_GDP_Q.jl")  
     print_date_time(); include("NVDA.jl") 
     
-    
-    
+    print_date_time(); include("Uber_DataFrame.jl")
 
-    print_date_time(); include("Uber_DataFrame.jl")  # UndefVarError: uber_df not defined
-    print_date_time(); include("TuriCreate_Julia.jl")
+    print_date_time(); include("predict_NVDA.jl")
+    print_date_time(); include("predict_VIX.jl")
+    print_date_time(); include("predict_AAPL.jl")
+    print_date_time(); include("predict_NIO.jl")
+   
+    print_date_time(); include("preditct_DJIA.jl")
+    
+    
+    
 
     nap_time = 60*60*4 # seconds * minutes * hours
-    println("going to sleep for ", nap_time/(60*60), " hours" )
+    print_date_time(); println("going to sleep for ", nap_time/(60*60), " hours" )
     sleep(nap_time) 
 end # while loop
