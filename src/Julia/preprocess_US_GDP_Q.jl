@@ -1,14 +1,20 @@
 dataset_file_name = "united-states.gross-domestic-product-qq.csv"
-date_original_format = "yyyy.mm.dd"
-column_to_keep = 2 # Column number in the original file e.g. High or ActualValue
-predict_days = 30 # number of days to predict
+#date_original_format = "yyyy-mm-dd" 
+# ^VIX, ^DJI, AAPL, NVDA, NIO
 
-verbose = true
+date_original_format = "yyyy.mm.dd"
+# united-states.gross-domestic-product-qq.csv  -- US_GDP_Q
+
+column_to_keep = 2 # Column number in the original file e.g. High or ActualValue
+
+# verbose = true
 verbose = false
 
+predict_days = 30 # number of days to predict
 path_data_original  = "../Data/original/"
 path_data_processed = "../Data/processed/"
 include("../Julia/functions.jl") 
+include("../Julia/function_toFloat64.jl")
 println()
 
 ## show available datasets
@@ -28,7 +34,7 @@ if verbose
     describe(df)
 end
 
-include("../Julia/function_toFloat64.jl")
+
 
 using DataFrames
 df = DataFrame( 
@@ -68,6 +74,7 @@ if verbose
     last_row = size(df)[1]
     df[last_row,:]
 end
+println()
 
 update_rata_die!(df, 1, 2)
 
