@@ -4,41 +4,10 @@ symbol_to_predict = "AAPL"
 # symbol_to_predict = "NIO"
 # symbol_to_predict = "NVDA"
 
-
-
-
-## uncomment for the first run
-# import Pkg
-# Pkg.add("PyCall")
-# Pkg.add("Conda")
-# ENV["PYTHON"] = "/opt/anaconda3/envs/turi/bin/python"
-# /opt/anaconda3/envs/turi/lib/python3.6/site-packages/
-# Pkg.build("PyCall")
-
-include("../Julia/functions.jl") 
-data_path="../DATA/processed/uber_training.csv"
-column_to_predict = symbol_to_predict * "_Original"
-
-using PyCall
-tc = pyimport("turicreate")
-data = tc.SFrame(data_path)
-println()
-
-# Make a train-test split
-train_data, test_data = data.random_split(0.8)
-
-println( size(train_data) )
-println( size(test_data)  )
-
-
-
-model = tc.regression.create( 
-    train_data, 
-    target = column_to_predict, 
-    features = [
-
-    #"VIX_Quantized"
-    "VIX_Avg030"
+features_to_analyze = 
+[
+    "VIX_Quantized"
+    ,"VIX_Avg030"
     ,"VIX_Avg060"
     ,"VIX_Avg090"
     ,"VIX_Avg120"
@@ -94,7 +63,7 @@ model = tc.regression.create(
     ,"US_GDP_Q_Avg180"
         
 
-    #,"NIO_Quantized"
+    ,"NIO_Quantized"
     ,"NIO_Avg005"
     ,"NIO_Avg030"
     ,"NIO_Avg060"
@@ -103,7 +72,7 @@ model = tc.regression.create(
     ,"NIO_Avg180"
         
 
-    #,"NVDA_Quantized"
+    ,"NVDA_Quantized"
     ,"NVDA_Avg005"
     ,"NVDA_Avg030"
     ,"NVDA_Avg060"
@@ -120,7 +89,37 @@ model = tc.regression.create(
     ,"US_HOUS_STRT_M_Avg120"
     ,"US_HOUS_STRT_M_Avg180"
     
-        ], 
+]
+
+println()
+
+## uncomment for the first run
+# import Pkg
+# Pkg.add("PyCall")
+# Pkg.add("Conda")
+# ENV["PYTHON"] = "/opt/anaconda3/envs/turi/bin/python"
+# /opt/anaconda3/envs/turi/lib/python3.6/site-packages/
+# Pkg.build("PyCall")
+
+include("../Julia/functions.jl") 
+data_path="../DATA/processed/uber_training.csv"
+column_to_predict = symbol_to_predict * "_Original"
+
+using PyCall
+tc = pyimport("turicreate")
+data = tc.SFrame(data_path)
+println()
+
+# Make a train-test split
+train_data, test_data = data.random_split(0.8)
+
+println( size(train_data) )
+println( size(test_data)  )
+
+model = tc.regression.create( 
+    train_data, 
+    target = column_to_predict, 
+    features = features_to_analyze, 
     validation_set="auto", 
     verbose=true
 )
@@ -148,11 +147,14 @@ model.export_coreml("../DATA/models/^DJI.mlmodel")
 
 data_path="../DATA/processed/uber_prediction.csv"
 data_predictions = tc.SFrame(data_path)
-println()
 
 ## Save predictions to an SArray
 predictions = model.predict(data_predictions)
 get(predictions, 1)
+
+println()
+
+
 
 record_count = size(data_predictions)[1]
 row = get(data_predictions, record_count-1)
@@ -218,12 +220,12 @@ end
 
 ## Format Dates for plotting
 include("../Julia/function_format_dates.jl")
-x_axis_dates = format_dates(x_axis_dates, "u.d,yy")
+x_axis_dates = format_dates(x_axis_dates, "u. d, yy")
 
 
 
 t = today()# Date
-t = format_dates([t], "u.d, yy") # Array{String,1}
+t = format_dates([t], "u. d, yyyy") # Array{String,1}
 t = t[1] # String
 println("t ", t, " ", typeof(t))
 
@@ -247,7 +249,7 @@ plot(    x_axis_dates,
     layout = (1, 1), # number of graphs: vertically, horizontally
     )
 ## Add veritical today line
-plot!([today_id], seriestype="vline", label=[ "today "*t "" ],)
+plot!([today_id], seriestype="vline", label=[ "Today "*t "" ],)
 
 
 savefig("../../predictions_" * symbol_to_predict * ".png")
