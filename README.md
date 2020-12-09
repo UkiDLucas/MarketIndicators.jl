@@ -6,6 +6,12 @@ This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas
 
 <hr />
 
+## Disclaimer
+
+I am not a professional economist, nor financial advisor, nor do I have ANY formal training in these subjects.
+Any market predictions shown here are the outcome of automatic machine learning without any expert human supervision.
+This **project is purely for your entertainment only**. 
+
 ## Overview
 
 I have asked myself a question: **Can we create an AI model to predict macro-economic trends?**
