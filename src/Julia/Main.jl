@@ -19,16 +19,16 @@ end # function
 while true
     print_date_time(); fetch_web_data(df ); 
     print_date_time(); include("preprocess_DJI.jl")
-    print_date_time(); include("^VIX.jl")
-    print_date_time(); include("AAPL.jl")
-    print_date_time(); include("NIO.jl") # fix Rata_Die
+    print_date_time(); include("preprocess_VIX.jl")
+    print_date_time(); include("preprocess_AAPL.jl")
+    print_date_time(); include("preprocess_NVDA.jl") 
+    print_date_time(); include("preprocess_NIO.jl") # fix Rata_Die
     print_date_time(); include("US_HOUS_STRT_M.jl")
     print_date_time(); include("ISM_Manufacturing_PMI.jl")
     print_date_time(); include("ISM_Manufacturing_Employment.jl")
     print_date_time(); include("US_INIT_JOBLESS.jl")  
     print_date_time(); include("US_PEND_HOME_SALE.jl") 
     print_date_time(); include("US_GDP_Q.jl")  
-    print_date_time(); include("NVDA.jl") 
     
     print_date_time(); include("Uber_DataFrame.jl")
 

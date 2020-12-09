@@ -1,14 +1,16 @@
 dataset_file_name = "NIO.csv"
-date_original_format = "yyyy-mm-dd"
+date_original_format = "yyyy-mm-dd" # ^VIX, ^DJI, AAPL, NVDA, NIO
+#date_original_format = "yyyy.mm.dd"
 column_to_keep = 3 # Column number in the original file e.g. High or ActualValue
+
+# verbose = true
+verbose = false
+
 predict_days = 30 # number of days to predict
-
-verbose = true
-#verbose = false
-
 path_data_original  = "../Data/original/"
 path_data_processed = "../Data/processed/"
 include("../Julia/functions.jl") 
+include("../Julia/function_toFloat64.jl")
 println()
 
 ## show available datasets
@@ -28,7 +30,7 @@ if verbose
     describe(df)
 end
 
-include("../Julia/function_toFloat64.jl")
+
 
 using DataFrames
 df = DataFrame( 
