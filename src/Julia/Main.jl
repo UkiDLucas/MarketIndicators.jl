@@ -17,8 +17,8 @@ function print_date_time()
 end # function
 
 while true
-    #print_date_time(); fetch_web_data(df ); 
-    print_date_time(); include("^DJI.jl")
+    print_date_time(); fetch_web_data(df ); 
+    print_date_time(); include("preprocess_DJI.jl")
     print_date_time(); include("^VIX.jl")
     print_date_time(); include("AAPL.jl")
     print_date_time(); include("NIO.jl") # fix Rata_Die
