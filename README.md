@@ -5,7 +5,7 @@
 - This project was started in August 2020 on this [GitHub](https://github.com/UkiDLucas/MarketIndicators.jl).
 - If you have a personal question to the author, contact [Uki D. Lucas](https://www.linkedin.com/in/ukidlucas/)  on LinkedIn.
 - If you want to post a comment, please use [Discussions](https://github.com/UkiDLucas/MarketIndicators.jl/discussions).
-- If you want to report bug, or change request, use [Issue tracker](https://github.com/UkiDLucas/MarketIndicators.jl/issues).
+- If you want to report bug, or submit a change request, use [Issue tracker](https://github.com/UkiDLucas/MarketIndicators.jl/issues).
 
 <hr />
 
@@ -41,26 +41,26 @@ Please read the disclaimer above.
 
 ### VIX index
 
-<img src="predictions_VIX.png" />
+<img src="src/images/predictions_VIX.png" />
 
 
 ### AAPL
 
-<img src="predictions_AAPL.png" />
+<img src="src/images/predictions_AAPL.png" />
 
 
 ### NIO
 
-<img src="predictions_NIO.png" />
+<img src="src/images/predictions_NIO.png" />
 
 ### NVDA
 
-<img src="predictions_NVDA.png" />
+<img src="src/images/predictions_NVDA.png" />
 
 ## Technical Explanation
 
 Long story short, I take a lot of features (i.e. indicators) and run machine model to predict a trend, or stock price for next few days.
-<img src="indicators.png" />
+<img src="src/images/indicators.png" />
 
 
 
