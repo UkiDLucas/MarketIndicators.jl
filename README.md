@@ -20,7 +20,7 @@ Please **read the story** on [UkiDLucas.medium.com](https://medium.com/datadrive
 <a href="https://github.com/UkiDLucas/MarketIndicators.jl"><img src="src/images/GitHub_Sponsor_Watch_Star.png" /></a>
 
 
-The preditions and [technical explanation](#Technical-Explanation) follow below.
+The [preditions](#Predictions) and [technical explanation](#Technical-Explanation) follow below.
 
 ## Disclaimer
 
