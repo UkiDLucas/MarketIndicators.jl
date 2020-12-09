@@ -23,12 +23,12 @@ while true
     print_date_time(); include("preprocess_AAPL.jl")
     print_date_time(); include("preprocess_NVDA.jl") 
     print_date_time(); include("preprocess_NIO.jl") # fix Rata_Die
+    print_date_time(); include("preprocess_US_GDP_Q.jl")  
     print_date_time(); include("US_HOUS_STRT_M.jl")
     print_date_time(); include("ISM_Manufacturing_PMI.jl")
     print_date_time(); include("ISM_Manufacturing_Employment.jl")
     print_date_time(); include("US_INIT_JOBLESS.jl")  
     print_date_time(); include("US_PEND_HOME_SALE.jl") 
-    print_date_time(); include("US_GDP_Q.jl")  
     
     print_date_time(); include("Uber_DataFrame.jl")
 
