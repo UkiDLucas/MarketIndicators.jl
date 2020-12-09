@@ -1,8 +1,11 @@
-# MarketIndicators.jl
+# Market Indicators machine learning with Julia.
 
 *by [Uki D. Lucas](https://www.linkedin.com/in/ukidlucas/)*
 
-This project was started in August 2020 on [GitHub](https://github.com/UkiDLucas/MarketIndicators.jl)
+- This project was started in August 2020 on this [GitHub](https://github.com/UkiDLucas/MarketIndicators.jl).
+- If you have a personal question to the author, contact [Uki D. Lucas](https://www.linkedin.com/in/ukidlucas/)  on LinkedIn.
+- If you want to post a comment, please use [Discussions](https://github.com/UkiDLucas/MarketIndicators.jl/discussions).
+- If you want to report bug, or change request, use [Issue tracker](https://github.com/UkiDLucas/MarketIndicators.jl/issues).
 
 <hr />
 
