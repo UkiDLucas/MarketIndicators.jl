@@ -46,27 +46,62 @@ for key in keys(data)
 end
 
 using DataFrames
+
+## example column_name = data["SYMBOL"].df[:,:column_name] 
+
 uber = DataFrame(  
 
- Rata_Die = data["DJIA"].df[:,:Rata_Die] # Array{Int64,1}
-,Date = data["DJIA"].df[:,:Date] 
+ Rata_Die = data["VIX"].df[:,:Rata_Die] 
+,Date = data["VIX"].df[:,:Date] 
     
 ,VIX_Original = data["VIX"].df[:,:Original] 
 ,VIX_Quantized = data["VIX"].df[:,:Quantized] 
+,VIX_Avg005 = data["VIX"].df[:,:Avg005] 
 ,VIX_Avg030 = data["VIX"].df[:,:Avg030] 
 ,VIX_Avg060 = data["VIX"].df[:,:Avg060] 
 ,VIX_Avg090 = data["VIX"].df[:,:Avg090] 
 ,VIX_Avg120 = data["VIX"].df[:,:Avg120] 
 ,VIX_Avg180 = data["VIX"].df[:,:Avg180] 
-,VIX_Avg365 = data["VIX"].df[:,:Avg365] 
     
+
+,US_GDP_Q_Original = data["US_GDP_Q"].df[:,:Original] 
+,US_GDP_Q_Quantized = data["US_GDP_Q"].df[:,:Quantized] 
+,US_GDP_Q_Avg005 = data["US_GDP_Q"].df[:,:Avg005] 
+,US_GDP_Q_Avg030 = data["US_GDP_Q"].df[:,:Avg030] 
+,US_GDP_Q_Avg060 = data["US_GDP_Q"].df[:,:Avg060] 
+,US_GDP_Q_Avg090 = data["US_GDP_Q"].df[:,:Avg090] 
+,US_GDP_Q_Avg120 = data["US_GDP_Q"].df[:,:Avg120] 
+,US_GDP_Q_Avg180 = data["US_GDP_Q"].df[:,:Avg180] 
+    
+
 ,US_ISM_MFC_PMI_Original = data["US_ISM_MFC_PMI"].df[:,:Original] 
 ,US_ISM_MFC_PMI_Quantized = data["US_ISM_MFC_PMI"].df[:,:Quantized] 
 ,US_ISM_MFC_PMI_Avg030 = data["US_ISM_MFC_PMI"].df[:,:Avg030] 
 ,US_ISM_MFC_PMI_Avg060 = data["US_ISM_MFC_PMI"].df[:,:Avg060] 
 ,US_ISM_MFC_PMI_Avg090 = data["US_ISM_MFC_PMI"].df[:,:Avg090] 
 ,US_ISM_MFC_PMI_Avg180 = data["US_ISM_MFC_PMI"].df[:,:Avg180] 
-,US_ISM_MFC_PMI_Avg365 = data["US_ISM_MFC_PMI"].df[:,:Avg365] 
+,US_ISM_MFC_PMI_Avg365 = data["US_ISM_MFC_PMI"].df[:,:Avg365]
+    
+ 
+,NIO_Original = data["NIO"].df[:,:Original] 
+,NIO_Quantized = data["NIO"].df[:,:Quantized] 
+,NIO_Avg005 = data["NIO"].df[:,:Avg005] 
+,NIO_Avg030 = data["NIO"].df[:,:Avg030] 
+,NIO_Avg060 = data["NIO"].df[:,:Avg060] 
+,NIO_Avg090 = data["NIO"].df[:,:Avg090] 
+,NIO_Avg120 = data["NIO"].df[:,:Avg120] 
+,NIO_Avg180 = data["NIO"].df[:,:Avg180] 
+    
+
+,NVDA_Original = data["NVDA"].df[:,:Original] 
+,NVDA_Quantized = data["NVDA"].df[:,:Quantized] 
+,NVDA_Avg005 = data["NVDA"].df[:,:Avg005] 
+,NVDA_Avg030 = data["NVDA"].df[:,:Avg030] 
+,NVDA_Avg060 = data["NVDA"].df[:,:Avg060] 
+,NVDA_Avg090 = data["NVDA"].df[:,:Avg090] 
+,NVDA_Avg120 = data["NVDA"].df[:,:Avg120] 
+,NVDA_Avg180 = data["NVDA"].df[:,:Avg180] 
+    
 
 ,DJIA_Original = data["DJIA"].df[:,:Original] 
 ,DJIA_Quantized = data["DJIA"].df[:,:Quantized] 
@@ -76,6 +111,7 @@ uber = DataFrame(
 ,DJIA_Avg090 = data["DJIA"].df[:,:Avg090] 
 ,DJIA_Avg120 = data["DJIA"].df[:,:Avg120] 
 ,DJIA_Avg180 = data["DJIA"].df[:,:Avg180] 
+    
 
 ,AAPL_Original = data["AAPL"].df[:,:Original] 
 ,AAPL_Quantized = data["AAPL"].df[:,:Quantized] 
@@ -85,6 +121,17 @@ uber = DataFrame(
 ,AAPL_Avg090 = data["AAPL"].df[:,:Avg090] 
 ,AAPL_Avg120 = data["AAPL"].df[:,:Avg120] 
 ,AAPL_Avg180 = data["AAPL"].df[:,:Avg180] 
+    
+
+,US_INIT_JOBLESS_Original = data["US_INIT_JOBLESS"].df[:,:Original] 
+,US_INIT_JOBLESS_Quantized = data["US_INIT_JOBLESS"].df[:,:Quantized] 
+,US_INIT_JOBLESS_Avg005 = data["US_INIT_JOBLESS"].df[:,:Avg005] 
+,US_INIT_JOBLESS_Avg030 = data["US_INIT_JOBLESS"].df[:,:Avg030] 
+,US_INIT_JOBLESS_Avg060 = data["US_INIT_JOBLESS"].df[:,:Avg060] 
+,US_INIT_JOBLESS_Avg090 = data["US_INIT_JOBLESS"].df[:,:Avg090] 
+,US_INIT_JOBLESS_Avg120 = data["US_INIT_JOBLESS"].df[:,:Avg120] 
+,US_INIT_JOBLESS_Avg180 = data["US_INIT_JOBLESS"].df[:,:Avg180] 
+    
 
 ,US_ISM_MFC_EMP_Original = data["US_ISM_MFC_EMP"].df[:,:Original] 
 ,US_ISM_MFC_EMP_Quantized = data["US_ISM_MFC_EMP"].df[:,:Quantized] 
@@ -95,39 +142,6 @@ uber = DataFrame(
 ,US_ISM_MFC_EMP_Avg180 = data["US_ISM_MFC_EMP"].df[:,:Avg180] 
 ,US_ISM_MFC_EMP_Avg365 = data["US_ISM_MFC_EMP"].df[:,:Avg365] 
     
-,US_INIT_JOBLESS_Quantized = data["US_INIT_JOBLESS"].df[:,:Quantized] 
-,US_INIT_JOBLESS_Avg005 = data["US_INIT_JOBLESS"].df[:,:Avg005] 
-,US_INIT_JOBLESS_Avg030 = data["US_INIT_JOBLESS"].df[:,:Avg030] 
-,US_INIT_JOBLESS_Avg060 = data["US_INIT_JOBLESS"].df[:,:Avg060] 
-,US_INIT_JOBLESS_Avg090 = data["US_INIT_JOBLESS"].df[:,:Avg090] 
-,US_INIT_JOBLESS_Avg120 = data["US_INIT_JOBLESS"].df[:,:Avg120] 
-,US_INIT_JOBLESS_Avg180 = data["US_INIT_JOBLESS"].df[:,:Avg180] 
-    
-,US_GDP_Q_Quantized = data["US_GDP_Q"].df[:,:Quantized] 
-,US_GDP_Q_Avg005 = data["US_GDP_Q"].df[:,:Avg005] 
-,US_GDP_Q_Avg030 = data["US_GDP_Q"].df[:,:Avg030] 
-,US_GDP_Q_Avg060 = data["US_GDP_Q"].df[:,:Avg060] 
-,US_GDP_Q_Avg090 = data["US_GDP_Q"].df[:,:Avg090] 
-,US_GDP_Q_Avg120 = data["US_GDP_Q"].df[:,:Avg120] 
-,US_GDP_Q_Avg180 = data["US_GDP_Q"].df[:,:Avg180] 
-    
-,NIO_Original = data["NIO"].df[:,:Original] 
-,NIO_Quantized = data["NIO"].df[:,:Quantized] 
-,NIO_Avg005 = data["NIO"].df[:,:Avg005] 
-,NIO_Avg030 = data["NIO"].df[:,:Avg030] 
-,NIO_Avg060 = data["NIO"].df[:,:Avg060] 
-,NIO_Avg090 = data["NIO"].df[:,:Avg090] 
-,NIO_Avg120 = data["NIO"].df[:,:Avg120] 
-,NIO_Avg180 = data["NIO"].df[:,:Avg180] 
-    
-,NVDA_Original = data["NVDA"].df[:,:Original] 
-,NVDA_Quantized = data["NVDA"].df[:,:Quantized] 
-,NVDA_Avg005 = data["NVDA"].df[:,:Avg005] 
-,NVDA_Avg030 = data["NVDA"].df[:,:Avg030] 
-,NVDA_Avg060 = data["NVDA"].df[:,:Avg060] 
-,NVDA_Avg090 = data["NVDA"].df[:,:Avg090] 
-,NVDA_Avg120 = data["NVDA"].df[:,:Avg120] 
-,NVDA_Avg180 = data["NVDA"].df[:,:Avg180] 
 
 ,US_HOUS_STRT_M_Original = data["US_HOUS_STRT_M"].df[:,:Original] 
 ,US_HOUS_STRT_M_Quantized = data["US_HOUS_STRT_M"].df[:,:Quantized] 
@@ -136,7 +150,7 @@ uber = DataFrame(
 ,US_HOUS_STRT_M_Avg060 = data["US_HOUS_STRT_M"].df[:,:Avg060] 
 ,US_HOUS_STRT_M_Avg090 = data["US_HOUS_STRT_M"].df[:,:Avg090] 
 ,US_HOUS_STRT_M_Avg120 = data["US_HOUS_STRT_M"].df[:,:Avg120] 
-,US_HOUS_STRT_M_Avg180 = data["US_HOUS_STRT_M"].df[:,:Avg180] 
+,US_HOUS_STRT_M_Avg180 = data["US_HOUS_STRT_M"].df[:,:Avg180]
 )
 using Statistics
 describe(uber)

@@ -6,88 +6,93 @@ symbol_to_predict = "NVDA"
 
 features_to_analyze = 
 [
-    "VIX_Avg365" 
-    ,"VIX_Quantized"
-    ,"VIX_Avg030"
-    ,"VIX_Avg060"
-    ,"VIX_Avg090"
-    ,"VIX_Avg120"
-    ,"VIX_Avg180"
-        
-    ,"US_ISM_MFC_PMI_Quantized"
-    ,"US_ISM_MFC_PMI_Avg030"
-    ,"US_ISM_MFC_PMI_Avg060"
-    ,"US_ISM_MFC_PMI_Avg090"
-    ,"US_ISM_MFC_PMI_Avg180"
-    ,"US_ISM_MFC_PMI_Avg365"
-        
 
-    ,"DJIA_Quantized"
-    ,"DJIA_Avg005"
-    ,"DJIA_Avg030"
-    ,"DJIA_Avg060"
-    ,"DJIA_Avg090"
-    ,"DJIA_Avg120"
-    ,"DJIA_Avg180"
-       
-    ,"AAPL_Quantized"
-    ,"AAPL_Avg005"
-    ,"AAPL_Avg030"
-    ,"AAPL_Avg060"
-    ,"AAPL_Avg090"
-    ,"AAPL_Avg120"
-    ,"AAPL_Avg180"
+"VIX_Original"
+,"VIX_Quantized"
+,"VIX_Avg005"
+,"VIX_Avg030"
+,"VIX_Avg060"
+,"VIX_Avg090"
+,"VIX_Avg120"
+,"VIX_Avg180"
+    
+,"US_GDP_Q_Quantized"
+,"US_GDP_Q_Avg005"
+,"US_GDP_Q_Avg030"
+,"US_GDP_Q_Avg060"
+,"US_GDP_Q_Avg090"
+,"US_GDP_Q_Avg120"
+,"US_GDP_Q_Avg180"
+    
+,"US_ISM_MFC_PMI_Quantized"
+,"US_ISM_MFC_PMI_Avg030"
+,"US_ISM_MFC_PMI_Avg060"
+,"US_ISM_MFC_PMI_Avg090"
+,"US_ISM_MFC_PMI_Avg180"
+,"US_ISM_MFC_PMI_Avg365"
 
-    ,"US_ISM_MFC_EMP_Quantized"
-    ,"US_ISM_MFC_EMP_Avg030"
-    ,"US_ISM_MFC_EMP_Avg060"
-    ,"US_ISM_MFC_EMP_Avg090"
-    ,"US_ISM_MFC_EMP_Avg120"
-    ,"US_ISM_MFC_EMP_Avg180"
-    ,"US_ISM_MFC_EMP_Avg365"
-        
-    ,"US_INIT_JOBLESS_Quantized"
-    ,"US_INIT_JOBLESS_Avg005"
-    ,"US_INIT_JOBLESS_Avg030"
-    ,"US_INIT_JOBLESS_Avg060"
-    ,"US_INIT_JOBLESS_Avg090"
-    ,"US_INIT_JOBLESS_Avg120"
-    ,"US_INIT_JOBLESS_Avg180"
-        
-    ,"US_GDP_Q_Quantized"
-    ,"US_GDP_Q_Avg005"
-    ,"US_GDP_Q_Avg030"
-    ,"US_GDP_Q_Avg060"
-    ,"US_GDP_Q_Avg090"
-    ,"US_GDP_Q_Avg120"
-    ,"US_GDP_Q_Avg180"
-        
+    
+,"NIO_Quantized"
+,"NIO_Avg005"
+,"NIO_Avg030"
+,"NIO_Avg060"
+,"NIO_Avg090"
+,"NIO_Avg120"
+,"NIO_Avg180"
 
-    ,"NIO_Quantized"
-    ,"NIO_Avg005"
-    ,"NIO_Avg030"
-    ,"NIO_Avg060"
-    ,"NIO_Avg090"
-    ,"NIO_Avg120"
-    ,"NIO_Avg180"
-        
+    
+#,"NVDA_Quantized"
+,"NVDA_Avg005"
+,"NVDA_Avg030"
+,"NVDA_Avg060"
+,"NVDA_Avg090"
+,"NVDA_Avg120"
+,"NVDA_Avg180"
 
-    #,"NVDA_Quantized"
-    ,"NVDA_Avg005"
-    ,"NVDA_Avg030"
-    ,"NVDA_Avg060"
-    ,"NVDA_Avg090"
-    ,"NVDA_Avg120"
-    ,"NVDA_Avg180"
-        
+    
+,"DJIA_Quantized"
+,"DJIA_Avg005"
+,"DJIA_Avg030"
+,"DJIA_Avg060"
+,"DJIA_Avg090"
+,"DJIA_Avg120"
+,"DJIA_Avg180"
 
-    ,"US_HOUS_STRT_M_Quantized"
-    ,"US_HOUS_STRT_M_Avg005"
-    ,"US_HOUS_STRT_M_Avg030"
-    ,"US_HOUS_STRT_M_Avg060"
-    ,"US_HOUS_STRT_M_Avg090"
-    ,"US_HOUS_STRT_M_Avg120"
-    ,"US_HOUS_STRT_M_Avg180"
+    
+,"AAPL_Quantized"
+,"AAPL_Avg005"
+,"AAPL_Avg030"
+,"AAPL_Avg060"
+,"AAPL_Avg090"
+,"AAPL_Avg120"
+,"AAPL_Avg180"
+
+    
+,"US_INIT_JOBLESS_Quantized"
+,"US_INIT_JOBLESS_Avg005"
+,"US_INIT_JOBLESS_Avg030"
+,"US_INIT_JOBLESS_Avg060"
+,"US_INIT_JOBLESS_Avg090"
+,"US_INIT_JOBLESS_Avg120"
+,"US_INIT_JOBLESS_Avg180"
+
+    
+,"US_ISM_MFC_EMP_Quantized"
+,"US_ISM_MFC_EMP_Avg030"
+,"US_ISM_MFC_EMP_Avg060"
+,"US_ISM_MFC_EMP_Avg090"
+,"US_ISM_MFC_EMP_Avg120"
+,"US_ISM_MFC_EMP_Avg180"
+,"US_ISM_MFC_EMP_Avg365"
+
+    
+,"US_HOUS_STRT_M_Quantized"
+,"US_HOUS_STRT_M_Avg005"
+,"US_HOUS_STRT_M_Avg030"
+,"US_HOUS_STRT_M_Avg060"
+,"US_HOUS_STRT_M_Avg090"
+,"US_HOUS_STRT_M_Avg120"
+,"US_HOUS_STRT_M_Avg180"
     
 ]
 
@@ -250,7 +255,7 @@ plot(    x_axis_dates,
 plot!([today_id], seriestype="vline", label=[ "Today "*t "" ],)
 
 
-savefig("../../predictions_" * symbol_to_predict * ".png")
+savefig("../images/predictions_" * symbol_to_predict * ".png")
 
 ## print prediction comparisons
 println(symbol_to_predict, " ", today())
