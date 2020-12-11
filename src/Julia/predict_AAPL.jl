@@ -1,93 +1,268 @@
 symbol_to_predict = "DJIA"
-symbol_to_predict = "AAPL"
+#symbol_to_predict = "AAPL"
 # symbol_to_predict = "VIX"
 # symbol_to_predict = "NIO"
 # symbol_to_predict = "NVDA"
 
 features_to_analyze = 
 [
-    "VIX_Quantized"
-    ,"VIX_Avg030"
-    ,"VIX_Avg060"
-    ,"VIX_Avg090"
-    ,"VIX_Avg120"
-    ,"VIX_Avg180"
-    ,"VIX_Avg365"
-        
-    ,"US_ISM_MFC_PMI_Quantized"
-    ,"US_ISM_MFC_PMI_Avg030"
-    ,"US_ISM_MFC_PMI_Avg060"
-    ,"US_ISM_MFC_PMI_Avg090"
-    ,"US_ISM_MFC_PMI_Avg180"
-    ,"US_ISM_MFC_PMI_Avg365"
-        
-
-    ,"DJIA_Quantized"
-    ,"DJIA_Avg005"
-    ,"DJIA_Avg030"
-    ,"DJIA_Avg060"
-    ,"DJIA_Avg090"
-    ,"DJIA_Avg120"
-    ,"DJIA_Avg180"
-       
-    #,"AAPL_Quantized"
-    ,"AAPL_Avg005"
-    ,"AAPL_Avg030"
-    ,"AAPL_Avg060"
-    ,"AAPL_Avg090"
-    ,"AAPL_Avg120"
-    ,"AAPL_Avg180"
-
-    ,"US_ISM_MFC_EMP_Quantized"
-    ,"US_ISM_MFC_EMP_Avg030"
-    ,"US_ISM_MFC_EMP_Avg060"
-    ,"US_ISM_MFC_EMP_Avg090"
-    ,"US_ISM_MFC_EMP_Avg120"
-    ,"US_ISM_MFC_EMP_Avg180"
-    ,"US_ISM_MFC_EMP_Avg365"
-        
-    ,"US_INIT_JOBLESS_Quantized"
-    ,"US_INIT_JOBLESS_Avg005"
-    ,"US_INIT_JOBLESS_Avg030"
-    ,"US_INIT_JOBLESS_Avg060"
-    ,"US_INIT_JOBLESS_Avg090"
-    ,"US_INIT_JOBLESS_Avg120"
-    ,"US_INIT_JOBLESS_Avg180"
-        
-    ,"US_GDP_Q_Quantized"
-    ,"US_GDP_Q_Avg005"
-    ,"US_GDP_Q_Avg030"
-    ,"US_GDP_Q_Avg060"
-    ,"US_GDP_Q_Avg090"
-    ,"US_GDP_Q_Avg120"
-    ,"US_GDP_Q_Avg180"
-        
-
-    ,"NIO_Quantized"
-    ,"NIO_Avg005"
-    ,"NIO_Avg030"
-    ,"NIO_Avg060"
-    ,"NIO_Avg090"
-    ,"NIO_Avg120"
-    ,"NIO_Avg180"
-        
-
-    ,"NVDA_Quantized"
-    ,"NVDA_Avg005"
-    ,"NVDA_Avg030"
-    ,"NVDA_Avg060"
-    ,"NVDA_Avg090"
-    ,"NVDA_Avg120"
-    ,"NVDA_Avg180"
-        
-
-    ,"US_HOUS_STRT_M_Quantized"
-    ,"US_HOUS_STRT_M_Avg005"
-    ,"US_HOUS_STRT_M_Avg030"
-    ,"US_HOUS_STRT_M_Avg060"
-    ,"US_HOUS_STRT_M_Avg090"
-    ,"US_HOUS_STRT_M_Avg120"
-    ,"US_HOUS_STRT_M_Avg180"
+ 
+ 
+"GSPC_Quantized"
+,"GSPC_Avg005"
+,"GSPC_Avg030"
+,"GSPC_Avg060"
+,"GSPC_Avg090"
+,"GSPC_Avg120"
+,"GSPC_Avg180"
+ 
+,"BTC_USD_Quantized"
+,"BTC_USD_Avg005"
+,"BTC_USD_Avg030"
+,"BTC_USD_Avg060"
+,"BTC_USD_Avg090"
+,"BTC_USD_Avg120"
+,"BTC_USD_Avg180"
+ 
+,"DALLAS_FED_MFC_Quantized"
+,"DALLAS_FED_MFC_Avg005"
+,"DALLAS_FED_MFC_Avg030"
+,"DALLAS_FED_MFC_Avg060"
+,"DALLAS_FED_MFC_Avg090"
+,"DALLAS_FED_MFC_Avg120"
+,"DALLAS_FED_MFC_Avg180"
+ 
+,"GOLD_Quantized"
+,"GOLD_Avg005"
+,"GOLD_Avg030"
+,"GOLD_Avg060"
+,"GOLD_Avg090"
+,"GOLD_Avg120"
+,"GOLD_Avg180"
+ 
+,"GELYF_Quantized"
+,"GELYF_Avg005"
+,"GELYF_Avg030"
+,"GELYF_Avg060"
+,"GELYF_Avg090"
+,"GELYF_Avg120"
+,"GELYF_Avg180"
+ 
+,"US_PEND_HOME_SALE_M_Quantized"
+,"US_PEND_HOME_SALE_M_Avg005"
+,"US_PEND_HOME_SALE_M_Avg030"
+,"US_PEND_HOME_SALE_M_Avg060"
+,"US_PEND_HOME_SALE_M_Avg090"
+,"US_PEND_HOME_SALE_M_Avg120"
+,"US_PEND_HOME_SALE_M_Avg180"
+ 
+,"TNX_Quantized"
+,"TNX_Avg005"
+,"TNX_Avg030"
+,"TNX_Avg060"
+,"TNX_Avg090"
+,"TNX_Avg120"
+,"TNX_Avg180"
+ 
+,"TSLA_Quantized"
+,"TSLA_Avg005"
+,"TSLA_Avg030"
+,"TSLA_Avg060"
+,"TSLA_Avg090"
+,"TSLA_Avg120"
+,"TSLA_Avg180"
+ 
+,"US_BUILD_PERM_Quantized"
+,"US_BUILD_PERM_Avg005"
+,"US_BUILD_PERM_Avg030"
+,"US_BUILD_PERM_Avg060"
+,"US_BUILD_PERM_Avg090"
+,"US_BUILD_PERM_Avg120"
+,"US_BUILD_PERM_Avg180"
+ 
+,"BYDDF_Quantized"
+,"BYDDF_Avg005"
+,"BYDDF_Avg030"
+,"BYDDF_Avg060"
+,"BYDDF_Avg090"
+,"BYDDF_Avg120"
+,"BYDDF_Avg180"
+ 
+,"US_INDS_PROD_M_Quantized"
+,"US_INDS_PROD_M_Avg005"
+,"US_INDS_PROD_M_Avg030"
+,"US_INDS_PROD_M_Avg060"
+,"US_INDS_PROD_M_Avg090"
+,"US_INDS_PROD_M_Avg120"
+,"US_INDS_PROD_M_Avg180"
+ 
+,"US_ISM_MFC_EMPL_Quantized"
+,"US_ISM_MFC_EMPL_Avg005"
+,"US_ISM_MFC_EMPL_Avg030"
+,"US_ISM_MFC_EMPL_Avg060"
+,"US_ISM_MFC_EMPL_Avg090"
+,"US_ISM_MFC_EMPL_Avg120"
+,"US_ISM_MFC_EMPL_Avg180"
+ 
+,"US_INIT_JOB_CLAIM_Quantized"
+,"US_INIT_JOB_CLAIM_Avg005"
+,"US_INIT_JOB_CLAIM_Avg030"
+,"US_INIT_JOB_CLAIM_Avg060"
+,"US_INIT_JOB_CLAIM_Avg090"
+,"US_INIT_JOB_CLAIM_Avg120"
+,"US_INIT_JOB_CLAIM_Avg180"
+ 
+,"US_UNEMPLOY_RATE_Quantized"
+,"US_UNEMPLOY_RATE_Avg005"
+,"US_UNEMPLOY_RATE_Avg030"
+,"US_UNEMPLOY_RATE_Avg060"
+,"US_UNEMPLOY_RATE_Avg090"
+,"US_UNEMPLOY_RATE_Avg120"
+,"US_UNEMPLOY_RATE_Avg180"
+ 
+,"NVDA_Quantized"
+,"NVDA_Avg005"
+,"NVDA_Avg030"
+,"NVDA_Avg060"
+,"NVDA_Avg090"
+,"NVDA_Avg120"
+,"NVDA_Avg180"
+ 
+,"NRMGX_Quantized"
+,"NRMGX_Avg005"
+,"NRMGX_Avg030"
+,"NRMGX_Avg060"
+,"NRMGX_Avg090"
+,"NRMGX_Avg120"
+,"NRMGX_Avg180"
+ 
+,"US_HOUS_STRS_M_Quantized"
+,"US_HOUS_STRS_M_Avg005"
+,"US_HOUS_STRS_M_Avg030"
+,"US_HOUS_STRS_M_Avg060"
+,"US_HOUS_STRS_M_Avg090"
+,"US_HOUS_STRS_M_Avg120"
+,"US_HOUS_STRS_M_Avg180"
+ 
+,"HD_Quantized"
+,"HD_Avg005"
+,"HD_Avg030"
+,"HD_Avg060"
+,"HD_Avg090"
+,"HD_Avg120"
+,"HD_Avg180"
+ 
+,"US_GDP_Q_Quantized"
+,"US_GDP_Q_Avg005"
+,"US_GDP_Q_Avg030"
+,"US_GDP_Q_Avg060"
+,"US_GDP_Q_Avg090"
+,"US_GDP_Q_Avg120"
+,"US_GDP_Q_Avg180"
+ 
+,"LI_Quantized"
+,"LI_Avg005"
+,"LI_Avg030"
+,"LI_Avg060"
+,"LI_Avg090"
+,"LI_Avg120"
+,"LI_Avg180"
+ 
+,"VIX_Quantized"
+,"VIX_Avg005"
+,"VIX_Avg030"
+,"VIX_Avg060"
+,"VIX_Avg090"
+,"VIX_Avg120"
+,"VIX_Avg180"
+ 
+,"TPLGX_Quantized"
+,"TPLGX_Avg005"
+,"TPLGX_Avg030"
+,"TPLGX_Avg060"
+,"TPLGX_Avg090"
+,"TPLGX_Avg120"
+,"TPLGX_Avg180"
+ 
+,"US_ISM_MFC_PMI_Quantized"
+,"US_ISM_MFC_PMI_Avg005"
+,"US_ISM_MFC_PMI_Avg030"
+,"US_ISM_MFC_PMI_Avg060"
+,"US_ISM_MFC_PMI_Avg090"
+,"US_ISM_MFC_PMI_Avg120"
+,"US_ISM_MFC_PMI_Avg180"
+ 
+,"VINIX_Quantized"
+,"VINIX_Avg005"
+,"VINIX_Avg030"
+,"VINIX_Avg060"
+,"VINIX_Avg090"
+,"VINIX_Avg120"
+,"VINIX_Avg180"
+ 
+,"NIO_Quantized"
+,"NIO_Avg005"
+,"NIO_Avg030"
+,"NIO_Avg060"
+,"NIO_Avg090"
+,"NIO_Avg120"
+,"NIO_Avg180"
+ 
+,"VBTLX_Quantized"
+,"VBTLX_Avg005"
+,"VBTLX_Avg030"
+,"VBTLX_Avg060"
+,"VBTLX_Avg090"
+,"VBTLX_Avg120"
+,"VBTLX_Avg180"
+ 
+,"RERGX_Quantized"
+,"RERGX_Avg005"
+,"RERGX_Avg030"
+,"RERGX_Avg060"
+,"RERGX_Avg090"
+,"RERGX_Avg120"
+,"RERGX_Avg180"
+ 
+,"CRSP_Quantized"
+,"CRSP_Avg005"
+,"CRSP_Avg030"
+,"CRSP_Avg060"
+,"CRSP_Avg090"
+,"CRSP_Avg120"
+,"CRSP_Avg180"
+ 
+,"BABA_Quantized"
+,"BABA_Avg005"
+,"BABA_Avg030"
+,"BABA_Avg060"
+,"BABA_Avg090"
+,"BABA_Avg120"
+,"BABA_Avg180"
+ 
+,"RIDE_Quantized"
+,"RIDE_Avg005"
+,"RIDE_Avg030"
+,"RIDE_Avg060"
+,"RIDE_Avg090"
+,"RIDE_Avg120"
+,"RIDE_Avg180"
+ 
+#,"DJIA_Quantized"
+,"DJIA_Avg005"
+,"DJIA_Avg030"
+,"DJIA_Avg060"
+,"DJIA_Avg090"
+,"DJIA_Avg120"
+,"DJIA_Avg180"
+ 
+,"AAPL_Quantized"
+,"AAPL_Avg005"
+,"AAPL_Avg030"
+,"AAPL_Avg060"
+,"AAPL_Avg090"
+,"AAPL_Avg120"
+,"AAPL_Avg180"
     
 ]
 
@@ -113,8 +288,11 @@ println()
 # Make a train-test split
 train_data, test_data = data.random_split(0.8)
 
-println( size(train_data) )
-println( size(test_data)  )
+println( "train_data size ", size(train_data) )
+println( "test_data size ", size(test_data)  )
+
+
+println( "START model = tc.regression.create "  )
 
 model = tc.regression.create( 
     train_data, 
@@ -123,6 +301,8 @@ model = tc.regression.create(
     validation_set="auto", 
     verbose=true
 )
+
+println( "DONE model = tc.regression.create "  )
 
 #TODO: write this in a loop to select the best model
 # Evaluate the model and save the results into a dictionary
@@ -257,7 +437,7 @@ savefig("../../predictions_" * symbol_to_predict * ".png")
 ## print prediction comparisons
 println(symbol_to_predict, " ", today())
 
-file_path = "../DATA/" * symbol_to_predict * "_pedictions.csv"
+file_path = "../DATA/predictions/" * symbol_to_predict * "_predictions.csv"
 open( file_path, "a") do file_handle # append
     
     for id in finem-35:finem

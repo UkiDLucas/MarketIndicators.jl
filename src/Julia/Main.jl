@@ -8,6 +8,11 @@ include("function_fetch_web_data.jl")
 include("preprocess_csv.jl")
 include("functions.jl") 
 include("function_toFloat64.jl")
+include("IndicatorData.jl") 
+include("function_format_rata_die_to_us_date.jl")
+include("function_trim_DataFrames.jl")
+include("function_print_columns_features.jl")
+
 
 function print_date_time()
     println("============== ", Dates.DateTime(Dates.now() ), " ==============")
@@ -16,10 +21,9 @@ end # function
 print_date_time();
 
 while true
-    fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
-    #include("preprocess_DJI.jl"); print_date_time(); 
+    #fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
     #include("Uber_DataFrame.jl"); print_date_time(); 
-    #include("predict_NVDA.jl"); print_date_time(); 
+    include("predict_AAPL.jl"); print_date_time(); 
     
     nap_time = 60*60*4 # seconds * minutes * hours
     print_date_time(); println("going to sleep for ", nap_time/(60*60), " hours" )
