@@ -1,0 +1,33 @@
+Indicator_Full_Name,Symbol,Original_File_Name,Original_Date_Format,Column_To_Keep,URL
+Apple Inc. (AAPL),AAPL,AAPL.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=345427200&period2=1602028800&interval=1d&events=history
+Alibaba Group Holding Limited (BABA),BABA,BABA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/BABA?period1=1411084800&period2=1602633600&interval=1d&events=history&includeAdjustedClose=true
+Bitcoin USD (BTC-USD),BTC_USD,BTC-USD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/BTC-USD?period1=1410825600&period2=1602633600&interval=1d&events=history&includeAdjustedClose=true
+BYD Company Limited (BYDDF),BYDDF,BYDDF.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/BYDDF?period1=1234483200&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
+CRISPR Therapeutics AG (CRSP),CRSP,CRSP.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/CRSP?period1=1476835200&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
+Federal Reserve Bank (Fed) of Dallas Manufacturing Index,DALLAS_FED_MFC,united-states.dallas-fed-manufacturing-business-index.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/dallas-fed-manufacturing-business-index/export
+Dow Jones Industrial Average (^DJI),DJIA,^DJI.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1602028800&interval=1d&events=history&includeAdjustedClose=true
+Geely Automobile Holdings Limited (GELYF),GELYF,GELYF.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GELYF?period1=1167782400&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
+Gold Dec 20 (GC=F),GOLD,GOLD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GC=F?period1=967593600&period2=1602028800&interval=1d&events=history
+S&P 500 (^GSPC),GSPC,^GSPC.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EGSPC?period1=-1325635200&period2=1602028800&interval=1d&events=history
+"The Home Depot, Inc. (HD)",HD,HD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/HD?period1=369964800&period2=1602028800&interval=1d&events=history
+Li Auto Inc. (LI),LI,LI.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/LI?period1=1596067200&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
+NIO Limited (NIO),NIO,NIO.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NIO?period1=1536710400&period2=1602633600&interval=1d&events=history&includeAdjustedClose=true
+Neuberger Berman Mid Cap Growth Fund Class R6 (NRMGX),NRMGX,NRMGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NRMGX?period1=1363305600&period2=1602028800&interval=1d&events=history
+NVIDIA Corporation (NVDA),NVDA,NVDA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1602028800&interval=1d&events=history
+American Funds EuroPacific Growth Fund Class R-6 (RERGX),RERGX,RERGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/RERGX?period1=1241136000&period2=1602028800&interval=1d&events=history
+Lordstown Motors Corp. (RIDE),RIDE,RIDE.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/RIDE?period1=1555545600&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
+Treasury Yield 10 Years (^TNX),TNX,^TNX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5ETNX?period1=-252374400&period2=1602028800&interval=1d&events=history
+T. Rowe Price Institutional Large Cap Core Growth Fund (TPLGX),TPLGX,TPLGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TPLGX?period1=1568730349&period2=1602028800&interval=1d&events=history
+"Tesla, Inc. (TSLA)",TSLA,TSLA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1277769600&period2=1602028800&interval=1d&events=history
+United States Building Permits,US_BUILD_PERM,united-states.building-permits.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/building-permits/export
+United States Gross Domestic Product (GDP) q/q,US_GDP_Q,united-states.gross-domestic-product-qq.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/gross-domestic-product-qq/export
+United States Housing Starts m/m,US_HOUS_STRS_M,united-states.housing-starts-mm.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/housing-starts-mm/export
+Federal Reserve System (Fed) Industrial Production m/m,US_INDS_PROD_M,united-states.industrial-production-mm.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/industrial-production-mm/export
+United States Initial Jobless Claims,US_INIT_JOB_CLAIM,united-states.initial-jobless-claims.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/initial-jobless-claims/export
+ISM Manufacturing Employment,US_ISM_MFC_EMPL,united-states.ism-manufacturing-employment.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/ism-manufacturing-employment/export
+ISM United States Manufacturing Purchasing Managers Index (PMI),US_ISM_MFC_PMI,united-states.ism-manufacturing-pmi.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/ism-manufacturing-pmi/export
+United States Pending Home Sales m/m,US_PEND_HOME_SALE_M,united-states.pending-home-sales-mm.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/pending-home-sales-mm/export
+United States Unemployment Rate,US_UNEMPLOY_RATE,united-states.unemployment-rate.csv ,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/unemployment-rate/export
+Vanguard Total Bond Market Index Fund Admiral Shares (VBTLX),VBTLX,VBTLX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/VBTLX?period1=1005523200&period2=1602028800&interval=1d&events=history
+Vanguard Institutional Index Fund Institutional Shares (VINIX),VINIX,VINIX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/VINIX?period1=649382400&period2=1602028800&interval=1d&events=history
+CBOE Volatility Index (^VIX),VIX,^VIX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EVIX?period1=631238400&period2=1602028800&interval=1d&events=history
