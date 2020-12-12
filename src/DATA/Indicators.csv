@@ -10,12 +10,9 @@ Geely Automobile Holdings Limited (GELYF),GELYF,GELYF.csv,yyyy-mm-dd,3,https://q
 Gold Dec 20 (GC=F),GOLD,GOLD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GC=F?period1=967593600&period2=1602028800&interval=1d&events=history
 S&P 500 (^GSPC),GSPC,^GSPC.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EGSPC?period1=-1325635200&period2=1602028800&interval=1d&events=history
 "The Home Depot, Inc. (HD)",HD,HD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/HD?period1=369964800&period2=1602028800&interval=1d&events=history
-Li Auto Inc. (LI),LI,LI.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/LI?period1=1596067200&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
-NIO Limited (NIO),NIO,NIO.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NIO?period1=1536710400&period2=1602633600&interval=1d&events=history&includeAdjustedClose=true
 Neuberger Berman Mid Cap Growth Fund Class R6 (NRMGX),NRMGX,NRMGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NRMGX?period1=1363305600&period2=1602028800&interval=1d&events=history
 NVIDIA Corporation (NVDA),NVDA,NVDA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1602028800&interval=1d&events=history
 American Funds EuroPacific Growth Fund Class R-6 (RERGX),RERGX,RERGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/RERGX?period1=1241136000&period2=1602028800&interval=1d&events=history
-Lordstown Motors Corp. (RIDE),RIDE,RIDE.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/RIDE?period1=1555545600&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
 Treasury Yield 10 Years (^TNX),TNX,^TNX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5ETNX?period1=-252374400&period2=1602028800&interval=1d&events=history
 T. Rowe Price Institutional Large Cap Core Growth Fund (TPLGX),TPLGX,TPLGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TPLGX?period1=1568730349&period2=1602028800&interval=1d&events=history
 "Tesla, Inc. (TSLA)",TSLA,TSLA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1277769600&period2=1602028800&interval=1d&events=history
