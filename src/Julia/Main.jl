@@ -21,9 +21,11 @@ end # function
 print_date_time();
 
 while true
-    #fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
+    fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
     include("Uber_DataFrame.jl"); print_date_time(); 
-    #include("predict_AAPL.jl"); print_date_time(); 
+    include("predict_DJIA.jl"); print_date_time(); 
+    include("predict_AAPL.jl"); print_date_time(); 
+    include("predict_VIX.jl"); print_date_time(); 
     
     nap_time = 60*60*4 # seconds * minutes * hours
     print_date_time(); println("going to sleep for ", nap_time/(60*60), " hours" )
