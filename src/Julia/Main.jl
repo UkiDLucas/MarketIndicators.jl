@@ -28,6 +28,8 @@ while true
     include("predict_AAPL.jl"); print_date_time(); 
     include("predict_VIX.jl"); print_date_time(); 
     include("predict_NVDA.jl"); print_date_time(); 
+    include("predict_TPLGX.jl"); print_date_time(); 
+    
     
     nap_time = 60*60*4 # seconds * minutes * hours
     print_date_time(); println("going to sleep for ", nap_time/(60*60), " hours" )
