@@ -6,26 +6,28 @@ symbol_to_predict = "DJIA" # - there is a bug
 
 features_to_analyze = 
 [
-
  
 "GSPC_Quantized"
 ,"GSPC_Avg005"
+,"GSPC_Avg010"
 ,"GSPC_Avg030"
 ,"GSPC_Avg060"
 ,"GSPC_Avg090"
 ,"GSPC_Avg120"
 ,"GSPC_Avg180"
-
+ 
 ,"BTC_USD_Quantized"
 ,"BTC_USD_Avg005"
+,"BTC_USD_Avg010"
 ,"BTC_USD_Avg030"
 ,"BTC_USD_Avg060"
 ,"BTC_USD_Avg090"
 ,"BTC_USD_Avg120"
 ,"BTC_USD_Avg180"
-
+ 
 ,"DALLAS_FED_MFC_Quantized"
 ,"DALLAS_FED_MFC_Avg005"
+,"DALLAS_FED_MFC_Avg010"
 ,"DALLAS_FED_MFC_Avg030"
 ,"DALLAS_FED_MFC_Avg060"
 ,"DALLAS_FED_MFC_Avg090"
@@ -34,6 +36,7 @@ features_to_analyze =
  
 ,"GOLD_Quantized"
 ,"GOLD_Avg005"
+,"GOLD_Avg010"
 ,"GOLD_Avg030"
 ,"GOLD_Avg060"
 ,"GOLD_Avg090"
@@ -42,6 +45,7 @@ features_to_analyze =
  
 ,"GELYF_Quantized"
 ,"GELYF_Avg005"
+,"GELYF_Avg010"
 ,"GELYF_Avg030"
 ,"GELYF_Avg060"
 ,"GELYF_Avg090"
@@ -50,6 +54,7 @@ features_to_analyze =
  
 ,"US_PEND_HOME_SALE_M_Quantized"
 ,"US_PEND_HOME_SALE_M_Avg005"
+,"US_PEND_HOME_SALE_M_Avg010"
 ,"US_PEND_HOME_SALE_M_Avg030"
 ,"US_PEND_HOME_SALE_M_Avg060"
 ,"US_PEND_HOME_SALE_M_Avg090"
@@ -58,6 +63,7 @@ features_to_analyze =
  
 ,"TNX_Quantized"
 ,"TNX_Avg005"
+,"TNX_Avg010"
 ,"TNX_Avg030"
 ,"TNX_Avg060"
 ,"TNX_Avg090"
@@ -66,6 +72,7 @@ features_to_analyze =
  
 ,"TSLA_Quantized"
 ,"TSLA_Avg005"
+,"TSLA_Avg010"
 ,"TSLA_Avg030"
 ,"TSLA_Avg060"
 ,"TSLA_Avg090"
@@ -74,6 +81,7 @@ features_to_analyze =
  
 ,"US_BUILD_PERM_Quantized"
 ,"US_BUILD_PERM_Avg005"
+,"US_BUILD_PERM_Avg010"
 ,"US_BUILD_PERM_Avg030"
 ,"US_BUILD_PERM_Avg060"
 ,"US_BUILD_PERM_Avg090"
@@ -82,6 +90,7 @@ features_to_analyze =
  
 ,"BYDDF_Quantized"
 ,"BYDDF_Avg005"
+,"BYDDF_Avg010"
 ,"BYDDF_Avg030"
 ,"BYDDF_Avg060"
 ,"BYDDF_Avg090"
@@ -90,6 +99,7 @@ features_to_analyze =
  
 ,"US_INDS_PROD_M_Quantized"
 ,"US_INDS_PROD_M_Avg005"
+,"US_INDS_PROD_M_Avg010"
 ,"US_INDS_PROD_M_Avg030"
 ,"US_INDS_PROD_M_Avg060"
 ,"US_INDS_PROD_M_Avg090"
@@ -98,6 +108,7 @@ features_to_analyze =
  
 ,"US_ISM_MFC_EMPL_Quantized"
 ,"US_ISM_MFC_EMPL_Avg005"
+,"US_ISM_MFC_EMPL_Avg010"
 ,"US_ISM_MFC_EMPL_Avg030"
 ,"US_ISM_MFC_EMPL_Avg060"
 ,"US_ISM_MFC_EMPL_Avg090"
@@ -106,6 +117,7 @@ features_to_analyze =
  
 ,"US_INIT_JOB_CLAIM_Quantized"
 ,"US_INIT_JOB_CLAIM_Avg005"
+,"US_INIT_JOB_CLAIM_Avg010"
 ,"US_INIT_JOB_CLAIM_Avg030"
 ,"US_INIT_JOB_CLAIM_Avg060"
 ,"US_INIT_JOB_CLAIM_Avg090"
@@ -114,6 +126,7 @@ features_to_analyze =
  
 ,"US_UNEMPLOY_RATE_Quantized"
 ,"US_UNEMPLOY_RATE_Avg005"
+,"US_UNEMPLOY_RATE_Avg010"
 ,"US_UNEMPLOY_RATE_Avg030"
 ,"US_UNEMPLOY_RATE_Avg060"
 ,"US_UNEMPLOY_RATE_Avg090"
@@ -122,6 +135,7 @@ features_to_analyze =
  
 ,"NVDA_Quantized"
 ,"NVDA_Avg005"
+,"NVDA_Avg010"
 ,"NVDA_Avg030"
 ,"NVDA_Avg060"
 ,"NVDA_Avg090"
@@ -130,6 +144,7 @@ features_to_analyze =
  
 ,"NRMGX_Quantized"
 ,"NRMGX_Avg005"
+,"NRMGX_Avg010"
 ,"NRMGX_Avg030"
 ,"NRMGX_Avg060"
 ,"NRMGX_Avg090"
@@ -138,6 +153,7 @@ features_to_analyze =
  
 ,"US_HOUS_STRS_M_Quantized"
 ,"US_HOUS_STRS_M_Avg005"
+,"US_HOUS_STRS_M_Avg010"
 ,"US_HOUS_STRS_M_Avg030"
 ,"US_HOUS_STRS_M_Avg060"
 ,"US_HOUS_STRS_M_Avg090"
@@ -146,6 +162,7 @@ features_to_analyze =
  
 ,"HD_Quantized"
 ,"HD_Avg005"
+,"HD_Avg010"
 ,"HD_Avg030"
 ,"HD_Avg060"
 ,"HD_Avg090"
@@ -154,22 +171,16 @@ features_to_analyze =
  
 ,"US_GDP_Q_Quantized"
 ,"US_GDP_Q_Avg005"
+,"US_GDP_Q_Avg010"
 ,"US_GDP_Q_Avg030"
 ,"US_GDP_Q_Avg060"
 ,"US_GDP_Q_Avg090"
 ,"US_GDP_Q_Avg120"
 ,"US_GDP_Q_Avg180"
  
-,"LI_Quantized"
-,"LI_Avg005"
-,"LI_Avg030"
-,"LI_Avg060"
-,"LI_Avg090"
-,"LI_Avg120"
-,"LI_Avg180"
- 
 ,"VIX_Quantized"
 ,"VIX_Avg005"
+,"VIX_Avg010"
 ,"VIX_Avg030"
 ,"VIX_Avg060"
 ,"VIX_Avg090"
@@ -178,6 +189,7 @@ features_to_analyze =
  
 ,"TPLGX_Quantized"
 ,"TPLGX_Avg005"
+,"TPLGX_Avg010"
 ,"TPLGX_Avg030"
 ,"TPLGX_Avg060"
 ,"TPLGX_Avg090"
@@ -186,6 +198,7 @@ features_to_analyze =
  
 ,"US_ISM_MFC_PMI_Quantized"
 ,"US_ISM_MFC_PMI_Avg005"
+,"US_ISM_MFC_PMI_Avg010"
 ,"US_ISM_MFC_PMI_Avg030"
 ,"US_ISM_MFC_PMI_Avg060"
 ,"US_ISM_MFC_PMI_Avg090"
@@ -194,22 +207,16 @@ features_to_analyze =
  
 ,"VINIX_Quantized"
 ,"VINIX_Avg005"
+,"VINIX_Avg010"
 ,"VINIX_Avg030"
 ,"VINIX_Avg060"
 ,"VINIX_Avg090"
 ,"VINIX_Avg120"
 ,"VINIX_Avg180"
  
-,"NIO_Quantized"
-,"NIO_Avg005"
-,"NIO_Avg030"
-,"NIO_Avg060"
-,"NIO_Avg090"
-,"NIO_Avg120"
-,"NIO_Avg180"
- 
 ,"VBTLX_Quantized"
 ,"VBTLX_Avg005"
+,"VBTLX_Avg010"
 ,"VBTLX_Avg030"
 ,"VBTLX_Avg060"
 ,"VBTLX_Avg090"
@@ -218,6 +225,7 @@ features_to_analyze =
  
 ,"RERGX_Quantized"
 ,"RERGX_Avg005"
+,"RERGX_Avg010"
 ,"RERGX_Avg030"
 ,"RERGX_Avg060"
 ,"RERGX_Avg090"
@@ -226,6 +234,7 @@ features_to_analyze =
  
 ,"CRSP_Quantized"
 ,"CRSP_Avg005"
+,"CRSP_Avg010"
 ,"CRSP_Avg030"
 ,"CRSP_Avg060"
 ,"CRSP_Avg090"
@@ -234,22 +243,16 @@ features_to_analyze =
  
 ,"BABA_Quantized"
 ,"BABA_Avg005"
+,"BABA_Avg010"
 ,"BABA_Avg030"
 ,"BABA_Avg060"
 ,"BABA_Avg090"
 ,"BABA_Avg120"
 ,"BABA_Avg180"
  
-,"RIDE_Quantized"
-,"RIDE_Avg005"
-,"RIDE_Avg030"
-,"RIDE_Avg060"
-,"RIDE_Avg090"
-,"RIDE_Avg120"
-,"RIDE_Avg180"
- 
-#,"DJIA_Quantized"
-#,"DJIA_Avg005"
+,"DJIA_Quantized"
+,"DJIA_Avg005"
+,"DJIA_Avg010"
 ,"DJIA_Avg030"
 ,"DJIA_Avg060"
 ,"DJIA_Avg090"
@@ -258,6 +261,7 @@ features_to_analyze =
  
 ,"AAPL_Quantized"
 ,"AAPL_Avg005"
+,"AAPL_Avg010"
 ,"AAPL_Avg030"
 ,"AAPL_Avg060"
 ,"AAPL_Avg090"
@@ -394,14 +398,14 @@ end
 
 ## Format Dates for plotting
 include("../Julia/function_format_dates.jl")
-x_axis_dates = format_dates(x_axis_dates, "u. d, yy")
+x_axis_dates = format_dates(x_axis_dates, "u. d, yy ")
 
 
 
 t = today()# Date
 t = format_dates([t], "u. d, yyyy") # Array{String,1}
 t = t[1] # String
-println("t ", t, " ", typeof(t))
+println("t = ", t, " - ", typeof(t))
 
 println()
 
@@ -434,8 +438,8 @@ println(symbol_to_predict, " ", today())
 file_path = "../DATA/" * symbol_to_predict * "_predictions.csv"
 open( file_path, "a") do file_handle # append
     
-    for id in finem-35:finem
-        if id < today_id + 3
+    for id in finem-10:finem
+        if id < today_id + 4 # Allows to show Monday predition on Friday night.
             row = get(data_predictions, id) # get a dictionary of data from the SFrame
             date_string = row["Date"] # e.g. "2020-10-20"
 
@@ -443,7 +447,7 @@ open( file_path, "a") do file_handle # append
             b = y_axis_original[id]
             d = round(b-a, digits=3)
             date = convert(String, Dates.format( Date(date_string), "e, yyyy-mm-dd" ) )
-            if id < today_id
+            if id <= today_id
                 println( date, "\t predicted ", a , "\t, but actual value was \t", b , "\t difference is ",  d  ) # di
             else
                 println( date, "\t predicted ", a  ) # 
