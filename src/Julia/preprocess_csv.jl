@@ -7,7 +7,7 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
 
     dataset_file_name = symbol * ".csv"
 
-    predict_days = 30 # number of days to predict
+    predict_days = 3 # number of days to predict
     path_data_original  = "../Data/original/"
     path_data_processed = "../Data/processed/"
 
@@ -26,7 +26,7 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
     end
 
 
-
+    ## Extract the right columns
    
     df = DataFrame( 
                     Date      = df[:,1]               # 2 
@@ -41,6 +41,7 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
     end
 
     ## Insert the Rata Die Column
+
     record_count = size(df)[1]
     insert_localtion = 1
     insertcols!(df, insert_localtion, :Rata_Die => zeros(Int64, record_count); makeunique = true )
@@ -51,6 +52,8 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
     if verbose
         println(columns)
     end
+
+    ## Insert future date
 
     future_rata_die = Dates.datetime2rata( today() ) + predict_days # Int64  days from now
     future_date = Dates.rata2datetime( future_rata_die) # Date
@@ -135,6 +138,7 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
     end
 
     averages005 = calculate_average(df, 5,   :Quantized )
+    averages010 = calculate_average(df, 10,  :Quantized )
     averages030 = calculate_average(df, 30,  :Quantized )
     averages060 = calculate_average(df, 60,  :Quantized )
     averages090 = calculate_average(df, 90,  :Quantized )
@@ -167,11 +171,12 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
     end
 
     insertcols!(df,  5,  :Avg005   => averages005  , makeunique=true)
-    insertcols!(df,  6,  :Avg030   => averages030  , makeunique=true)
-    insertcols!(df,  7,  :Avg060   => averages060  , makeunique=true)
-    insertcols!(df,  8,  :Avg090   => averages090  , makeunique=true)
-    insertcols!(df,  9,  :Avg120   => averages120  , makeunique=true)
-    insertcols!(df, 10,  :Avg180   => averages180  , makeunique=true)
+    insertcols!(df,  6,  :Avg010   => averages010  , makeunique=true)
+    insertcols!(df,  7,  :Avg030   => averages030  , makeunique=true)
+    insertcols!(df,  8,  :Avg060   => averages060  , makeunique=true)
+    insertcols!(df,  9,  :Avg090   => averages090  , makeunique=true)
+    insertcols!(df, 10,  :Avg120   => averages120  , makeunique=true)
+    insertcols!(df, 11,  :Avg180   => averages180  , makeunique=true)
 
     if verbose
 
