@@ -18,7 +18,7 @@ function fetch_web_data(file_path::String, original_data_directory)
             url = update_yahoo_finance(url)
         end
 
-        download( url , string(original_data_directory * symbol * ".csv" ) )
+        #download( url , string(original_data_directory * symbol * ".csv" ) )
         println( "- downloaded: ", symbol, " -- ", indicator_full_name, " 
             -- ", url ) 
 
