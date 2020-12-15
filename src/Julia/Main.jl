@@ -24,20 +24,16 @@ while true
     #fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
     #include("Uber_DataFrame.jl"); print_date_time(); 
 
-    symbols_to_predict = readlines("../DATA/symbols_to_predict.txt") # returns Array{String,1}
-    global symbol_to_predict = symbols_to_predict[1]
-    println("1 symbol_to_predict ", symbol_to_predict )
-    
-    include("predict_Julia_TuriCreate.jl"); print_date_time(); 
 
-    #include("predict_AAPL.jl"); print_date_time(); 
-    #include("predict_BABA.jl"); print_date_time(); 
-    #include("predict_CRSP.jl"); print_date_time(); 
-    #include("predict_DJIA.jl"); print_date_time(); 
-    #include("predict_NVDA.jl"); print_date_time(); 
-    #include("predict_TPLGX.jl"); print_date_time(); 
-    #include("predict_TSLA.jl"); print_date_time();
-    #include("predict_VIX.jl"); print_date_time();  
+    include("predict_AAPL.jl"); print_date_time(); 
+    include("predict_BABA.jl"); print_date_time(); 
+    include("predict_CRSP.jl"); print_date_time(); 
+    include("predict_DJIA.jl"); print_date_time(); 
+    include("predict_NVDA.jl"); print_date_time(); 
+    include("predict_TPLGX.jl"); print_date_time(); 
+    include("predict_TSLA.jl"); print_date_time();
+    include("predict_VIX.jl"); print_date_time();  
+    
     
     nap_time = 60*60*4 # seconds * minutes * hours
     print_date_time(); println("going to sleep for ", nap_time/(60*60), " hours" )
