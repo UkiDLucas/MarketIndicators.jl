@@ -27,12 +27,15 @@ while true
     #global symbol_to_predict = "AAPL"
     #include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     
-    symbol_to_predict = "AAPL" 
-    include("predict_AAPL.jl"); print_date_time();
+    #symbol_to_predict = "AAPL" 
+    #include("predict_BABA.jl"); print_date_time();
 
-    symbol_to_predict = "BABA" 
+    global symbol_to_predict = "BABA" 
     include("predict_BABA.jl"); print_date_time(); 
-    
+
+    symbol_to_predict = "BRK-B" 
+    include("predict_BABA.jl"); print_date_time(); 
+
     #include("predict_BRK-B.jl"); print_date_time(); 
     #include("predict_BYC_USD.jl"); print_date_time(); 
     #include("predict_BYDDF.jl"); print_date_time(); 
@@ -57,7 +60,7 @@ while true
     
     
     
-    nap_time = 60*60*6 # seconds * minutes * hours
+    nap_time = 60*60*12 # seconds * minutes * hours
     print_date_time(); println("going to sleep for ", nap_time/(60*60), " hours" )
     sleep(nap_time) 
 end # while loop
