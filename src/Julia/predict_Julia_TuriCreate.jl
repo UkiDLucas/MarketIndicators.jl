@@ -1,7 +1,9 @@
-println("2 symbol_to_predict ", symbol_to_predict )
+## normally we receive symbol_to_predict from the calling code in Main.jl
 
-#symbol_to_predict = "DJIA"
+## comment out when exporting .jl file
+symbol_to_predict = "DJIA"
 
+println("symbol_to_predict ", symbol_to_predict )
 
 ## Read feature names (columns) form the text file 
 features_to_analyze = readlines("../DATA/features_to_analyze.txt") # returns Array{String,1}
@@ -58,7 +60,7 @@ println( "max_error: ", max_error, ", rmse: ", rmse )
 # max_error: 916.19, rmse: 231.24       predict: ^DJIA with "DJIA_Avg005"
 
 # Export to Core ML
-model.export_coreml("../DATA/models/^DJI.mlmodel")
+model.export_coreml("../DATA/models/" * symbol_to_predict * ".mlmodel")
 
 data_path="../DATA/processed/uber_prediction.csv"
 data_predictions = tc.SFrame(data_path)
@@ -133,7 +135,7 @@ end
 
 ## Format Dates for plotting
 include("../Julia/function_format_dates.jl")
-x_axis_dates = format_dates(x_axis_dates, "u. d, yy ")
+x_axis_dates = format_dates(x_axis_dates, " u.d,yy ")
 
 
 
@@ -161,20 +163,23 @@ plot(    x_axis_dates,
     size     = (980, 400), # width, height
     layout = (1, 1), # number of graphs: vertically, horizontally
     )
+
 ## Add veritical today line
 plot!([today_id], seriestype="vline", label=[ "Today "*t "" ],)
 
+
+## save plot graph
 
 savefig("../images/predictions_" * symbol_to_predict * ".png")
 
 ## print prediction comparisons
 println(symbol_to_predict, " ", today())
 
-file_path = "../DATA/" * symbol_to_predict * "_predictions.csv"
+file_path = "../DATA/predictions.csv"
 open( file_path, "a") do file_handle # append
     
     for id in finem-10:finem
-        if id < today_id + 4 # Allows to show Monday predition on Friday night.
+        if id <= today_id + 1 # Days to the future
             row = get(data_predictions, id) # get a dictionary of data from the SFrame
             date_string = row["Date"] # e.g. "2020-10-20"
 
