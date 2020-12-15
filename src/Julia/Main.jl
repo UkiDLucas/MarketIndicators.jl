@@ -21,8 +21,8 @@ end # function
 print_date_time(); 
 
 while true
-    #fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
-    #include("Uber_DataFrame.jl"); print_date_time(); 
+    fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
+    include("Uber_DataFrame.jl"); print_date_time(); 
 
     #global symbol_to_predict = "AAPL"
     #include("predict_Julia_TuriCreate.jl"); print_date_time(); 
