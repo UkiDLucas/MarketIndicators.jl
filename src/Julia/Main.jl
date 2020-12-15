@@ -18,21 +18,23 @@ function print_date_time()
     println("============== ", Dates.DateTime(Dates.now() ), " ==============")
 end # function
 
-print_date_time();
+print_date_time(); 
 
 while true
     #fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
     #include("Uber_DataFrame.jl"); print_date_time(); 
 
+    #global symbol_to_predict = "AAPL"
+    #include("predict_Julia_TuriCreate.jl"); print_date_time(); 
 
     include("predict_AAPL.jl"); print_date_time(); 
-    #include("predict_BABA.jl"); print_date_time(); 
-    #include("predict_CRSP.jl"); print_date_time(); 
+    include("predict_BABA.jl"); print_date_time(); 
+    include("predict_CRSP.jl"); print_date_time(); 
     include("predict_DJIA.jl"); print_date_time(); 
-    #include("predict_NVDA.jl"); print_date_time(); 
-    #include("predict_TPLGX.jl"); print_date_time(); 
-    #include("predict_TSLA.jl"); print_date_time();
-    #include("predict_VIX.jl"); print_date_time();  
+    include("predict_NVDA.jl"); print_date_time(); 
+    include("predict_TPLGX.jl"); print_date_time(); 
+    include("predict_TSLA.jl"); print_date_time();
+    include("predict_VIX.jl"); print_date_time();  
     
     
     nap_time = 60*60*4 # seconds * minutes * hours

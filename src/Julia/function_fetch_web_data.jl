@@ -29,7 +29,7 @@ function fetch_web_data(file_path::String, original_data_directory)
         # Slow down with random interval
         r_array = (rand(1)*9).+1  # 1.0.. to 9.9.. seconds
         r = r_array[1]
-        #sleep(r)            # to prevent being blocked
+        sleep(r)            # to prevent being blocked
     end # for loop
     df = nothing # free the memory for gc()
 end  # function
