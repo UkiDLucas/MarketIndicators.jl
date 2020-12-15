@@ -8,11 +8,14 @@ Federal Reserve Bank (Fed) of Dallas Manufacturing Index,DALLAS_FED_MFC,united-s
 Dow Jones Industrial Average (^DJI),DJIA,^DJI.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1602028800&interval=1d&events=history&includeAdjustedClose=true
 Geely Automobile Holdings Limited (GELYF),GELYF,GELYF.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GELYF?period1=1167782400&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
 Gold Dec 20 (GC=F),GOLD,GOLD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GC=F?period1=967593600&period2=1602028800&interval=1d&events=history
+Alphabet Inc. (GOOG),GOOG, GOOG.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GOOG?period1=1092873600&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 S&P 500 (^GSPC),GSPC,^GSPC.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EGSPC?period1=-1325635200&period2=1602028800&interval=1d&events=history
 "The Home Depot, Inc. (HD)",HD,HD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/HD?period1=369964800&period2=1602028800&interval=1d&events=history
+NASDAQ Composite (^IXIC),IXIC,^IXIC.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EIXIC?period1=34560000&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 Neuberger Berman Mid Cap Growth Fund Class R6 (NRMGX),NRMGX,NRMGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NRMGX?period1=1363305600&period2=1602028800&interval=1d&events=history
 NVIDIA Corporation (NVDA),NVDA,NVDA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1602028800&interval=1d&events=history
 American Funds EuroPacific Growth Fund Class R-6 (RERGX),RERGX,RERGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/RERGX?period1=1241136000&period2=1602028800&interval=1d&events=history
+Russell 2000 (^RUT),RUT,^RUT.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5ERUT?period1=558230400&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 Treasury Yield 10 Years (^TNX),TNX,^TNX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5ETNX?period1=-252374400&period2=1602028800&interval=1d&events=history
 T. Rowe Price Institutional Large Cap Core Growth Fund (TPLGX),TPLGX,TPLGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TPLGX?period1=1064966400&period2=1607904000&interval=1d&events=history&includeAdjustedClose=true
 "Tesla, Inc. (TSLA)",TSLA,TSLA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1277769600&period2=1602028800&interval=1d&events=history
