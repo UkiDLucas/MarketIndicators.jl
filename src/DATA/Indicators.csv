@@ -1,21 +1,28 @@
 Indicator_Full_Name,Symbol,Original_File_Name,Original_Date_Format,Column_To_Keep,URL
 Apple Inc. (AAPL),AAPL,AAPL.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=345427200&period2=1602028800&interval=1d&events=history
 Alibaba Group Holding Limited (BABA),BABA,BABA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/BABA?period1=1411084800&period2=1602633600&interval=1d&events=history&includeAdjustedClose=true
+Berkshire Hathaway Inc. (BRK-B),BRK-B,BRK-B.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/BRK-B?period1=831600000&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 Bitcoin USD (BTC-USD),BTC_USD,BTC-USD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/BTC-USD?period1=1410825600&period2=1602633600&interval=1d&events=history&includeAdjustedClose=true
 BYD Company Limited (BYDDF),BYDDF,BYDDF.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/BYDDF?period1=1234483200&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
 CRISPR Therapeutics AG (CRSP),CRSP,CRSP.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/CRSP?period1=1476835200&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
+Crude Oil Jan 21 (CL=F),CRUDE_OIL,CL=F.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/CL=F?period1=966988800&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 Federal Reserve Bank (Fed) of Dallas Manufacturing Index,DALLAS_FED_MFC,united-states.dallas-fed-manufacturing-business-index.csv,yyyy.mm.dd,2,https://www.mql5.com/en/economic-calendar/united-states/dallas-fed-manufacturing-business-index/export
 Dow Jones Industrial Average (^DJI),DJIA,^DJI.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=475804800&period2=1602028800&interval=1d&events=history&includeAdjustedClose=true
+Ford Motor Company (F),F,F.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/F?period1=76204800&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
+"Facebook, Inc. (FB)",FB,FB.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/FB?period1=1337299200&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 Geely Automobile Holdings Limited (GELYF),GELYF,GELYF.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GELYF?period1=1167782400&period2=1607299200&interval=1d&events=history&includeAdjustedClose=true
 Gold Dec 20 (GC=F),GOLD,GOLD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GC=F?period1=967593600&period2=1602028800&interval=1d&events=history
 Alphabet Inc. (GOOG),GOOG, GOOG.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/GOOG?period1=1092873600&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 S&P 500 (^GSPC),GSPC,^GSPC.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EGSPC?period1=-1325635200&period2=1602028800&interval=1d&events=history
 "The Home Depot, Inc. (HD)",HD,HD.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/HD?period1=369964800&period2=1602028800&interval=1d&events=history
 NASDAQ Composite (^IXIC),IXIC,^IXIC.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EIXIC?period1=34560000&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
+Microsoft Corporation (MSFT),MSFT,MSFT,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/MSFT?period1=511056000&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 Neuberger Berman Mid Cap Growth Fund Class R6 (NRMGX),NRMGX,NRMGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NRMGX?period1=1363305600&period2=1602028800&interval=1d&events=history
 NVIDIA Corporation (NVDA),NVDA,NVDA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=916963200&period2=1602028800&interval=1d&events=history
+QUALCOMM Incorporated (QCOM),QCOM,QCOM.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/QCOM?period1=692582400&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 American Funds EuroPacific Growth Fund Class R-6 (RERGX),RERGX,RERGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/RERGX?period1=1241136000&period2=1602028800&interval=1d&events=history
 Russell 2000 (^RUT),RUT,^RUT.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5ERUT?period1=558230400&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
+Toyota Motor Corporation (TM),TM,TM.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TM?period1=209174400&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
 Treasury Yield 10 Years (^TNX),TNX,^TNX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5ETNX?period1=-252374400&period2=1602028800&interval=1d&events=history
 T. Rowe Price Institutional Large Cap Core Growth Fund (TPLGX),TPLGX,TPLGX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TPLGX?period1=1064966400&period2=1607904000&interval=1d&events=history&includeAdjustedClose=true
 "Tesla, Inc. (TSLA)",TSLA,TSLA.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1277769600&period2=1602028800&interval=1d&events=history
@@ -33,3 +40,4 @@ United States Unemployment Rate,US_UNEMPLOY_RATE,united-states.unemployment-rate
 Vanguard Total Bond Market Index Fund Admiral Shares (VBTLX),VBTLX,VBTLX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/VBTLX?period1=1005523200&period2=1602028800&interval=1d&events=history
 Vanguard Institutional Index Fund Institutional Shares (VINIX),VINIX,VINIX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/VINIX?period1=649382400&period2=1602028800&interval=1d&events=history
 CBOE Volatility Index (^VIX),VIX,^VIX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EVIX?period1=631238400&period2=1602028800&interval=1d&events=history
+Walmart Inc. (WMT),WMT,WMT.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/WMT?period1=83548800&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
