@@ -21,7 +21,7 @@ end # function
 print_date_time();
 
 while true
-    #fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
+    fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
     include("Uber_DataFrame.jl"); print_date_time(); 
 
     include("predict_AAPL.jl"); print_date_time(); 
