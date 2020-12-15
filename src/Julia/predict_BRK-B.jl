@@ -1,4 +1,4 @@
-symbol_to_predict = "AAPL" 
+#symbol_to_predict = "DJIA" 
 
 features_to_analyze = 
 [

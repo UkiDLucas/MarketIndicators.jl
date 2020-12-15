@@ -1,4 +1,8 @@
-symbol_to_predict = "AAPL" 
+#symbol_to_predict = "DJIA" # - there is a bug
+symbol_to_predict = "AAPL"
+#symbol_to_predict = "VIX"
+# symbol_to_predict = "NIO"
+#symbol_to_predict = "NVDA"
 
 features_to_analyze = 
 [
