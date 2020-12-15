@@ -26,10 +26,9 @@ while true
 
 
     include("predict_AAPL.jl"); print_date_time(); 
-    include("predict_AAPL.jl"); print_date_time(); 
-    include("predict_BABA.jl"); print_date_time(); 
+    #include("predict_BABA.jl"); print_date_time(); 
     #include("predict_CRSP.jl"); print_date_time(); 
-    #include("predict_DJIA.jl"); print_date_time(); 
+    include("predict_DJIA.jl"); print_date_time(); 
     #include("predict_NVDA.jl"); print_date_time(); 
     #include("predict_TPLGX.jl"); print_date_time(); 
     #include("predict_TSLA.jl"); print_date_time();
