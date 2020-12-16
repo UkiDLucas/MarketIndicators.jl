@@ -28,12 +28,34 @@ while true
 
     global symbol_to_predict = "AAPL"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "BABA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
-    global symbol_to_predict = "NVDA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
-    global symbol_to_predict = "DJIA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "BRK_B"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "BYC_USD"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "BYDDF"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "CRSP"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "DJIA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "F"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "FB"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "GELYF"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "GELYF"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "GOOG"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "GSPC"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "HD"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "MSFT"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "NVDA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "QCOM"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "RUT"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "TM"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "TPLGX"; include("predict_Julia_TuriCreate.jl"); print_date_time();  
+    global symbol_to_predict = "TSLA"; include("predict_Julia_TuriCreate.jl"); print_date_time();
     global symbol_to_predict = "VIX"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
-    global symbol_to_predict = "TSLA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    global symbol_to_predict = "WMT"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+  
+    
+    
+    
+
+
+
      
     nap_time = 60*60*12 # seconds * minutes * hours
     print_date_time(); println("going to sleep for ", nap_time/(60*60), " hours" )
