@@ -23,13 +23,12 @@ print_date_time();
 #global symbol_to_predict = "" # Just declaration
 
 while true
-    #fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
-    #include("Uber_DataFrame.jl"); print_date_time(); 
+    fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
+    include("Uber_DataFrame.jl"); print_date_time(); 
 
     global symbol_to_predict = "AAPL"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "BABA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "BRK_B"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
-    #global symbol_to_predict = "BYC_USD"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "BYDDF"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "CRSP"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
     global symbol_to_predict = "DJIA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
