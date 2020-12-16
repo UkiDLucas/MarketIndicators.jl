@@ -8,11 +8,11 @@ row_count = size(df)[1]
 data = Dict{String, IndicatorData}()
 
 for row in 1:row_count
-    indicator_full_name  = df[row, :Indicator_Full_Name]
+    indicator_full_name  = df[row, :Full_Name]
     url                  = df[row, :URL]
     symbol               = df[row, :Symbol]
-    original_date_format = df[row, :Original_Date_Format]
-    column_to_keep       = df[row, :Column_To_Keep]
+    original_date_format = df[row, :Date_Format]
+    column_to_keep       = df[row, :Column]
 
     println( "adding ", symbol  ) 
     ## Do NOT use "^" in names as in "^VIX"
@@ -30,9 +30,12 @@ trim_DataFrames!(data) # include("../Julia/function_trim_DataFrames.jl")
 
 for key in keys(data) 
     #df = data[key].df
-    columns = names(data[key].df)
+    columns = names(data[key].df) # Symbols, not Strings
     for i in 1:length(columns)
-        println(",", data[key].name, "_",columns[i], " = data[\"", data[key].name, "\"].df[:,:", columns[i], "] ") 
+        if occursin("Avg", string(columns[i]) ) # include only averages
+            println(",", data[key].name, "_",columns[i], 
+                " = data[\"", data[key].name, "\"].df[:,:", columns[i], "] ") 
+        end # if
     end
 end
 
@@ -44,6 +47,16 @@ uber = DataFrame(
  Rata_Die = data["VIX"].df[:,:Rata_Die] 
 ,Date = data["VIX"].df[:,:Date] 
  
+,MSFT_Original = data["MSFT"].df[:,:Original] 
+,MSFT_Quantized = data["MSFT"].df[:,:Quantized] 
+,MSFT_Avg005 = data["MSFT"].df[:,:Avg005] 
+,MSFT_Avg010 = data["MSFT"].df[:,:Avg010] 
+,MSFT_Avg030 = data["MSFT"].df[:,:Avg030] 
+,MSFT_Avg060 = data["MSFT"].df[:,:Avg060] 
+,MSFT_Avg090 = data["MSFT"].df[:,:Avg090] 
+,MSFT_Avg120 = data["MSFT"].df[:,:Avg120] 
+,MSFT_Avg180 = data["MSFT"].df[:,:Avg180] 
+ 
 ,GSPC_Original = data["GSPC"].df[:,:Original] 
 ,GSPC_Quantized = data["GSPC"].df[:,:Quantized] 
 ,GSPC_Avg005 = data["GSPC"].df[:,:Avg005] 
@@ -54,6 +67,7 @@ uber = DataFrame(
 ,GSPC_Avg120 = data["GSPC"].df[:,:Avg120] 
 ,GSPC_Avg180 = data["GSPC"].df[:,:Avg180] 
   
+ 
 ,BTC_USD_Original = data["BTC_USD"].df[:,:Original] 
 ,BTC_USD_Quantized = data["BTC_USD"].df[:,:Quantized] 
 ,BTC_USD_Avg005 = data["BTC_USD"].df[:,:Avg005] 
@@ -114,6 +128,16 @@ uber = DataFrame(
 ,TNX_Avg120 = data["TNX"].df[:,:Avg120] 
 ,TNX_Avg180 = data["TNX"].df[:,:Avg180] 
  
+,TM_Original = data["TM"].df[:,:Original] 
+,TM_Quantized = data["TM"].df[:,:Quantized] 
+,TM_Avg005 = data["TM"].df[:,:Avg005] 
+,TM_Avg010 = data["TM"].df[:,:Avg010] 
+,TM_Avg030 = data["TM"].df[:,:Avg030] 
+,TM_Avg060 = data["TM"].df[:,:Avg060] 
+,TM_Avg090 = data["TM"].df[:,:Avg090] 
+,TM_Avg120 = data["TM"].df[:,:Avg120] 
+,TM_Avg180 = data["TM"].df[:,:Avg180] 
+ 
 ,TSLA_Original = data["TSLA"].df[:,:Original] 
 ,TSLA_Quantized = data["TSLA"].df[:,:Quantized] 
 ,TSLA_Avg005 = data["TSLA"].df[:,:Avg005] 
@@ -124,16 +148,6 @@ uber = DataFrame(
 ,TSLA_Avg120 = data["TSLA"].df[:,:Avg120] 
 ,TSLA_Avg180 = data["TSLA"].df[:,:Avg180] 
  
-,US_BUILD_PERM_Original = data["US_BUILD_PERM"].df[:,:Original] 
-,US_BUILD_PERM_Quantized = data["US_BUILD_PERM"].df[:,:Quantized] 
-,US_BUILD_PERM_Avg005 = data["US_BUILD_PERM"].df[:,:Avg005] 
-,US_BUILD_PERM_Avg010 = data["US_BUILD_PERM"].df[:,:Avg010] 
-,US_BUILD_PERM_Avg030 = data["US_BUILD_PERM"].df[:,:Avg030] 
-,US_BUILD_PERM_Avg060 = data["US_BUILD_PERM"].df[:,:Avg060] 
-,US_BUILD_PERM_Avg090 = data["US_BUILD_PERM"].df[:,:Avg090] 
-,US_BUILD_PERM_Avg120 = data["US_BUILD_PERM"].df[:,:Avg120] 
-,US_BUILD_PERM_Avg180 = data["US_BUILD_PERM"].df[:,:Avg180] 
- 
 ,BYDDF_Original = data["BYDDF"].df[:,:Original] 
 ,BYDDF_Quantized = data["BYDDF"].df[:,:Quantized] 
 ,BYDDF_Avg005 = data["BYDDF"].df[:,:Avg005] 
@@ -143,6 +157,16 @@ uber = DataFrame(
 ,BYDDF_Avg090 = data["BYDDF"].df[:,:Avg090] 
 ,BYDDF_Avg120 = data["BYDDF"].df[:,:Avg120] 
 ,BYDDF_Avg180 = data["BYDDF"].df[:,:Avg180] 
+ 
+,US_BUILD_PERM_Original = data["US_BUILD_PERM"].df[:,:Original] 
+,US_BUILD_PERM_Quantized = data["US_BUILD_PERM"].df[:,:Quantized] 
+,US_BUILD_PERM_Avg005 = data["US_BUILD_PERM"].df[:,:Avg005] 
+,US_BUILD_PERM_Avg010 = data["US_BUILD_PERM"].df[:,:Avg010] 
+,US_BUILD_PERM_Avg030 = data["US_BUILD_PERM"].df[:,:Avg030] 
+,US_BUILD_PERM_Avg060 = data["US_BUILD_PERM"].df[:,:Avg060] 
+,US_BUILD_PERM_Avg090 = data["US_BUILD_PERM"].df[:,:Avg090] 
+,US_BUILD_PERM_Avg120 = data["US_BUILD_PERM"].df[:,:Avg120] 
+,US_BUILD_PERM_Avg180 = data["US_BUILD_PERM"].df[:,:Avg180] 
  
 ,US_INDS_PROD_M_Original = data["US_INDS_PROD_M"].df[:,:Original] 
 ,US_INDS_PROD_M_Quantized = data["US_INDS_PROD_M"].df[:,:Quantized] 
@@ -183,7 +207,7 @@ uber = DataFrame(
 ,US_UNEMPLOY_RATE_Avg090 = data["US_UNEMPLOY_RATE"].df[:,:Avg090] 
 ,US_UNEMPLOY_RATE_Avg120 = data["US_UNEMPLOY_RATE"].df[:,:Avg120] 
 ,US_UNEMPLOY_RATE_Avg180 = data["US_UNEMPLOY_RATE"].df[:,:Avg180] 
- 
+  
 ,NVDA_Original = data["NVDA"].df[:,:Original] 
 ,NVDA_Quantized = data["NVDA"].df[:,:Quantized] 
 ,NVDA_Avg005 = data["NVDA"].df[:,:Avg005] 
@@ -204,15 +228,15 @@ uber = DataFrame(
 ,NRMGX_Avg120 = data["NRMGX"].df[:,:Avg120] 
 ,NRMGX_Avg180 = data["NRMGX"].df[:,:Avg180] 
  
-,US_HOUS_STRS_M_Original = data["US_HOUS_STRS_M"].df[:,:Original] 
-,US_HOUS_STRS_M_Quantized = data["US_HOUS_STRS_M"].df[:,:Quantized] 
-,US_HOUS_STRS_M_Avg005 = data["US_HOUS_STRS_M"].df[:,:Avg005] 
-,US_HOUS_STRS_M_Avg010 = data["US_HOUS_STRS_M"].df[:,:Avg010] 
-,US_HOUS_STRS_M_Avg030 = data["US_HOUS_STRS_M"].df[:,:Avg030] 
-,US_HOUS_STRS_M_Avg060 = data["US_HOUS_STRS_M"].df[:,:Avg060] 
-,US_HOUS_STRS_M_Avg090 = data["US_HOUS_STRS_M"].df[:,:Avg090] 
-,US_HOUS_STRS_M_Avg120 = data["US_HOUS_STRS_M"].df[:,:Avg120] 
-,US_HOUS_STRS_M_Avg180 = data["US_HOUS_STRS_M"].df[:,:Avg180] 
+,QCOM_Original = data["QCOM"].df[:,:Original] 
+,QCOM_Quantized = data["QCOM"].df[:,:Quantized] 
+,QCOM_Avg005 = data["QCOM"].df[:,:Avg005] 
+,QCOM_Avg010 = data["QCOM"].df[:,:Avg010] 
+,QCOM_Avg030 = data["QCOM"].df[:,:Avg030] 
+,QCOM_Avg060 = data["QCOM"].df[:,:Avg060] 
+,QCOM_Avg090 = data["QCOM"].df[:,:Avg090] 
+,QCOM_Avg120 = data["QCOM"].df[:,:Avg120] 
+,QCOM_Avg180 = data["QCOM"].df[:,:Avg180] 
  
 ,HD_Original = data["HD"].df[:,:Original] 
 ,HD_Quantized = data["HD"].df[:,:Quantized] 
@@ -223,7 +247,7 @@ uber = DataFrame(
 ,HD_Avg090 = data["HD"].df[:,:Avg090] 
 ,HD_Avg120 = data["HD"].df[:,:Avg120] 
 ,HD_Avg180 = data["HD"].df[:,:Avg180] 
-  
+ 
 ,US_GDP_Q_Original = data["US_GDP_Q"].df[:,:Original] 
 ,US_GDP_Q_Quantized = data["US_GDP_Q"].df[:,:Quantized] 
 ,US_GDP_Q_Avg005 = data["US_GDP_Q"].df[:,:Avg005] 
@@ -233,6 +257,26 @@ uber = DataFrame(
 ,US_GDP_Q_Avg090 = data["US_GDP_Q"].df[:,:Avg090] 
 ,US_GDP_Q_Avg120 = data["US_GDP_Q"].df[:,:Avg120] 
 ,US_GDP_Q_Avg180 = data["US_GDP_Q"].df[:,:Avg180] 
+ 
+,US_HOUS_STRS_M_Original = data["US_HOUS_STRS_M"].df[:,:Original] 
+,US_HOUS_STRS_M_Quantized = data["US_HOUS_STRS_M"].df[:,:Quantized] 
+,US_HOUS_STRS_M_Avg005 = data["US_HOUS_STRS_M"].df[:,:Avg005] 
+,US_HOUS_STRS_M_Avg010 = data["US_HOUS_STRS_M"].df[:,:Avg010] 
+,US_HOUS_STRS_M_Avg030 = data["US_HOUS_STRS_M"].df[:,:Avg030] 
+,US_HOUS_STRS_M_Avg060 = data["US_HOUS_STRS_M"].df[:,:Avg060] 
+,US_HOUS_STRS_M_Avg090 = data["US_HOUS_STRS_M"].df[:,:Avg090] 
+,US_HOUS_STRS_M_Avg120 = data["US_HOUS_STRS_M"].df[:,:Avg120] 
+,US_HOUS_STRS_M_Avg180 = data["US_HOUS_STRS_M"].df[:,:Avg180] 
+ 
+,RUT_Original = data["RUT"].df[:,:Original] 
+,RUT_Quantized = data["RUT"].df[:,:Quantized] 
+,RUT_Avg005 = data["RUT"].df[:,:Avg005] 
+,RUT_Avg010 = data["RUT"].df[:,:Avg010] 
+,RUT_Avg030 = data["RUT"].df[:,:Avg030] 
+,RUT_Avg060 = data["RUT"].df[:,:Avg060] 
+,RUT_Avg090 = data["RUT"].df[:,:Avg090] 
+,RUT_Avg120 = data["RUT"].df[:,:Avg120] 
+,RUT_Avg180 = data["RUT"].df[:,:Avg180] 
  
 ,VIX_Original = data["VIX"].df[:,:Original] 
 ,VIX_Quantized = data["VIX"].df[:,:Quantized] 
@@ -264,6 +308,36 @@ uber = DataFrame(
 ,US_ISM_MFC_PMI_Avg120 = data["US_ISM_MFC_PMI"].df[:,:Avg120] 
 ,US_ISM_MFC_PMI_Avg180 = data["US_ISM_MFC_PMI"].df[:,:Avg180] 
  
+,BRK_B_Original = data["BRK_B"].df[:,:Original] 
+,BRK_B_Quantized = data["BRK_B"].df[:,:Quantized] 
+,BRK_B_Avg005 = data["BRK_B"].df[:,:Avg005] 
+,BRK_B_Avg010 = data["BRK_B"].df[:,:Avg010] 
+,BRK_B_Avg030 = data["BRK_B"].df[:,:Avg030] 
+,BRK_B_Avg060 = data["BRK_B"].df[:,:Avg060] 
+,BRK_B_Avg090 = data["BRK_B"].df[:,:Avg090] 
+,BRK_B_Avg120 = data["BRK_B"].df[:,:Avg120] 
+,BRK_B_Avg180 = data["BRK_B"].df[:,:Avg180] 
+ 
+,CRUDE_OIL_Original = data["CRUDE_OIL"].df[:,:Original] 
+,CRUDE_OIL_Quantized = data["CRUDE_OIL"].df[:,:Quantized] 
+,CRUDE_OIL_Avg005 = data["CRUDE_OIL"].df[:,:Avg005] 
+,CRUDE_OIL_Avg010 = data["CRUDE_OIL"].df[:,:Avg010] 
+,CRUDE_OIL_Avg030 = data["CRUDE_OIL"].df[:,:Avg030] 
+,CRUDE_OIL_Avg060 = data["CRUDE_OIL"].df[:,:Avg060] 
+,CRUDE_OIL_Avg090 = data["CRUDE_OIL"].df[:,:Avg090] 
+,CRUDE_OIL_Avg120 = data["CRUDE_OIL"].df[:,:Avg120] 
+,CRUDE_OIL_Avg180 = data["CRUDE_OIL"].df[:,:Avg180] 
+ 
+,GOOG_Original = data["GOOG"].df[:,:Original] 
+,GOOG_Quantized = data["GOOG"].df[:,:Quantized] 
+,GOOG_Avg005 = data["GOOG"].df[:,:Avg005] 
+,GOOG_Avg010 = data["GOOG"].df[:,:Avg010] 
+,GOOG_Avg030 = data["GOOG"].df[:,:Avg030] 
+,GOOG_Avg060 = data["GOOG"].df[:,:Avg060] 
+,GOOG_Avg090 = data["GOOG"].df[:,:Avg090] 
+,GOOG_Avg120 = data["GOOG"].df[:,:Avg120] 
+,GOOG_Avg180 = data["GOOG"].df[:,:Avg180] 
+ 
 ,VINIX_Original = data["VINIX"].df[:,:Original] 
 ,VINIX_Quantized = data["VINIX"].df[:,:Quantized] 
 ,VINIX_Avg005 = data["VINIX"].df[:,:Avg005] 
@@ -294,6 +368,16 @@ uber = DataFrame(
 ,RERGX_Avg120 = data["RERGX"].df[:,:Avg120] 
 ,RERGX_Avg180 = data["RERGX"].df[:,:Avg180] 
  
+,IXIC_Original = data["IXIC"].df[:,:Original] 
+,IXIC_Quantized = data["IXIC"].df[:,:Quantized] 
+,IXIC_Avg005 = data["IXIC"].df[:,:Avg005] 
+,IXIC_Avg010 = data["IXIC"].df[:,:Avg010] 
+,IXIC_Avg030 = data["IXIC"].df[:,:Avg030] 
+,IXIC_Avg060 = data["IXIC"].df[:,:Avg060] 
+,IXIC_Avg090 = data["IXIC"].df[:,:Avg090] 
+,IXIC_Avg120 = data["IXIC"].df[:,:Avg120] 
+,IXIC_Avg180 = data["IXIC"].df[:,:Avg180] 
+  
 ,CRSP_Original = data["CRSP"].df[:,:Original] 
 ,CRSP_Quantized = data["CRSP"].df[:,:Quantized] 
 ,CRSP_Avg005 = data["CRSP"].df[:,:Avg005] 
@@ -304,6 +388,26 @@ uber = DataFrame(
 ,CRSP_Avg120 = data["CRSP"].df[:,:Avg120] 
 ,CRSP_Avg180 = data["CRSP"].df[:,:Avg180] 
  
+,US_RETAIL_SALES_M_Original = data["US_RETAIL_SALES_M"].df[:,:Original] 
+,US_RETAIL_SALES_M_Quantized = data["US_RETAIL_SALES_M"].df[:,:Quantized] 
+,US_RETAIL_SALES_M_Avg005 = data["US_RETAIL_SALES_M"].df[:,:Avg005] 
+,US_RETAIL_SALES_M_Avg010 = data["US_RETAIL_SALES_M"].df[:,:Avg010] 
+,US_RETAIL_SALES_M_Avg030 = data["US_RETAIL_SALES_M"].df[:,:Avg030] 
+,US_RETAIL_SALES_M_Avg060 = data["US_RETAIL_SALES_M"].df[:,:Avg060] 
+,US_RETAIL_SALES_M_Avg090 = data["US_RETAIL_SALES_M"].df[:,:Avg090] 
+,US_RETAIL_SALES_M_Avg120 = data["US_RETAIL_SALES_M"].df[:,:Avg120] 
+,US_RETAIL_SALES_M_Avg180 = data["US_RETAIL_SALES_M"].df[:,:Avg180] 
+  
+,FB_Original = data["FB"].df[:,:Original] 
+,FB_Quantized = data["FB"].df[:,:Quantized] 
+,FB_Avg005 = data["FB"].df[:,:Avg005] 
+,FB_Avg010 = data["FB"].df[:,:Avg010] 
+,FB_Avg030 = data["FB"].df[:,:Avg030] 
+,FB_Avg060 = data["FB"].df[:,:Avg060] 
+,FB_Avg090 = data["FB"].df[:,:Avg090] 
+,FB_Avg120 = data["FB"].df[:,:Avg120] 
+,FB_Avg180 = data["FB"].df[:,:Avg180] 
+ 
 ,BABA_Original = data["BABA"].df[:,:Original] 
 ,BABA_Quantized = data["BABA"].df[:,:Quantized] 
 ,BABA_Avg005 = data["BABA"].df[:,:Avg005] 
@@ -313,6 +417,16 @@ uber = DataFrame(
 ,BABA_Avg090 = data["BABA"].df[:,:Avg090] 
 ,BABA_Avg120 = data["BABA"].df[:,:Avg120] 
 ,BABA_Avg180 = data["BABA"].df[:,:Avg180] 
+  
+,WMT_Original = data["WMT"].df[:,:Original] 
+,WMT_Quantized = data["WMT"].df[:,:Quantized] 
+,WMT_Avg005 = data["WMT"].df[:,:Avg005] 
+,WMT_Avg010 = data["WMT"].df[:,:Avg010] 
+,WMT_Avg030 = data["WMT"].df[:,:Avg030] 
+,WMT_Avg060 = data["WMT"].df[:,:Avg060] 
+,WMT_Avg090 = data["WMT"].df[:,:Avg090] 
+,WMT_Avg120 = data["WMT"].df[:,:Avg120] 
+,WMT_Avg180 = data["WMT"].df[:,:Avg180] 
  
 ,DJIA_Original = data["DJIA"].df[:,:Original] 
 ,DJIA_Quantized = data["DJIA"].df[:,:Quantized] 
@@ -333,6 +447,26 @@ uber = DataFrame(
 ,AAPL_Avg090 = data["AAPL"].df[:,:Avg090] 
 ,AAPL_Avg120 = data["AAPL"].df[:,:Avg120] 
 ,AAPL_Avg180 = data["AAPL"].df[:,:Avg180] 
+ 
+,F_Original = data["F"].df[:,:Original] 
+,F_Quantized = data["F"].df[:,:Quantized] 
+,F_Avg005 = data["F"].df[:,:Avg005] 
+,F_Avg010 = data["F"].df[:,:Avg010] 
+,F_Avg030 = data["F"].df[:,:Avg030] 
+,F_Avg060 = data["F"].df[:,:Avg060] 
+,F_Avg090 = data["F"].df[:,:Avg090] 
+,F_Avg120 = data["F"].df[:,:Avg120] 
+,F_Avg180 = data["F"].df[:,:Avg180] 
+ 
+,US_BUZ_INV_M_Original = data["US_BUZ_INV_M"].df[:,:Original] 
+,US_BUZ_INV_M_Quantized = data["US_BUZ_INV_M"].df[:,:Quantized] 
+,US_BUZ_INV_M_Avg005 = data["US_BUZ_INV_M"].df[:,:Avg005] 
+,US_BUZ_INV_M_Avg010 = data["US_BUZ_INV_M"].df[:,:Avg010] 
+,US_BUZ_INV_M_Avg030 = data["US_BUZ_INV_M"].df[:,:Avg030] 
+,US_BUZ_INV_M_Avg060 = data["US_BUZ_INV_M"].df[:,:Avg060] 
+,US_BUZ_INV_M_Avg090 = data["US_BUZ_INV_M"].df[:,:Avg090] 
+,US_BUZ_INV_M_Avg120 = data["US_BUZ_INV_M"].df[:,:Avg120] 
+,US_BUZ_INV_M_Avg180 = data["US_BUZ_INV_M"].df[:,:Avg180] 
 
 )
  
