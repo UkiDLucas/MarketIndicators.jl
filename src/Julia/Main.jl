@@ -30,11 +30,15 @@ while true
     #symbol_to_predict = "AAPL" 
     #include("predict_BABA.jl"); print_date_time();
 
-    global symbol_to_predict = "BABA" 
-    include("predict_BABA.jl"); print_date_time(); 
-
-    symbol_to_predict = "BRK-B" 
-    include("predict_BABA.jl"); print_date_time(); 
+    global symbol_to_predict = ""
+    symbol_to_predict = "AAPL"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    symbol_to_predict = "BABA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    symbol_to_predict = "NVDA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    symbol_to_predict = "DJIA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    symbol_to_predict = "CRSP"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    symbol_to_predict = "GELYF"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    symbol_to_predict = "VIX"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
+    symbol_to_predict = "TSLA"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
 
     #include("predict_BRK-B.jl"); print_date_time(); 
     #include("predict_BYC_USD.jl"); print_date_time(); 
