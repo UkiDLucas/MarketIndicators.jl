@@ -66,7 +66,6 @@ uber = DataFrame(
 ,GSPC_Avg090 = data["GSPC"].df[:,:Avg090] 
 ,GSPC_Avg120 = data["GSPC"].df[:,:Avg120] 
 ,GSPC_Avg180 = data["GSPC"].df[:,:Avg180] 
-  
  
 ,BTC_USD_Original = data["BTC_USD"].df[:,:Original] 
 ,BTC_USD_Quantized = data["BTC_USD"].df[:,:Quantized] 
