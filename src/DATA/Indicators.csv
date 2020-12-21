@@ -41,3 +41,7 @@ Vanguard Total Bond Market Index Fund Admiral Shares (VBTLX),VBTLX,VBTLX.csv,yyy
 Vanguard Institutional Index Fund Institutional Shares (VINIX),VINIX,VINIX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/VINIX?period1=649382400&period2=1602028800&interval=1d&events=history
 CBOE Volatility Index (^VIX),VIX,^VIX.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/%5EVIX?period1=631238400&period2=1602028800&interval=1d&events=history
 Walmart Inc. (WMT),WMT,WMT.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/WMT?period1=83548800&period2=1607990400&interval=1d&events=history&includeAdjustedClose=true
+ARK Innovation ETF (ARKK),ARKK,ARKK.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/ARKK?period1=1414713600&period2=1608249600&interval=1d&events=history&includeAdjustedClose=true
+ARK Next Generation Internet ETF (ARKW),ARKW,ARKW.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/ARKW?period1=1412035200&period2=1608249600&interval=1d&events=history&includeAdjustedClose=true
+ARK Genomic Revolution ETF (ARKG),ARKG,ARKG.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/ARKG?period1=1577404800&period2=1608249600&interval=1d&events=history&includeAdjustedClose=true
+ARK Autonomous Technology & Robotics ETF (ARKQ),ARKQ,ARKQ.csv,yyyy-mm-dd,3,https://query1.finance.yahoo.com/v7/finance/download/ARKQ?period1=1577750400&period2=1608249600&interval=1d&events=history&includeAdjustedClose=true
