@@ -9,7 +9,7 @@ function quantize_column!(df::DataFrame, column_number::Int64)
     records_count = length(original)
     
     for i in 1:records_count
-        value = (original[i] -min)/(max-min)   # normalization formula to range 0.0 to 1.0
+        value = (original[i] - min)/( max-min )   # normalization formula to range 0.0 to 1.0
         #value = value + bias
         value = value * 255                    # 0.0 to 255
         value = value - 128                    # -128 to 127
