@@ -1,3 +1,9 @@
+# https://github.com/UkiDLucas/MarketIndicators.jl/blob/master/src/notebooks/normalize%20the%20data.ipynb
+# https://www.tensorflow.org/lite/performance/quantization_spec?hl=fi
+# https://en.wikipedia.org/wiki/Standard_score
+# https://www.wikihow.com/Calculate-Standard-Deviation
+# http://www.differencebetween.net/science/difference-between-average-and-mean/
+
 # Fit dataset in range [-128, 127]
 function quantize_column!(df::DataFrame, column_number::Int64)
     original = df[:, column_number] # Array{Float64,1}
@@ -5,6 +11,10 @@ function quantize_column!(df::DataFrame, column_number::Int64)
     min = minimum(original)
     max = maximum(original)
     
+    println("original max-min = ", max-min )
+    println("original standard_deviation = ", std(original) )
+    println("original population_mean = ", mean(original) )
+
     #bias = (0 - min)/(max-min)
     records_count = length(original)
     
@@ -18,11 +28,5 @@ function quantize_column!(df::DataFrame, column_number::Int64)
     end
     # println("Normalization was performend using formula y=(((x-min)/(max-min))*255)-128 ") 
 end
-# https://www.tensorflow.org/lite/performance/quantization_spec?hl=fi
-# https://en.wikipedia.org/wiki/Standard_score
-# https://www.wikihow.com/Calculate-Standard-Deviation
-# http://www.differencebetween.net/science/difference-between-average-and-mean/
-# population_mean = mean(original)
-# standard_deviation = std(original)
 
 
