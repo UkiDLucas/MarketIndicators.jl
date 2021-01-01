@@ -1,6 +1,6 @@
 using DataFrames, CSV
 
-function fetch_dataset( 
+function fetch_local_CSV_as_DataFrame( 
         file_name="TPLGX.csv", 
         date_format="yyyy.mm.dd", 
         dir="../DATA/original/"
@@ -15,7 +15,7 @@ function fetch_dataset(
     # df = sort(df, [ :Date ]);
     # df = sort(df, [ :"Date       "] ); # spaces in the string
 
-    println("Fetched ", file_path, ", record count ", size(df)[1])
+    #println("Fetched ", file_path, ", record count ", size(df)[1])
     
     return df # DataFrame
 end
