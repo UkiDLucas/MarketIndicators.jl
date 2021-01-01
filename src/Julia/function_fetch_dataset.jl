@@ -3,7 +3,7 @@ using DataFrames, CSV
 function fetch_dataset( 
         file_name="TPLGX.csv", 
         date_format="yyyy.mm.dd", 
-        dir="DATA\\original\\"
+        dir="../DATA/original/"
     )
 
     file_path = dir * file_name
