@@ -3,8 +3,8 @@
 original_data_directory = "../DATA/original/" # MacOS
 
 #include("MarketIndicators.jl")
+include("fetch_csv_from_web.jl")
 include("function_update_yahoo_finance.jl")
-include("function_fetch_web_data.jl")
 include("preprocess_csv.jl")
 include("functions.jl") 
 include("function_toFloat64.jl")
