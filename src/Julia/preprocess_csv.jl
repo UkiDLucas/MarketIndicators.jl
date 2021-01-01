@@ -7,7 +7,7 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
 
     dataset_file_name = symbol * ".csv"
 
-    predict_days = 5 # number of days to predict
+    predict_days = 7 # number of days to predict
     path_data_original  = "../Data/original/"
     path_data_processed = "../Data/processed/"
 
