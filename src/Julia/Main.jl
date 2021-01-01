@@ -23,7 +23,7 @@ print_date_time();
 #global symbol_to_predict = "" # Just declaration
 
 while true
-    fetch_web_data( "../DATA/Indicators.csv", original_data_directory ); 
+    fetch_csv_from_web( "../DATA/Indicators.csv", original_data_directory ); 
     include("Uber_DataFrame.jl"); print_date_time(); 
 
     global symbol_to_predict = "AAPL"; include("predict_Julia_TuriCreate.jl"); print_date_time(); 
