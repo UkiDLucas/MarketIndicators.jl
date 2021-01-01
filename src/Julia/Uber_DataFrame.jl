@@ -21,7 +21,7 @@ for row in 1:row_count
 end # for loop
 df = nothing # free the memory for gc()
 
-describe(data["AAPL"].df)
+#describe(data["AAPL"].df)
 
 trim_DataFrames!(data) # include("../Julia/function_trim_DataFrames.jl")
 
@@ -482,10 +482,10 @@ dates = format_dates( uber[rows,2] , "m/d/yy")
 gr()
 plot( dates, # x-axis: dates
      [ 
-        uber[rows,8] uber[rows,15] uber[rows,20] uber[rows,28] uber[rows,39] uber[rows,45] uber[rows,53] uber[rows,57] uber[rows,65]  uber[rows,78]         
+        uber[rows,8] uber[rows,18] uber[rows,27] uber[rows,35] uber[rows,45] uber[rows,53] uber[rows,65]  uber[rows,79]         
     ], # y-axis
     label = [      
-        columns[8]     columns[15]   columns[20]   columns[28] columns[39]   columns[45]   columns[53] columns[57] columns[65] columns[78] "" 
+        columns[8]     columns[18]   columns[27] columns[35] columns[53]    columns[65]    columns[79] "" 
     ],
     legend   =:topleft, 
               # :right, :left, :top, :bottom, :inside, :best, :legend, :topright, :topleft, :bottomleft, :bottomright
@@ -495,7 +495,7 @@ plot( dates, # x-axis: dates
     layout = (1, 1) # number of graphs: vertically, horizontally
     )
 
-savefig("../../indicators.png")
+savefig("../images/indicators.png")
 
 record_count = size(uber)[1]
 today_rata = Dates.datetime2rata( today() )
