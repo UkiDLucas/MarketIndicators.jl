@@ -1,6 +1,6 @@
 using CSV, DataFrames, Dates
 
-function fetch_web_data(file_path::String, original_data_directory)
+function fetch_csv_from_web(file_path::String, original_data_directory)
 
     df = CSV.read( file_path, DataFrame)
     row_count = size(df)[1]
