@@ -1,8 +1,8 @@
 using DataFrames, CSV
 
-function fetch_local_CSV_as_DataFrame( 
+function fetch_local_CSV_as_DataFrame(
         file_name="TPLGX.csv", 
-        date_format="yyyy.mm.dd", 
+        date_format="yyyy-mm-dd", # my preferred default
         dir="../DATA/original/"
     )
 
