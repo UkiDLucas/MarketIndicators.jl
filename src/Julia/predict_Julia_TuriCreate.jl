@@ -7,7 +7,7 @@
 # Pkg.build("PyCall")
 
 
-symbol_to_predict = "AAPL" ## Comment OUT when running as include Julia file
+#symbol_to_predict = "AAPL" ## Comment OUT when running as include Julia file
 
 println("symbol_to_predict ", symbol_to_predict )
 
@@ -125,7 +125,7 @@ for id in initio:finem
         today_id = id
     end 
     
-    if date <= today() + Dates.Day(5) # graph only 1 extra day
+    if date <= today() + Dates.Day(7) # graph few days of predictions
     
         #date = Dates.format(date, "u.d,yy" )
         #println("date ", date, " ", typeof(date))
