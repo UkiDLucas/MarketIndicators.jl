@@ -1,5 +1,5 @@
 
-function find_day(df::DataFrame, day::Int64)
+function find_Rata_Die(df::DataFrame, day::Int64)
     #found_items = df[df.Day .== uber_min_day, 1] # Array{Float64,1}
     
     ## identify particular day in DataFrame

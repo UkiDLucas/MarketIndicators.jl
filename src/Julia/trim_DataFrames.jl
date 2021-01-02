@@ -1,5 +1,6 @@
+#include("../Julia/IndicatorData.jl") # addIndicator!()
 
-function trim_DataFrames!(data::Dict{String,IndicatorData})
+function trim_DataFrames!(data::Dict{String, IndicatorData.Indicator})
     oldest = get_oldest_common_day(data)
     println("oldest = ", oldest, " ", typeof(oldest))
 
@@ -9,19 +10,20 @@ function trim_DataFrames!(data::Dict{String,IndicatorData})
     
     ## Iterate thru each Indicator
     for key in keys(data) 
-        println(" - BEFORE ", data[key].name, " size ", size( data[key].df) ) 
-           
-        oldest_row = find_day(data[key].df, oldest)
-        newest_row = find_day(data[key].df, newest)
+        local df = data[key].df
+        #println(" - BEFORE ", data[key].name, " size ", size( df) ) 
         
-        data[key].df = data[key].df[oldest_row:newest_row, :] # trimming rows, columns stays same
-        println(" - AFTER  ", data[key].name, " size ", size( data[key].df) ) 
+        oldest_row = find_Rata_Die(df, oldest)
+        newest_row = find_Rata_Die(df, newest)
+        
+        df = df[oldest_row:newest_row, :] # trimming rows, columns stays same
+        #println(" - AFTER  ", data[key].name, " size ", size( df ) ) 
     end
 end
 
 
 
-function get_newest_common_day(data::Dict{String,IndicatorData})
+function get_newest_common_day(data::Dict{String, IndicatorData.Indicator})
     v = Int64[]
 
     for key in keys(data) 
@@ -32,7 +34,7 @@ function get_newest_common_day(data::Dict{String,IndicatorData})
 end
 
 
-function get_oldest_common_day(data::Dict{String,IndicatorData})
+function get_oldest_common_day(data::Dict{String, IndicatorData.Indicator})
     v = Int64[]
 
     for key in keys(data) 
