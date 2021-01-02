@@ -18,8 +18,8 @@ function trim_DataFrames!(data::Dict{String, IndicatorData.Indicator})
         oldest_row = find_Rata_Die(df, oldest)
         newest_row = find_Rata_Die(df, newest)
         
-        df = df[oldest_row:newest_row, :] # trimming rows, columns stays same
-        #println(" - AFTER  ", data[key].name, " size ", size( df ) ) 
+        data[key].df = df[oldest_row:newest_row, :] # trimming rows, columns stays same
+        #println(" - AFTER  ", data[key].name, " size ", size( data[key].df ) ) 
     end
 end
 
