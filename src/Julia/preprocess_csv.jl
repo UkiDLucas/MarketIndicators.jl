@@ -17,7 +17,7 @@ function preprocess_csv(symbol::String, date_original_format= "yyyy-mm-dd", colu
     #data = available_datasets() # uncomment to see all available datasets
 
     # Read DataFrame from the CSV file.
-    df = fetch_dataset(dataset_file_name, date_original_format , path_data_original )
+    df = fetch_local_CSV_as_DataFrame(dataset_file_name, date_original_format , path_data_original )
 
     if verbose
         preview_data(df)
