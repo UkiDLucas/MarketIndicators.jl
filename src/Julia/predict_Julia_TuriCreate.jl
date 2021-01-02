@@ -6,7 +6,8 @@
 # /opt/anaconda3/envs/turi/lib/python3.6/site-packages/
 # Pkg.build("PyCall")
 
-#symbol_to_predict = "BABA"
+
+symbol_to_predict = "AAPL" ## Comment OUT when running as include Julia file
 
 println("symbol_to_predict ", symbol_to_predict )
 
@@ -14,10 +15,17 @@ println("symbol_to_predict ", symbol_to_predict )
 features_to_analyze = readlines("../DATA/features_to_analyze.txt") # returns Array{String,1}
 
 include("../Julia/functions.jl") 
-include("../Julia/function_format_dates.jl")
+include("../Julia/format_dates.jl")
 
 data_path="../DATA/processed/uber_training.csv"
-column_to_predict = symbol_to_predict * "_Original"
+#column_to_predict = symbol_to_predict * "_Original"
+column_to_predict = symbol_to_predict * "_Avg005"
+
+## Remove column to predict from features
+typeof(features_to_analyze)
+
+filter!(e->e≠ column_to_predict , features_to_analyze)
+println(features_to_analyze)
 
 ## Fetch Data (SFrame) from Uber CSV
 
@@ -27,7 +35,7 @@ data = tc.SFrame(data_path)
 println()
 
 # Make a train-test split
-train_data, test_data = data.random_split(0.8)
+train_data, test_data = data.random_split(0.9)
 
 println( "train_data size = ", size(train_data) )
 println( "test_data size = ", size(test_data)  )
@@ -117,7 +125,7 @@ for id in initio:finem
         today_id = id
     end 
     
-    if date <= today() + Dates.Day(1) # graph only 1 extra day
+    if date <= today() + Dates.Day(5) # graph only 1 extra day
     
         #date = Dates.format(date, "u.d,yy" )
         #println("date ", date, " ", typeof(date))
@@ -181,7 +189,7 @@ data_original = y_axis_original
 data_predicted = y_axis_predicted
 data_all_predicitons = data_to_predict
 
-include("../Julia/function_print_predictions.jl")
+include("../Julia/print_predictions.jl")
 print_predictions(data_to_predict,prediction_results, symbol_to_predict)
 
 
