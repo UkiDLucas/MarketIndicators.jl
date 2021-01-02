@@ -4,14 +4,16 @@ original_data_directory = "../DATA/original/" # MacOS
 
 #include("MarketIndicators.jl")
 include("fetch_csv_from_web.jl")
-include("function_update_yahoo_finance.jl")
+include("update_yahoo_finance.jl")
 include("preprocess_csv.jl")
 include("functions.jl") 
-include("function_toFloat64.jl")
+include("toFloat64.jl")
 include("IndicatorData.jl") 
-include("function_format_rata_die_to_us_date.jl")
-include("function_trim_DataFrames.jl")
-include("function_print_columns_features.jl")
+include("format_rata_die_to_us_date.jl")
+include("trim_DataFrames.jl")
+include("print_columns_features.jl")
+include("fetch_local_CSV_as_DataFrame.jl")
+
 
 
 function print_date_time()
